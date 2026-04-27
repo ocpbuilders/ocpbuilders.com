@@ -3,49 +3,206 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OCP Builders | Build Once. Earn Forever.</title>
+  <title>OCP Builds | Land • Build • Residual Income</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin:0; color:#222; background:#f8f7f4; }
-    header { background:#1a1a1a; color:white; padding:20px; text-align:center; }
-    nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
-    .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/id/1015/2000/800') center/cover; color:white; text-align:center; padding:160px 20px; }
-    .section { padding:60px 20px; max-width:1100px; margin:auto; text-align:center; }
-    button { background:#d97706; color:white; padding:15px 30px; border:none; font-size:18px; cursor:pointer; margin-top:20px; }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+    .hero-bg { background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://picsum.photos/id/1015/2000/1200'); background-size: cover; background-position: center; }
+    .section-bg { background-color: #F8F1E9; }
+    .charcoal { background-color: #2C2C2C; color: white; }
+    .sand { color: #C19A6B; }
+    .teal { color: #006D77; }
   </style>
 </head>
-<body>
+<body class="bg-[#F8F1E9] text-[#2C2C2C]">
 
-  <header>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#offer">What We Offer</a>
-      <a href="#make">How Much You Can Make</a>
-      <a href="#eligible">Who's Eligible</a>
-      <a href="#options">Full-Service Options</a>
-      <a href="#start">Get Started</a>
-    </nav>
-  </header>
+  <!-- NAV -->
+  <nav class="bg-[#2C2C2C] text-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="text-2xl font-bold sand">OCP BUILDS</div>
+      <div class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#" class="hover:text-[#C19A6B]">Home</a>
+        <a href="#projects" class="hover:text-[#C19A6B]">Projects</a>
+        <a href="#packages" class="hover:text-[#C19A6B]">Packages & Pricing</a>
+        <a href="#process" class="hover:text-[#C19A6B]">Process</a>
+        <a href="#financing" class="hover:text-[#C19A6B]">Financing</a>
+        <a href="#reviews" class="hover:text-[#C19A6B]">Reviews</a>
+        <a href="#blog" class="hover:text-[#C19A6B]">Blog</a>
+        <a href="#" class="hover:text-[#C19A6B]">For Owners</a>
+      </div>
+      <a href="#contact" class="bg-[#006D77] hover:bg-[#C19A6B] px-6 py-3 rounded-lg font-semibold transition">Get Started</a>
+    </div>
+  </nav>
 
-  <section id="home" class="hero">
-    <h1 style="font-size:3rem;">OCP Builders</h1>
-    <p style="font-size:1.6rem;">Quality Builds • Duplexes • Remodels<br>Turn Land Into Monthly Income</p>
-    <button onclick="document.getElementById('start').scrollIntoView()">Get Your Free Quote</button>
+  <!-- HERO -->
+  <section class="hero-bg h-screen flex items-center text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-6">
+        Build Income-Producing Property<br>Without the Headache
+      </h1>
+      <p class="text-2xl md:text-3xl text-[#C19A6B] mb-8">
+        We handle land, architecture, permits, premium construction,<br>and optional room-by-room leasing.
+      </p>
+      <p class="max-w-2xl mx-auto text-lg mb-10">
+        Proven 4400 sq ft 5x5 duplexes • 5 private bedrooms (most with en-suite & balcony) • Built better than code • Trusted by UFC champions turning fight money into residual income.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact" class="bg-[#006D77] hover:bg-white hover:text-[#2C2C2C] text-white px-10 py-5 rounded-xl text-xl font-semibold transition">Book a Free 15-Min Consultation</a>
+        <a href="#quiz" class="border-2 border-white hover:bg-white hover:text-[#2C2C2C] text-white px-10 py-5 rounded-xl text-xl font-semibold transition">Take 2-Minute Investment Quiz</a>
+      </div>
+      <div class="mt-12 flex justify-center gap-8 text-sm">
+        <div>✅ Arizona Licensed & Bonded</div>
+        <div>✅ Solid Contracts</div>
+        <div>✅ 1-Year + Structural Warranty</div>
+      </div>
+    </div>
   </section>
 
-  <section id="offer" class="section">
-    <h2>What We Offer</h2>
-    <p>Custom homes, 4400 sq ft 5x5 duplexes, remodels, and full turnkey packages.</p>
+  <!-- WHY CHOOSE US -->
+  <section class="section-bg py-24" id="why">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-16">Why Serious Investors Choose Us</h2>
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="bg-white p-10 rounded-3xl shadow-xl">
+          <h3 class="text-2xl font-bold mb-6 sand">We Own & Rent What We Build</h3>
+          <p class="text-lg">Our 4400 sq ft 5x5 duplex model is proven in our own portfolio. 5 private bedrooms (2–3 with private balconies and en-suite baths), shared common areas, cameras only in common spaces — designed for maximum cash flow.</p>
+        </div>
+        <div class="bg-white p-10 rounded-3xl shadow-xl">
+          <h3 class="text-2xl font-bold mb-6 sand">Full In-House Service</h3>
+          <p class="text-lg">Land acquisition & pad-splitting guidance • Architect & pre-approved plans • Permitting • Quality construction • Optional full management & tenant app leasing.</p>
+        </div>
+        <div class="bg-white p-10 rounded-3xl shadow-xl">
+          <h3 class="text-2xl font-bold mb-6 sand">Freedom Options</h3>
+          <p class="text-lg">Cash, loans, joint ventures, or structured deals so you keep capital for other projects. You own the asset. We handle the work.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="make" class="section">
-    <h2>How Much You Can Make</h2>
-    <p>5 rooms rented per bedroom = $4,500 – $7,000+/month per duplex.</p>
+  <!-- VIDEO + HANDSHAKE -->
+  <section class="py-20 bg-[#2C2C2C] text-white">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <video class="w-full rounded-3xl shadow-2xl" autoplay muted loop playsinline>
+          <source src="https://assets.mixkit.co/videos/preview/12345/12345-large.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div>
+        <h2 class="text-5xl font-bold leading-tight mb-8">From raw land to monthly checks — we shake hands on every project and stand behind it.</h2>
+        <p class="text-xl text-[#C19A6B]">No surprises. Just results. Iron-clad contracts that protect both sides.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="start" class="section">
-    <h2>Ready to Build?</h2>
-    <a href="mailto:your-email@gmail.com"><button>Contact Us Now</button></a>
+  <!-- FINANCING -->
+  <section class="py-24" id="financing">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-6">Multiple Ways to Make It Happen</h2>
+      <p class="text-center text-xl max-w-2xl mx-auto mb-16">You don’t need 100% cash. We connect you with trusted mortgage brokers and walk you through every realistic path.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-10 rounded-3xl text-center border border-[#C19A6B]">
+          <h3 class="text-2xl font-bold mb-4">Cash Buyers</h3>
+          <p class="text-5xl font-bold sand mb-2">Fast Close</p>
+          <p>Best pricing and timeline</p>
+        </div>
+        <div class="bg-white p-10 rounded-3xl text-center border border-[#006D77]">
+          <h3 class="text-2xl font-bold mb-4">Loan + Builder Program</h3>
+          <p class="text-5xl font-bold teal mb-2">Preferred Rates</p>
+          <p>Our lender partners</p>
+        </div>
+        <div class="bg-white p-10 rounded-3xl text-center border border-[#C19A6B]">
+          <h3 class="text-2xl font-bold mb-4">JV / Structured Deals</h3>
+          <p class="text-5xl font-bold sand mb-2">Keep Liquidity</p>
+          <p>Protect capital for other projects</p>
+        </div>
+      </div>
+      <p class="text-center text-sm text-gray-500 mt-10">All financing subject to lender approval and current market conditions.</p>
+    </div>
   </section>
+
+  <!-- PACKAGES -->
+  <section class="py-24 bg-[#F8F1E9]" id="packages">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center mb-16">Choose Your Path</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl">
+          <div class="bg-[#C19A6B] text-white text-center py-4 font-bold">REMODEL / UPGRADE</div>
+          <div class="p-10">
+            <p class="text-6xl font-bold mb-6">$XXX–$XXX <span class="text-base font-normal">per sq ft</span></p>
+            <p class="text-lg">Perfect for existing properties or light commercial upgrades.</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-2xl ring-4 ring-[#006D77] scale-105">
+          <div class="bg-[#006D77] text-white text-center py-4 font-bold">SIGNATURE 5x5 DUPLEX — MOST POPULAR</div>
+          <div class="p-10">
+            <p class="text-6xl font-bold mb-2">4400 sq ft</p>
+            <p class="mb-8">5 Private Bedrooms • 2–3 Private Balconies + En-Suite Baths</p>
+            <ul class="space-y-4 text-lg">
+              <li>✅ Shared kitchen & living</li>
+              <li>✅ Cameras in common areas only</li>
+              <li>✅ 8–10 months from permit</li>
+            </ul>
+            <p class="text-sm text-gray-500 mt-10">Base pricing shown after free consultation. Valid 30 days. Final price locked in contract.</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-xl">
+          <div class="bg-[#C19A6B] text-white text-center py-4 font-bold">LUXURY CUSTOM HOME</div>
+          <div class="p-10">
+            <p class="text-6xl font-bold mb-6">Your Vision</p>
+            <p class="text-lg">Larger lots, premium finishes, full customization.</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-sm text-gray-500 mt-12">
+        Pricing depends on location, material costs, tariffs, and government policies. We provide a detailed written quote after consultation. No project moves forward until both parties sign a clear contract.
+      </p>
+    </div>
+  </section>
+
+  <!-- SUCCESS STORIES -->
+  <section class="py-24 charcoal" id="reviews">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl font-bold text-center text-white mb-16">Real People. Real Residual Income.</h2>
+      <div class="text-center">
+        <p class="text-2xl text-[#C19A6B] italic">"I made money in the Octagon. Now I own duplexes that pay me every month while I train. These guys handled everything."</p>
+        <p class="mt-6 text-white">— UFC Champion</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARRANTY -->
+  <section class="py-24 section-bg">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-5xl font-bold mb-8">We Stand Behind Every Build</h2>
+      <p class="text-2xl">1-Year Full Workmanship Warranty + 10-Year Structural Warranty</p>
+      <p class="mt-6 text-lg">We use 5/8" drywall, reinforced framing, and finishes built for long-term rentals — because we rent these same units ourselves.</p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-32 hero-bg text-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-6xl font-bold mb-8">Ready to build smart residual income in Arizona?</h2>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="#contact" class="bg-white text-[#2C2C2C] px-12 py-6 rounded-2xl text-2xl font-bold hover:bg-[#C19A6B]">Book Free Consultation</a>
+        <a href="#quiz" class="border-4 border-white px-12 py-6 rounded-2xl text-2xl font-bold hover:bg-white hover:text-[#2C2C2C]">Take Investment Quiz</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="charcoal py-16">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-2xl font-bold sand mb-6">OCP BUILDS</p>
+      <p class="text-sm opacity-75">© 2026 OCP Builds — Arizona Licensed General Contractor • Bonded • We Build, We Own, We Rent.</p>
+      <p class="text-xs opacity-50 mt-6">All pricing and timelines are estimates based on current conditions and will be confirmed in the final contract.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
