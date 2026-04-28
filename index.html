@@ -3,294 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OCP Builds</title>
-
-  <!-- ✅ FIXED FAVICON -->
-  <link rel="icon" type="image/png" href="ocp-logo-dark.png">
+  
+  <!-- ✅ TITLE & FULL FAVICON SET (restored from your baseline) -->
+  <title>OCP Builds | From Raw Land to Monthly Rent Checks</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Better font match -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  
   <style>
+    /* ====================== GLOBAL COLORS & STYLES ====================== */
+    :root {
+      --nav-bg: rgba(10, 10, 10, 0.92);
+      --accent: #C19A6B;           /* Gold accent for headings */
+      --btn-primary: #374151;
+      --btn-primary-hover: #4B5563;
+    }
+    
     body {
       font-family: 'Inter', sans-serif;
-      background: #0B0F14; /* ✅ FIXED sand color */
+      background: #0B0F14;
       color: #E5E7EB;
     }
-
+    
     h1, h2, h3 {
-      font-weight: 600;
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      letter-spacing: -0.025em;
     }
-
-    /* ✅ REAL translucent nav (this was your main issue) */
+    
+    /* ====================== NAV ====================== */
     .nav-bg {
-      background: rgba(10, 10, 10, 0.65);
+      background: var(--nav-bg);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
-
     .nav-link {
       font-size: 1.05rem;
       font-weight: 500;
       letter-spacing: 0.4px;
       color: rgba(255,255,255,0.85);
+      transition: color 0.2s;
     }
-
     .nav-link:hover {
       color: white;
     }
 
-    /* HERO */
+    /* ====================== HERO ====================== */
     .hero-bg {
-      background:
+      background: 
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
         url('hero-duplex.jpg');
       background-size: cover;
-      background-position: center;
+      background-position: center 30%;
     }
 
-    /* ✅ Modern card style */
+    /* ====================== WHY CARDS ====================== */
     .why-card {
       background: linear-gradient(145deg, #111827, #0B0F14);
       border: 1px solid rgba(255,255,255,0.06);
       transition: all 0.3s ease;
     }
-
     .why-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
-
-    /* ✅ Misty grey buttons */
+    
+    /* ====================== BUTTONS ====================== */
     .btn-primary {
-      background: #374151;
+      background: var(--btn-primary);
+      transition: background 0.2s;
     }
-
     .btn-primary:hover {
-      background: #4B5563;
+      background: var(--btn-primary-hover);
     }
-
     .btn-secondary {
       background: rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.2);
     }
-
     .btn-secondary:hover {
       background: rgba(255,255,255,0.15);
     }
   </style>
 </head>
-
 <body>
 
-<!-- NAV -->
+<!-- ====================== NAV (Sticky & Translucent) ====================== -->
 <nav class="nav-bg sticky top-0 z-50 border-b border-white/10">
   <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-
-    <img src="ocp-logo-dark.png" class="h-10">
-
-    <div class="hidden md:flex gap-10 items-center">
-      <a href="#" class="nav-link">Home</a>
+    <!-- Logo -->
+    <a href="#" class="flex items-center">
+      <img src="ocp-logo-dark.png" alt="OCP Builds" class="h-11 w-auto">
+    </a>
+    
+    <!-- Menu Links - You can easily add more pages here -->
+    <div class="hidden md:flex gap-8 items-center">
+      <a href="#hero" class="nav-link">Home</a>
       <a href="#projects" class="nav-link">Projects</a>
       <a href="#packages" class="nav-link">Packages & Pricing</a>
       <a href="#process" class="nav-link">Process</a>
       <a href="#financing" class="nav-link">Financing</a>
       <a href="#reviews" class="nav-link">Reviews</a>
       <a href="#blog" class="nav-link">Blog</a>
-      <a href="#" class="nav-link">For Owners</a>
+      <a href="#for-owners" class="nav-link">For Owners</a>
     </div>
-
-    <a href="#contact" class="btn-primary px-6 py-3 rounded-xl font-semibold text-white">
-      Get Started
-    </a>
-
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero-bg h-screen flex items-center text-white text-center">
-  <div class="max-w-5xl mx-auto px-6">
-
-    <h1 class="text-6xl md:text-7xl mb-10">
-      Build Income-Producing<br>Properties Without the Headache
-    </h1>
-
-    <div class="flex gap-6 justify-center flex-wrap">
-      <a href="#contact" class="btn-primary px-10 py-5 rounded-2xl text-xl font-semibold">
+    
+    <!-- CTA Buttons -->
+    <div class="flex items-center gap-3">
+      <a href="#contact" 
+         class="btn-primary px-7 py-3.5 rounded-2xl font-semibold text-sm whitespace-nowrap">
         Book a Free 15-Min Consultation
       </a>
-
-      <a href="#quiz" class="btn-secondary px-10 py-5 rounded-2xl text-xl font-semibold">
+      <a href="#quiz" 
+         class="btn-secondary px-7 py-3.5 rounded-2xl font-semibold text-sm whitespace-nowrap">
         Take 2-Minute Investment Quiz
       </a>
     </div>
+  </div>
+</nav>
 
+<!-- ====================== HERO SECTION ====================== -->
+<section id="hero" class="hero-bg h-screen flex items-center text-white relative">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h1 class="text-6xl md:text-7xl font-bold leading-[1.05] tracking-tighter mb-10">
+      Build Income-Producing Properties<br>Without the Headache
+    </h1>
+    <p class="text-2xl max-w-3xl mx-auto mb-12 text-white/90 font-light">
+      We deliver premium duplexes + full turnkey management so you collect monthly rent checks with zero hassle.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <a href="#contact" 
+         class="btn-primary px-10 py-5 rounded-2xl text-xl font-semibold">
+        Book a Free 15-Min Consultation
+      </a>
+      <a href="#quiz" 
+         class="btn-secondary px-10 py-5 rounded-2xl text-xl font-semibold">
+        Take 2-Minute Investment Quiz
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- WHY -->
-<section class="py-24">
+<!-- ====================== WHY SERIOUS INVESTORS CHOOSE US ====================== -->
+<section id="why" class="py-24 bg-[#0B0F14]">
   <div class="max-w-7xl mx-auto px-6">
-
-    <h2 class="text-5xl text-center mb-16">
+    <h2 class="text-5xl font-bold text-center mb-16 tracking-tight">
       Why Serious Investors Choose Us
     </h2>
-
+    
     <div class="grid md:grid-cols-3 gap-8">
-
+      <!-- Card 1 -->
       <div class="why-card p-10 rounded-3xl">
-        <h3 class="text-2xl mb-4 text-[#D4AF7F]">You Own & Rent What We Build</h3>
-        <p>
-          Our signature 4400 sq ft duplexes include 4 en-suite bedrooms per side, built for maximum long-term cash flow.
+        <h3 class="text-3xl font-bold mb-6 text-[var(--accent)]">You Own & Rent What We Build</h3>
+        <p class="text-lg leading-relaxed">
+          Our signature, proven 4400 sq ft duplexes include 4 en-suite bedrooms per side with possible private balconies. 
+          Each building is constructed under one roof and separated by a fire wall, designed and built for maximum long-term cash flow.
         </p>
       </div>
-
+      
+      <!-- Card 2 -->
       <div class="why-card p-10 rounded-3xl">
-        <h3 class="text-2xl mb-4 text-[#D4AF7F]">Flexible Builds</h3>
-        <p>
-          We handle land, plans, and permitting, giving you a seamless experience with optional turnkey management.
+        <h3 class="text-3xl font-bold mb-6 text-[var(--accent)]">Flexible Builds</h3>
+        <p class="text-lg leading-relaxed">
+          We deliver premium in-house design-build services with land acquisition, plans, and permitting fully managed 
+          for a completely seamless experience. Choose full turnkey management with specialized room-by-room leasing 
+          for truly passive income, or simply take the premium build; whichever fits your goals.
         </p>
       </div>
-
+      
+      <!-- Card 3 -->
       <div class="why-card p-10 rounded-3xl">
-        <h3 class="text-2xl mb-4 text-[#D4AF7F]">Freedom Options</h3>
-        <p>
-          Whether you bring your own land or use our system, we adapt to your goals.
+        <h3 class="text-3xl font-bold mb-6 text-[var(--accent)]">Freedom Options</h3>
+        <p class="text-lg leading-relaxed">
+          We simplify the building process from start to finish. Our focus is on new duplex construction, while also 
+          offering fully custom homes and remodels tailored to your vision. Whether you already have land and financing 
+          or prefer to use our streamlined, all-in-one approach, we adapt to what works best for you.
         </p>
       </div>
-
     </div>
   </div>
 </section>
 
-</body>
-</html>
-  <!-- VIDEO + HANDSHAKE -->
-  <section class="py-20 bg-[#2C2C2C] text-white">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <video class="w-full rounded-3xl shadow-2xl" autoplay muted loop playsinline>
-          <source src="https://assets.mixkit.co/videos/preview/12345/12345-large.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div>
-        <h2 class="text-5xl font-bold leading-tight mb-8">From raw land to monthly checks — we shake hands on every project and stand behind it.</h2>
-        <p class="text-xl text-[#C19A6B]">No surprises. Just results. Iron-clad contracts that protect both sides.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINANCING -->
-  <section class="py-24" id="financing">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-6">Multiple Ways to Make It Happen</h2>
-      <p class="text-center text-xl max-w-2xl mx-auto mb-16">You don’t need 100% cash. We connect you with trusted mortgage brokers and walk you through every realistic path.</p>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-10 rounded-3xl text-center border border-[#C19A6B]">
-          <h3 class="text-2xl font-bold mb-4">Cash Buyers</h3>
-          <p class="text-5xl font-bold sand mb-2">Fast Close</p>
-          <p>Best pricing and timeline</p>
-        </div>
-        <div class="bg-white p-10 rounded-3xl text-center border border-[#006D77]">
-          <h3 class="text-2xl font-bold mb-4">Loan + Builder Program</h3>
-          <p class="text-5xl font-bold teal mb-2">Preferred Rates</p>
-          <p>Our lender partners</p>
-        </div>
-        <div class="bg-white p-10 rounded-3xl text-center border border-[#C19A6B]">
-          <h3 class="text-2xl font-bold mb-4">JV / Structured Deals</h3>
-          <p class="text-5xl font-bold sand mb-2">Keep Liquidity</p>
-          <p>Protect capital for other projects</p>
-        </div>
-      </div>
-      <p class="text-center text-sm text-gray-500 mt-10">All financing subject to lender approval and current market conditions.</p>
-    </div>
-  </section>
-
-  <!-- PACKAGES -->
-  <section class="py-24 bg-[#F8F1E9]" id="packages">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-16">Choose Your Path</h2>
-      <div class="grid md:grid-cols-3 gap-10">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-xl">
-          <div class="bg-[#C19A6B] text-white text-center py-4 font-bold">REMODEL / UPGRADE</div>
-          <div class="p-10">
-            <p class="text-6xl font-bold mb-6">$XXX–$XXX <span class="text-base font-normal">per sq ft</span></p>
-            <p class="text-lg">Perfect for existing properties or light commercial upgrades.</p>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-2xl ring-4 ring-[#006D77] scale-105">
-          <div class="bg-[#006D77] text-white text-center py-4 font-bold">SIGNATURE 5x5 DUPLEX — MOST POPULAR</div>
-          <div class="p-10">
-            <p class="text-6xl font-bold mb-2">4400 sq ft</p>
-            <p class="mb-8">5 Private Bedrooms • 2–3 Private Balconies + En-Suite Baths</p>
-            <ul class="space-y-4 text-lg">
-              <li>✅ Shared kitchen & living</li>
-              <li>✅ Cameras in common areas only</li>
-              <li>✅ 8–10 months from permit</li>
-            </ul>
-            <p class="text-sm text-gray-500 mt-10">Base pricing shown after free consultation. Valid 30 days. Final price locked in contract.</p>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-xl">
-          <div class="bg-[#C19A6B] text-white text-center py-4 font-bold">LUXURY CUSTOM HOME</div>
-          <div class="p-10">
-            <p class="text-6xl font-bold mb-6">Your Vision</p>
-            <p class="text-lg">Larger lots, premium finishes, full customization.</p>
-          </div>
-        </div>
-      </div>
-      <p class="text-center text-sm text-gray-500 mt-12">
-        Pricing depends on location, material costs, tariffs, and government policies. We provide a detailed written quote after consultation. No project moves forward until both parties sign a clear contract.
-      </p>
-    </div>
-  </section>
-
-  <!-- SUCCESS STORIES -->
-  <section class="py-24 charcoal" id="reviews">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center text-white mb-16">Real People. Real Residual Income.</h2>
-      <div class="text-center">
-        <p class="text-2xl text-[#C19A6B] italic">"I made money in the Octagon. Now I own duplexes that pay me every month while I train. These guys handled everything."</p>
-        <p class="mt-6 text-white">— UFC Champion</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WARRANTY -->
-  <section class="py-24 section-bg">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl font-bold mb-8">We Stand Behind Every Build</h2>
-      <p class="text-2xl">1-Year Full Workmanship Warranty + 10-Year Structural Warranty</p>
-      <p class="mt-6 text-lg">We use 5/8" drywall, reinforced framing, and finishes built for long-term rentals — because we rent these same units ourselves.</p>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="py-32 hero-bg text-white text-center">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-6xl font-bold mb-8">Ready to build smart residual income in Arizona?</h2>
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="#contact" class="bg-white text-[#2C2C2C] px-12 py-6 rounded-2xl text-2xl font-bold hover:bg-[#C19A6B]">Book Free Consultation</a>
-        <a href="#quiz" class="border-4 border-white px-12 py-6 rounded-2xl text-2xl font-bold hover:bg-white hover:text-[#2C2C2C]">Take Investment Quiz</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="charcoal py-16">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <p class="text-2xl font-bold sand mb-6">OCP BUILDS</p>
-      <p class="text-sm opacity-75">© 2026 OCP Builds — Arizona Licensed General Contractor • Bonded • We Build, We Own, We Rent.</p>
-      <p class="text-xs opacity-50 mt-6">All pricing and timelines are estimates based on current conditions and will be confirmed in the final contract.</p>
-    </div>
-  </footer>
+<!-- ====================== FUTURE SECTIONS PLACEHOLDERS ====================== -->
+<!-- Add more sections here easily by copying the pattern above -->
+<!-- Example:
+<section id="projects" class="py-24"> ... </section>
+<section id="packages" class="py-24"> ... </section>
+ etc.
+-->
 
 </body>
 </html>
