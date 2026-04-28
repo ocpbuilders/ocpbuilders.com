@@ -20,29 +20,38 @@
     h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
     
     .hero-bg { 
-      background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+      background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
                         url('hero-duplex.jpg'); 
       background-size: cover; 
-      background-position: center; 
+      background-position: center 30%; 
     }
     
-    .nav-bg { background-color: #111111; } /* exact dark grey from your screenshot */
+    .nav-bg { background-color: #0A0A0A; } /* deep dark like Story screenshot */
     .nav-link { 
       font-size: 1.05rem; 
       font-weight: 500; 
-      letter-spacing: 0.025em; 
+      letter-spacing: 0.5px; 
+    }
+    
+    .why-card {
+      background-color: #1A1A1A;
+      transition: all 0.3s ease;
+    }
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3);
     }
   </style>
 </head>
 <body class="bg-[#F8F1E9] text-[#2C2C2C]">
 
-  <!-- UPDATED STICKY NAV - Matching your new screenshots -->
+  <!-- NAV - Matching "Story" style -->
   <nav class="nav-bg text-white sticky top-0 z-50 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
       
       <!-- Logo -->
       <a href="#" class="flex items-center">
-        <img src="ocp-logo-dark.png" alt="OCP Builds" class="h-9 w-auto">
+        <img src="ocp-logo-dark.png" alt="OCP Builds" class="h-10 w-auto">
       </a>
 
       <!-- Menu -->
@@ -57,68 +66,75 @@
         <a href="#" class="nav-link hover:text-[#0A84FF] transition">For Owners</a>
       </div>
 
-      <!-- CTA -->
       <a href="#contact" 
-         class="bg-[#006D77] hover:bg-[#0A84FF] px-8 py-3 rounded-xl font-semibold transition text-base">
+         class="bg-[#006D77] hover:bg-[#0F766E] px-8 py-3.5 rounded-2xl font-semibold transition text-base">
         Get Started
       </a>
     </div>
   </nav>
 
-  <!-- UPDATED HERO SECTION -->
-  <section class="hero-bg h-screen flex items-center text-white">
+  <!-- HERO - Cleaner, prettier text, no proof line -->
+  <section class="hero-bg h-screen flex items-center text-white relative">
     <div class="max-w-5xl mx-auto px-6 text-center">
-      <h1 class="text-6xl md:text-7xl font-bold leading-[1.05] mb-8">
+      <h1 class="text-6xl md:text-7xl font-bold leading-[1.05] tracking-tighter mb-6">
         Build Income-Producing Properties<br>Without the Headache
       </h1>
       
-      <p class="text-2xl md:text-3xl max-w-4xl mx-auto leading-relaxed text-white/90 mb-16">
+      <p class="text-2xl md:text-[28px] max-w-4xl mx-auto leading-relaxed text-white/90 font-light">
         We deliver premium in-house design-build services, including land acquisition, plans, and permitting, for a completely seamless process. Investors can add optional turnkey management and specialized room-by-room leasing to create truly passive, high-yield income.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-6 justify-center mt-12">
         <a href="#contact" 
-           class="bg-[#006D77] hover:bg-[#1F1F1F] text-white px-10 py-5 rounded-2xl text-xl font-semibold transition">
+           class="bg-[#006D77] hover:bg-[#0F766E] text-white px-10 py-5 rounded-2xl text-xl font-semibold transition">
           Book a Free 15-Min Consultation
         </a>
         
         <a href="#quiz" 
-           class="bg-white/10 backdrop-blur-md border-2 border-white hover:bg-[#0A84FF] hover:border-[#0A84FF] text-white px-10 py-5 rounded-2xl text-xl font-semibold transition">
+           class="bg-white/10 backdrop-blur-md border-2 border-white hover:bg-[#334155] hover:border-[#64748B] text-white px-10 py-5 rounded-2xl text-xl font-semibold transition">
           Take 2-Minute Investment Quiz
         </a>
       </div>
-
-      <!-- Updated Trust Line - clean & professional -->
-      <div class="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-white/80">
-        <div>Arizona Licensed & Bonded</div>
-        <div class="hidden sm:block">•</div>
-        <div>Solid Contracts</div>
-        <div class="hidden sm:block">•</div>
-        <div>1-Year Warranty + Structural Coverage</div>
-      </div>
     </div>
   </section>
-  <!-- WHY CHOOSE US -->
-  <section class="section-bg py-24" id="why">
+
+  <!-- WHY CHOOSE US - Updated content + dark elegant cards -->
+  <section class="py-24 bg-[#111111] text-white" id="why">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-5xl font-bold text-center mb-16">Why Serious Investors Choose Us</h2>
-      <div class="grid md:grid-cols-3 gap-12">
-        <div class="bg-white p-10 rounded-3xl shadow-xl">
-          <h3 class="text-2xl font-bold mb-6 sand">We Own & Rent What We Build</h3>
-          <p class="text-lg">Our 4400 sq ft 5x5 duplex model is proven in our own portfolio. 5 private bedrooms (2–3 with private balconies and en-suite baths), shared common areas, cameras only in common spaces — designed for maximum cash flow.</p>
+      <h2 class="text-5xl font-bold text-center mb-16 tracking-tight">
+        Why Serious Investors Choose Us
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="why-card p-10 rounded-3xl border border-white/10">
+          <h3 class="text-3xl font-bold mb-6 text-[#C19A6B]">You Own & Rent What We Build</h3>
+          <p class="text-lg leading-relaxed">
+            Our signature, proven 4400 sq ft duplexes include 4 en-suite bedrooms per side with possible private balconies. 
+            Each building is constructed under one roof and separated by a fire wall, designed and built for maximum long-term cash flow.
+          </p>
         </div>
-        <div class="bg-white p-10 rounded-3xl shadow-xl">
-          <h3 class="text-2xl font-bold mb-6 sand">Full In-House Service</h3>
-          <p class="text-lg">Land acquisition & pad-splitting guidance • Architect & pre-approved plans • Permitting • Quality construction • Optional full management & tenant app leasing.</p>
+
+        <!-- Card 2 -->
+        <div class="why-card p-10 rounded-3xl border border-white/10">
+          <h3 class="text-3xl font-bold mb-6 text-[#C19A6B]">Flexible Builds</h3>
+          <p class="text-lg leading-relaxed">
+            We deliver premium in-house design-build services with land acquisition, plans, and permitting fully managed for a completely seamless experience. 
+            Choose full turnkey management with specialized room-by-room leasing for truly passive income, or simply take the premium build; whichever fits your goals.
+          </p>
         </div>
-        <div class="bg-white p-10 rounded-3xl shadow-xl">
-          <h3 class="text-2xl font-bold mb-6 sand">Freedom Options</h3>
-          <p class="text-lg">Cash, loans, joint ventures, or structured deals so you keep capital for other projects. You own the asset. We handle the work.</p>
+
+        <!-- Card 3 -->
+        <div class="why-card p-10 rounded-3xl border border-white/10">
+          <h3 class="text-3xl font-bold mb-6 text-[#C19A6B]">Freedom Options</h3>
+          <p class="text-lg leading-relaxed">
+            We simplify the building process from start to finish. Our focus is on new duplex construction, while also offering fully custom homes and remodels tailored to your vision. 
+            Whether you already have land and financing or prefer to use our streamlined, all-in-one approach, we adapt to what works best for you.
+          </p>
         </div>
       </div>
     </div>
   </section>
-
   <!-- VIDEO + HANDSHAKE -->
   <section class="py-20 bg-[#2C2C2C] text-white">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
