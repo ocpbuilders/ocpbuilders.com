@@ -47,29 +47,25 @@
 
   /* ================= NAVBAR ================= */
 .nav-bg {
-  /* Darker, richer charcoal — Story's secret sauce */
-  background: rgba(15, 22, 33, 0.82);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  
-  /* Always fixed — no scroll trigger needed */
+  background: rgba(15, 22, 33, 0.65);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  
-  /* Subtle bottom border for depth */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav-link {
-  font-family: 'DM Sans', sans-serif; /* Swap Inter for DM Sans — rounder, more elegant */
-  font-size: 1rem;
-  font-weight: 400;           /* Lighter than 500 — Story uses regular weight */
-  letter-spacing: 0.02em;     /* Subtle but present */
-  color: rgba(255, 255, 255, 0.78);
-  padding: 0 1.25rem;         /* More horizontal space between links */
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.75);
   transition: color 0.2s ease;
 }
 
@@ -77,22 +73,22 @@
   color: rgba(255, 255, 255, 1);
 }
 
-/* CTA Button — Story's rounded pill style */
+/* CTA Button */
 .nav-cta {
-  background: #1e6fff;         /* or your brand color */
+  background: #2f6df6;
   color: white;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  padding: 0.55rem 1.4rem;
-  border-radius: 999px;        /* Full pill */
+  padding: 0.5rem 1.3rem;
+  border-radius: 999px;
   letter-spacing: 0.01em;
   transition: background 0.2s ease, transform 0.15s ease;
 }
 
 .nav-cta:hover {
-  background: #3d7fff;
-  transform: translateX(1px);  /* Story's subtle arrow-nudge feel */
+  background: #4c7df7;
+  transform: translateX(1px);
 }
 
     /* ================= HERO ================= */
@@ -150,14 +146,13 @@
 <!-- ===================================================== -->
 <nav class="nav-bg sticky top-0 z-50 border-b border-white/10">
 
-  <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-
+<div class="w-full max-w-[1400px] mx-auto px-6 py-3 flex justify-between items-center">
     <!-- LOGO -->
 <a href="#">
-  <img src="ocp-logo-dark.png" class="h-10">
+  <img src="ocp-logo-dark.png" class="h-8">
 </a>
     <!-- NAV LINKS -->
-    <div class="hidden md:flex gap-10 items-center">
+<div class="hidden md:flex gap-8 items-center">      
       <a href="#projects" class="nav-link">Projects</a>
       <a href="#packages" class="nav-link">Packages & Pricing</a>
       <a href="#process" class="nav-link">Process</a>
@@ -168,8 +163,8 @@
     </div>
 
     <!-- CTA BUTTON -->
-    <a href="#contact" class="btn-primary px-6 py-3 rounded-xl font-semibold text-white">
-      Get Started
+<a href="#contact" class="nav-cta">
+  Get Started
     </a>
 
   </div>
