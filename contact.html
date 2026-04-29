@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Consultation | OCP Builds</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Fraunces:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #1A1A1A;
+      color: #E8E6E3;
+    }
+
+    /* NAVBAR */
+    .nav-bg {
+      background: rgba(22, 22, 22, 0.82);
+      backdrop-filter: blur(32px) saturate(140%);
+      -webkit-backdrop-filter: blur(32px) saturate(140%);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-back {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s ease;
+    }
+    .nav-back:hover { color: white; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding-top: 62px;
+      background: #1A1A1A;
+    }
+    .page-header-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+    .page-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #A8B4C0;
+      margin-bottom: 1rem;
+    }
+    .page-headline {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: white;
+      margin-bottom: 1rem;
+    }
+    .page-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+    }
+    .trust-line {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.02em;
+    }
+    .trust-line a {
+      color: rgba(168,180,192,0.7);
+      text-decoration: none;
+    }
+    .trust-line a:hover { color: #A8B4C0; }
+
+    /* FORM SECTION */
+    .form-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    @media (max-width: 768px) {
+      .form-section { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* FORM STYLES */
+    .form-card {
+      background: #222222;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.5rem;
+    }
+    .form-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0.6rem;
+      padding: 0.75rem 1rem;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .form-input:focus {
+      border-color: rgba(168,180,192,0.5);
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.2); }
+
+    select.form-input option { background: #222222; color: white; }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+    }
+    .checkbox-item input[type="checkbox"] {
+      accent-color: #A8B4C0;
+      width: 15px;
+      height: 15px;
+    }
+
+    .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0.6rem;
+      padding: 0.75rem 1rem;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      resize: vertical;
+      min-height: 100px;
+      transition: border-color 0.2s ease;
+    }
+    .form-textarea:focus { border-color: rgba(168,180,192,0.5); }
+    .form-textarea::placeholder { color: rgba(255,255,255,0.2); }
+
+    .btn-submit {
+      width: 100%;
+      background: #A8B4C0;
+      color: #1A1A1A;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.9rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, transform 0.15s ease;
+      margin-top: 0.75rem;
+    }
+    .btn-submit:hover {
+      background: #bcc6d0;
+      transform: translateY(-1px);
+    }
+
+    /* CALENDLY BUTTON */
+    .calendly-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: transparent;
+      border: 1px solid rgba(168,180,192,0.3);
+      color: #A8B4C0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 0.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+      margin-top: 0.75rem;
+    }
+    .calendly-btn:hover {
+      background: rgba(168,180,192,0.08);
+      border-color: rgba(168,180,192,0.5);
+    }
+
+    /* RIGHT COLUMN */
+    .benefits-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .benefit-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(168,180,192,0.1);
+      border: 1px solid rgba(168,180,192,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .benefit-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 0.2rem;
+    }
+    .benefit-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.55;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 1.5rem 0;
+    }
+
+    .availability-box {
+      background: #222222;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    .avail-heading {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 1rem;
+    }
+    .avail-slot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.85rem;
+    }
+    .avail-slot:last-child { border-bottom: none; }
+    .avail-day { color: rgba(255,255,255,0.6); }
+    .avail-time { color: #A8B4C0; font-weight: 500; }
+    .avail-badge {
+      font-size: 0.68rem;
+      background: rgba(168,180,192,0.1);
+      color: rgba(168,180,192,0.7);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    /* SOCIAL PROOF */
+    .proof-bar {
+      background: #222222;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .proof-bar span { color: #A8B4C0; }
+
+    /* FAQ */
+    .faq-section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+    .faq-heading {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.85);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      text-align: left;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: color 0.2s ease;
+    }
+    .faq-question:hover { color: white; }
+    .faq-icon {
+      font-size: 1.2rem;
+      color: #A8B4C0;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s ease;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-bottom: 1.25rem;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* FOOTER */
+    .footer-bg {
+      background: #141414;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav-bg">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">← Back to Home</a>
+    <a href="#"><img src="ocp-logo-dark.png" style="height:28px;"></a>
+    <a href="tel:6234766576" style="font-size:0.82rem; color:rgba(255,255,255,0.4); text-decoration:none;">623-476-6576</a>
+  </div>
+</nav>
+
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="page-eyebrow">Free • No Pressure • 15 Minutes</p>
+    <h1 class="page-headline">Book Your Free Consultation</h1>
+    <p class="page-sub">
+      Talk with our team about land, duplex builds, custom homes,<br>financing, or turnkey room-by-room leasing.
+    </p>
+    <p class="trust-line">
+      <a href="tel:6234766576">623-476-6576</a> &nbsp;·&nbsp;
+      <a href="mailto:skraca@outlook.com">skraca@outlook.com</a> &nbsp;·&nbsp;
+      Tempe, Arizona &nbsp;·&nbsp; Mon–Fri 12–5pm
+    </p>
+  </div>
+</div>
+
+
+<!-- FORM + BENEFITS -->
+<div class="form-section">
+
+  <!-- LEFT: FORM -->
+  <div class="form-card">
+    <form action="https://formspree.io/f/xgodwyra" method="POST">
+
+      <div class="form-group">
+        <label class="form-label">Full Name *</label>
+        <input type="text" name="name" class="form-input" placeholder="John Smith" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Phone Number *</label>
+        <input type="tel" name="phone" class="form-input" placeholder="(602) 555-0000" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email Address *</label>
+        <input type="email" name="email" class="form-input" placeholder="you@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Best Time to Call</label>
+        <select name="best_time" class="form-input">
+          <option value="">Select a time window...</option>
+          <option>12:00 PM – 1:00 PM</option>
+          <option>1:00 PM – 2:00 PM</option>
+          <option>2:00 PM – 3:00 PM</option>
+          <option>3:00 PM – 4:00 PM</option>
+          <option>4:00 PM – 5:00 PM</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" style="margin-bottom:0.75rem;">What are you interested in?</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-item"><input type="checkbox" name="interest" value="4400 Duplex Investment"> 4400 sq ft Duplex</label>
+          <label class="checkbox-item"><input type="checkbox" name="interest" value="Custom Home Build"> Custom Home Build</label>
+          <label class="checkbox-item"><input type="checkbox" name="interest" value="Land Acquisition"> Land Acquisition</label>
+          <label class="checkbox-item"><input type="checkbox" name="interest" value="Remodel / Addition"> Remodel / Addition</label>
+          <label class="checkbox-item"><input type="checkbox" name="interest" value="Full Turnkey"> Full Turnkey</label>
+          <label class="checkbox-item"><input type="checkbox" name="interest" value="Financing Options"> Financing Options</label>
+          <label class="checkbox-item"><input type="checkbox" name="interest" value="Other"> Other</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Message / Questions (optional)</label>
+        <textarea name="message" class="form-textarea" placeholder="Any details or questions you'd like us to know before the call..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Send My Info →</button>
+      <a href="https://calendly.com/skraca/30min" target="_blank" class="calendly-btn">
+        Or Pick a Time on Calendly ↗
+      </a>
+
+    </form>
+  </div>
+
+  <!-- RIGHT: BENEFITS + AVAILABILITY -->
+  <div class="benefits-card">
+
+    <div>
+      <p style="font-size:0.72rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-bottom:1.25rem;">Why book now</p>
+
+      <div class="benefit-item">
+        <div class="benefit-icon">💰</div>
+        <div>
+          <p class="benefit-title">Honest Pricing Upfront</p>
+          <p class="benefit-desc">Get real numbers on Standard (~$135/sq ft) or Premium (~$165/sq ft) builds — no runaround.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="benefit-item">
+        <div class="benefit-icon">🏠</div>
+        <div>
+          <p class="benefit-title">See If the Model Fits You</p>
+          <p class="benefit-desc">Room-by-room leasing isn't for everyone — we'll tell you honestly if it matches your goals.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="benefit-item">
+        <div class="benefit-icon">📱</div>
+        <div>
+          <p class="benefit-title">Our Tenant Software</p>
+          <p class="benefit-desc">Learn how our prescreening app, owner dashboard, and maintenance alerts protect your investment.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="benefit-item">
+        <div class="benefit-icon">🏗️</div>
+        <div>
+          <p class="benefit-title">Talk to the Actual Team</p>
+          <p class="benefit-desc">Direct access to our architect and build team — not a sales rep.</p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="benefit-item">
+        <div class="benefit-icon">✅</div>
+        <div>
+          <p class="benefit-title">No Pressure, Just Next Steps</p>
+          <p class="benefit-desc">If it's a fit, you get a custom proposal within 24 hours. If not, we'll point you in the right direction.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- AVAILABILITY TEASER -->
+    <div class="availability-box">
+      <p class="avail-heading">Available This Week</p>
+      <div class="avail-slot">
+        <span class="avail-day">Tuesday</span>
+        <span class="avail-time">2:15 PM</span>
+        <span class="avail-badge">Open</span>
+      </div>
+      <div class="avail-slot">
+        <span class="avail-day">Wednesday</span>
+        <span class="avail-time">1:45 PM</span>
+        <span class="avail-badge">Open</span>
+      </div>
+      <div class="avail-slot">
+        <span class="avail-day">Thursday</span>
+        <span class="avail-time">3:30 PM</span>
+        <span class="avail-badge">Open</span>
+      </div>
+      <div class="avail-slot">
+        <span class="avail-day">Friday</span>
+        <span class="avail-time">12:00 PM</span>
+        <span class="avail-badge">Open</span>
+      </div>
+      <a href="https://calendly.com/skraca/30min" target="_blank" style="display:block; text-align:center; margin-top:1.25rem; font-size:0.82rem; color:#A8B4C0; text-decoration:none; letter-spacing:0.03em;">
+        See Full Availability & Book Instantly ↗
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- SOCIAL PROOF BAR -->
+<div class="proof-bar">
+  Trusted by champions and smart investors —
+  <span>Henry Cejudo, Tracy Cortez, Kelvin Gastelum</span>
+  and many more
+</div>
+
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2 class="faq-heading">Common Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      How long is the call?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">15 minutes, focused entirely on your goals. We keep it tight and useful — no filler.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Do I need anything prepared?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">Just your questions. It helps to have a general idea of your budget range or what you're trying to accomplish, but nothing formal is required.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      Is this only for big budgets?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">Not at all. We work with investors at every stage — whether you already have land and financing or are just starting to explore the idea.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFaq(this)">
+      What happens after the call?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">If it's a good fit, we send a custom proposal within 24 hours. If not, we'll be honest and point you toward what makes more sense for your situation.</div>
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer-bg" style="padding: 4rem 2rem 2rem;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:2.5rem; padding-bottom:3rem; border-bottom:1px solid rgba(255,255,255,0.05);">
+
+      <div>
+        <img src="ocp-logo-dark.png" style="height:26px; margin-bottom:1rem;">
+        <p style="color:rgba(255,255,255,0.3); font-size:0.8rem; line-height:1.7;">Arizona's Premier<br>Investment Build Partner</p>
+      </div>
+
+      <div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Info</p>
+        <div style="display:flex; flex-direction:column; gap:0.6rem;">
+          <a href="index.html#process"  style="color:rgba(255,255,255,0.5); font-size:0.83rem; text-decoration:none;">How it Works</a>
+          <a href="index.html#projects" style="color:rgba(255,255,255,0.5); font-size:0.83rem; text-decoration:none;">Projects</a>
+          <a href="index.html#reviews"  style="color:rgba(255,255,255,0.5); font-size:0.83rem; text-decoration:none;">Reviews</a>
+          <a href="index.html#blog"     style="color:rgba(255,255,255,0.5); font-size:0.83rem; text-decoration:none;">Blog</a>
+        </div>
+      </div>
+
+      <div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Questions</p>
+        <div style="display:flex; flex-direction:column; gap:0.6rem;">
+          <a href="tel:6234766576" style="color:rgba(255,255,255,0.5); font-size:0.83rem; text-decoration:none;">📞 623-476-6576</a>
+          <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">Mon–Fri, 12–5pm</p>
+          <a href="mailto:skraca@outlook.com" style="color:rgba(255,255,255,0.5); font-size:0.83rem; text-decoration:none;">✉️ skraca@outlook.com</a>
+        </div>
+      </div>
+
+      <div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Stay Updated</p>
+        <div style="display:flex; gap:0.5rem; margin-bottom:0.6rem;">
+          <input type="email" placeholder="Your email" style="flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:999px; padding:0.5rem 1rem; color:white; font-size:0.8rem; outline:none; font-family:'DM Sans',sans-serif; min-width:0;">
+          <button style="background:rgba(168,180,192,0.12); border:1px solid rgba(168,180,192,0.25); color:rgba(168,180,192,0.85); border-radius:999px; padding:0.5rem 0.9rem; font-size:0.78rem; cursor:pointer; font-family:'DM Sans',sans-serif; white-space:nowrap;">Subscribe</button>
+        </div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.72rem;">By subscribing you agree to our Privacy Policy.</p>
+      </div>
+
+    </div>
+    <div style="padding-top:1.5rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+      <p style="color:rgba(255,255,255,0.2); font-size:0.78rem;">© 2026 OCP Builds. All rights reserved.</p>
+      <a href="#" style="color:rgba(255,255,255,0.2); font-size:0.78rem; text-decoration:none;">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    // open this one if it wasn't open
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
