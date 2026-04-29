@@ -1,349 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- ===================================================== -->
-<!-- ======================= HEAD ========================= -->
-<!-- ===================================================== -->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <!-- TITLE -->
   <title>OCP Builds | From Raw Land to Monthly Rent Checks</title>
 
-  <!-- ===================================================== -->
-  <!-- ===================== FAVICONS ======================= -->
-  <!-- ===================================================== -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="ocp-logo-dark.png">
+  <link rel="apple-touch-icon" href="ocp-logo-dark.png">
 
   <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- ===================================================== -->
-  <!-- ======================= FONTS ======================== -->
-  <!-- ===================================================== -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fraunces:wght@300;400&display=swap" rel="stylesheet">
 
-  <!-- ===================================================== -->
-  <!-- ====================== STYLES ======================== -->
-  <!-- ===================================================== -->
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ================= GLOBAL ================= */
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       background: #0B0F14;
       color: #E5E7EB;
     }
 
-    h1, h2, h3 {
-      font-weight: 600;
-      letter-spacing: -0.02em;
+    /* ===== NAVBAR ===== */
+    .nav-bg {
+      background: rgba(28, 28, 26, 0.78);
+      backdrop-filter: blur(32px) saturate(140%) brightness(0.9);
+      -webkit-backdrop-filter: blur(32px) saturate(140%) brightness(0.9);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-  /* ================= NAVBAR ================= */
-.nav-bg {
-  background: rgba(15, 22, 33, 0.65);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+    .nav-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      color: rgba(220, 215, 205, 0.7);
+      padding: 0 1rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-link:hover { color: rgba(230, 225, 215, 0.98); }
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
+    .nav-cta {
+      background: rgba(200, 195, 185, 0.1);
+      border: 1px solid rgba(200, 195, 185, 0.22);
+      color: rgba(230, 225, 215, 0.9);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.48rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      background: rgba(200, 195, 185, 0.2);
+      border-color: rgba(200, 195, 185, 0.35);
+    }
 
-.nav-link {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.75);
-  transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-  color: rgba(255, 255, 255, 1);
-}
-
-.nav-cta {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 0.5rem 1.3rem;
-  border-radius: 999px;
-  letter-spacing: 0.01em;
-  transition: background 0.2s ease;
-}
-
-.nav-cta:hover {
-  background: rgba(255,255,255,0.15);
-}
-
-    /* ================= HERO ================= */
+    /* ===== HERO ===== */
     .hero-bg {
       background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        linear-gradient(105deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.15) 100%),
         url('hero-duplex.jpg');
       background-size: cover;
       background-position: center;
+      min-height: 100vh;
+      padding-top: 62px;
+      display: flex;
+      align-items: center;
     }
 
-    /* ================= CARDS ================= */
+    .hero-inner {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(212, 175, 127, 0.85);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(3.2rem, 5.5vw, 6rem);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      color: white;
+      max-width: 900px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      max-width: 400px;
+      line-height: 1.65;
+      margin-bottom: 2.75rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    .btn-hero {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.8rem 1.75rem;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .btn-hero-primary {
+      background: white;
+      color: #0B0F14;
+      border: 1px solid white;
+    }
+    .btn-hero-primary:hover {
+      background: rgba(255,255,255,0.88);
+      transform: translateY(-1px);
+    }
+
+    .btn-hero-secondary {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+    .btn-hero-secondary:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    /* ===== CARDS ===== */
     .why-card {
       background: linear-gradient(145deg, #111827, #0B0F14);
       border: 1px solid rgba(255,255,255,0.06);
       transition: all 0.3s ease;
     }
-
     .why-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
 
-    /* ================= BUTTONS ================= */
-    .btn-primary {
-      background: #374151;
+    /* ===== BLOG CARDS ===== */
+    .blog-card {
+      background: linear-gradient(145deg, #111827, #0d1117);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .blog-card:hover {
+      transform: scale(1.025);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+      border-color: rgba(255,255,255,0.12);
     }
 
-    .btn-primary:hover {
-      background: #4B5563;
+    .blog-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(212, 175, 127, 0.8);
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
+    .blog-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 1.2rem;
+      line-height: 1.35;
+      color: white;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.15);
+    .blog-excerpt {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      flex: 1;
     }
+
+    .blog-read-more {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: rgba(212, 175, 127, 0.85);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s ease;
+      margin-top: 0.5rem;
+    }
+    .blog-read-more:hover { color: rgba(212, 175, 127, 1); }
+
+    .section-heading {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-bg {
+      background: #0d1117;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .btn-primary-dark {
+      display: inline-flex;
+      align-items: center;
+      background: white;
+      color: #0B0F14;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-primary-dark:hover {
+      background: rgba(255,255,255,0.88);
+      transform: translateY(-1px);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; animation: fadeUp 0.85s ease forwards; }
+    .d1 { animation-delay: 0.05s; }
+    .d2 { animation-delay: 0.2s; }
+    .d3 { animation-delay: 0.35s; }
+    .d4 { animation-delay: 0.5s; }
 
   </style>
 </head>
 
-
-<!-- ===================================================== -->
-<!-- ======================= BODY ========================= -->
-<!-- ===================================================== -->
 <body>
 
-
-<!-- ===================================================== -->
-<!-- ====================== NAVBAR ======================== -->
-<!-- ===================================================== -->
+<!-- ===== NAVBAR ===== -->
 <nav class="nav-bg">
-
-<div class="w-full max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center">
-    <!-- LOGO -->
-<a href="#">
-  <img src="ocp-logo-dark.png" class="h-8">
-</a>
-    <!-- NAV LINKS -->
-<div class="hidden md:flex gap-16 items-center">      
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#packages" class="nav-link">Packages & Pricing</a>
-      <a href="#process" class="nav-link">Process</a>
+  <div class="nav-inner">
+    <a href="#"><img src="ocp-logo-dark.png" style="height:30px;"></a>
+    <div style="display:flex; align-items:center;">
+      <a href="#projects"  class="nav-link">Projects</a>
+      <a href="#packages"  class="nav-link">Packages & Pricing</a>
+      <a href="#process"   class="nav-link">Process</a>
       <a href="#financing" class="nav-link">Financing</a>
-      <a href="#reviews" class="nav-link">Reviews</a>
-      <a href="#blog" class="nav-link">Blog</a>
-      <a href="#" class="nav-link">For Owners</a>
+      <a href="#reviews"   class="nav-link">Reviews</a>
+      <a href="#blog"      class="nav-link">Blog</a>
+      <a href="#"          class="nav-link">For Owners</a>
     </div>
-
-    <!-- CTA BUTTON -->
-<a href="#contact" class="nav-cta">
-  Get Started
-    </a>
-
+    <a href="#contact" class="nav-cta">Get Started</a>
   </div>
-
 </nav>
 
 
-<!-- ===================================================== -->
-<!-- ======================= HERO ========================= -->
-<!-- ===================================================== -->
-<section class="hero-bg h-screen flex items-center text-white text-center">
+<!-- ===== HERO ===== -->
+<section class="hero-bg">
+  <div class="hero-inner">
 
-  <div class="max-w-5xl mx-auto px-6">
+    <p class="hero-eyebrow fade-up d1">Arizona's Premier Investment Build Partner</p>
 
-    <h1 class="text-6xl md:text-7xl mb-10">
+    <h1 class="hero-headline fade-up d2">
       Build Income-Producing<br>Properties Without the Headache
     </h1>
 
-    <div class="flex gap-6 justify-center flex-wrap">
+    <p class="hero-sub fade-up d3">
+      From raw land to monthly rent checks — we handle everything.
+    </p>
 
-      <a href="#contact" class="btn-primary px-10 py-4 rounded-2xl text-xl font-semibold">
-        Book a Free 15-Min Consultation
+    <div class="hero-buttons fade-up d4">
+      <a href="#contact" class="btn-hero btn-hero-primary">
+        Book a Free 15-Min Consultation →
       </a>
-
-      <a href="#quiz" class="btn-secondary px-10 py-4 rounded-2xl text-xl font-semibold">
-        Take 2-Minute Investment Quiz
+      <a href="#quiz" class="btn-hero btn-hero-secondary">
+        Take the 2-Min Investment Quiz ↗
       </a>
-
     </div>
 
   </div>
-
 </section>
 
 
-<!-- ===================================================== -->
-<!-- ===================== WHY SECTION ==================== -->
-<!-- ===================================================== -->
+<!-- ===== WHY US ===== -->
 <section class="py-24">
-
   <div class="max-w-7xl mx-auto px-6">
-
-    <h2 class="text-5xl text-center mb-16">
-      Why Serious Investors Choose Us
-    </h2>
-
+    <h2 class="section-heading text-5xl text-center mb-16">Why Serious Investors Choose Us</h2>
     <div class="grid md:grid-cols-3 gap-8">
-
-      <!-- CARD 1 -->
       <div class="why-card p-10 rounded-3xl">
-        <h3 class="text-2xl mb-4 text-[#D4AF7F]">
-          You Own & Rent What We Build
-        </h3>
-        <p>
-          Our signature, proven 4400 sq ft duplexes include 4 en-suite bedrooms per side with possible private balconies. Each building is constructed under one roof and separated by a fire wall, designed and built for maximum long-term cash flow.
-        </p>
+        <h3 class="text-2xl mb-4 text-[#D4AF7F]">You Own & Rent What We Build</h3>
+        <p class="text-white/60 leading-relaxed">Our signature 4400 sq ft duplexes include 4 en-suite bedrooms per side with possible private balconies. Each building is constructed under one roof and separated by a fire wall, designed for maximum long-term cash flow.</p>
       </div>
-
-      <!-- CARD 2 -->
       <div class="why-card p-10 rounded-3xl">
-        <h3 class="text-2xl mb-4 text-[#D4AF7F]">
-          Flexible Builds
-        </h3>
-        <p>
-          We deliver premium in-house design-build services with land acquisition, plans, and permitting fully managed for a completely seamless experience. Choose full turnkey management with specialized room-by-room leasing for truly passive income, or simply take the premium build; whichever fits your goals.
-        </p>
+        <h3 class="text-2xl mb-4 text-[#D4AF7F]">Flexible Builds</h3>
+        <p class="text-white/60 leading-relaxed">Premium in-house design-build with land acquisition, plans, and permitting fully managed. Choose full turnkey management with room-by-room leasing for truly passive income, or simply take the premium build.</p>
       </div>
-
-      <!-- CARD 3 -->
       <div class="why-card p-10 rounded-3xl">
-        <h3 class="text-2xl mb-4 text-[#D4AF7F]">
-          Freedom Options
-        </h3>
-        <p>
-          We simplify the building process from start to finish. Our focus is on new duplex construction, while also offering fully custom homes and remodels tailored to your vision. Whether you already have land and financing or prefer to use our streamlined, all-in-one approach, we adapt to what works best for you.
-        </p>
+        <h3 class="text-2xl mb-4 text-[#D4AF7F]">Freedom Options</h3>
+        <p class="text-white/60 leading-relaxed">Whether you already have land and financing or prefer our streamlined all-in-one approach, we adapt to what works best for you — from new duplex construction to fully custom homes and remodels.</p>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
 
-<!-- ===================================================== -->
-<!-- ==================== PROJECTS ======================== -->
-<!-- ===================================================== -->
-<section id="projects" class="py-24 bg-[#0F141A]">
+<!-- ===== WHY THIS MODEL WORKS ===== -->
+<section class="py-20 bg-[#0F141A]">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h2 class="section-heading text-4xl mb-8">Why Build Income Properties with OCP</h2>
+    <p class="text-white/60 text-lg leading-relaxed mb-6">
+      The average retirement savings for former athletes is surprisingly low. Real estate duplexes provide monthly cash flow, appreciation, and tax benefits. Our 4400 sq ft 5×5 model is purpose-built for room-by-room leasing so one property works harder for you.
+    </p>
+    <p class="text-white/60 text-lg leading-relaxed">
+      Whether you want to live in one side while tenants pay the other, or go fully passive with our management — we make it simple. From land to leased units, we handle the work so you collect the profit.
+    </p>
+  </div>
+</section>
 
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="py-24">
   <div class="max-w-7xl mx-auto px-6">
-
-    <h2 class="text-5xl text-center mb-16">
-      Recent Projects
-    </h2>
-
+    <h2 class="section-heading text-5xl text-center mb-16">Recent Projects</h2>
     <div class="grid md:grid-cols-3 gap-8">
-
-      <!-- PROJECT 1 -->
       <div class="rounded-2xl overflow-hidden group">
         <img src="duplex2.jpg" class="w-full h-[300px] object-cover group-hover:scale-105 transition duration-500">
       </div>
-
-      <!-- PROJECT 2 -->
       <div class="rounded-2xl overflow-hidden group">
         <img src="duplex3.jpg" class="w-full h-[300px] object-cover group-hover:scale-105 transition duration-500">
       </div>
-
-      <!-- PROJECT 3 -->
       <div class="rounded-2xl overflow-hidden group">
         <img src="windsor.jpg" class="w-full h-[300px] object-cover group-hover:scale-105 transition duration-500">
       </div>
-
     </div>
-
   </div>
-
 </section>
-<!-- ===================================================== -->
-<!-- ===================== PROCESS ======================== -->
-<!-- ===================================================== -->
-<section id="process" class="py-24">
 
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="py-24 bg-[#0F141A]">
   <div class="max-w-6xl mx-auto px-6 text-center">
-
-    <h2 class="text-5xl mb-16">
-      Our Process
-    </h2>
-
+    <h2 class="section-heading text-5xl mb-16">Our Process</h2>
     <div class="grid md:grid-cols-3 gap-12">
-
       <div>
         <h3 class="text-xl mb-3 text-[#D4AF7F]">01. Plan</h3>
-        <p>We handle land acquisition, planning, and permitting.</p>
+        <p class="text-white/60">We handle land acquisition, planning, and permitting.</p>
       </div>
-
       <div>
         <h3 class="text-xl mb-3 text-[#D4AF7F]">02. Build</h3>
-        <p>We construct premium duplexes designed for cash flow.</p>
+        <p class="text-white/60">We construct premium duplexes designed for cash flow.</p>
+      </div>
+      <div>
+        <h3 class="text-xl mb-3 text-[#D4AF7F]">03. Profit</h3>
+        <p class="text-white/60">Optional management creates passive monthly income.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== BLOG PREVIEW ===== -->
+<section id="blog" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem;">
+      <h2 class="section-heading text-5xl">Latest Insights</h2>
+      <a href="blog.html" style="font-size:0.85rem; font-weight:500; color:rgba(212,175,127,0.8); text-decoration:none; letter-spacing:0.04em;">
+        View All Posts →
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="blog-card">
+        <span class="blog-tag">Wealth Strategy</span>
+        <h3 class="blog-title">Why Retired Athletes Are Turning to 4400 sq ft Duplexes for Long-Term Wealth</h3>
+        <p class="blog-excerpt">Protect your money after the spotlight fades. Real assets, real cash flow — what the pros are doing now.</p>
+        <a href="blog.html#post1" class="blog-read-more">Read More →</a>
+      </div>
+      <div class="blog-card">
+        <span class="blog-tag">Investment Strategy</span>
+        <h3 class="blog-title">Live in One Side, Rent the Other – The Smart Duplex Strategy</h3>
+        <p class="blog-excerpt">Move in and let tenants pay your mortgage. Many owners cover 70–90% of their payment with rental income.</p>
+        <a href="blog.html#post2" class="blog-read-more">Read More →</a>
+      </div>
+      <div class="blog-card">
+        <span class="blog-tag">Cash Flow</span>
+        <h3 class="blog-title">Room-by-Room Leasing vs Traditional Rentals – Real Numbers</h3>
+        <p class="blog-excerpt">Traditional single-tenant rentals leave money on the table. Our bedroom-by-bedroom approach delivers stronger returns.</p>
+        <a href="blog.html" class="blog-read-more">Read More →</a>
+      </div>
+    </div>
+
+    <!-- Quiz link lives here -->
+    <div style="text-align:center; margin-top:3.5rem;">
+      <p style="color:rgba(255,255,255,0.3); font-size:0.82rem; margin-bottom:0.75rem;">Not sure where to start?</p>
+      <a href="#quiz" class="btn-hero btn-hero-secondary" style="display:inline-flex; font-size:0.88rem;">
+        Take the 2-Min Investment Quiz ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===== REVIEWS ===== -->
+<section id="reviews" class="py-24 bg-[#0F141A]">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-heading text-5xl text-center mb-16">Trusted by Champions and Smart Investors</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="why-card p-8 rounded-2xl">
+        <p class="text-white/70 leading-relaxed mb-4 italic">"OCP built quality duplexes that actually cash flow."</p>
+        <p class="text-[#D4AF7F] text-sm font-medium">— Henry Cejudo</p>
+      </div>
+      <div class="why-card p-8 rounded-2xl">
+        <p class="text-white/70 leading-relaxed mb-4 italic">"Professional team, great communication."</p>
+        <p class="text-[#D4AF7F] text-sm font-medium">— Tracy Cortez</p>
+      </div>
+      <div class="why-card p-8 rounded-2xl">
+        <p class="text-white/70 leading-relaxed mb-4 italic">"Would use again."</p>
+        <p class="text-[#D4AF7F] text-sm font-medium">— Kelvin Gastelum</p>
+      </div>
+      <div class="why-card p-8 rounded-2xl">
+        <p class="text-white/70 leading-relaxed mb-4 italic">"Started investing early so I wouldn't go broke later — this is how you do it."</p>
+        <p class="text-[#D4AF7F] text-sm font-medium">— Investor Philosophy</p>
+      </div>
+    </div>
+    <p style="text-align:center; color:rgba(255,255,255,0.3); font-size:0.85rem; margin-top:2.5rem;">
+      Perfect for retired athletes and high-income professionals who want passive income without headaches.
+    </p>
+  </div>
+</section>
+
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-24 text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="section-heading text-5xl mb-6">Start Your Investment Journey</h2>
+    <p class="mb-10 text-lg text-white/60">Book a quick call and see if this model fits your goals.</p>
+    <a href="#" class="btn-primary-dark">Book a Free 15-Min Consultation →</a>
+  </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer-bg pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+
+      <div>
+        <img src="ocp-logo-dark.png" style="height:28px; margin-bottom:1rem;">
+        <p style="color:rgba(255,255,255,0.35); font-size:0.82rem; line-height:1.7;">Arizona's Premier<br>Investment Build Partner</p>
       </div>
 
       <div>
-        <h3 class="text-xl mb-3 text-[#D4AF7F]">03. Profit</h3>
-        <p>Optional management creates passive monthly income.</p>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Info</p>
+        <div style="display:flex; flex-direction:column; gap:0.65rem;">
+          <a href="#process"  style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">How it Works</a>
+          <a href="#"         style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">About Us</a>
+          <a href="#packages" style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">Services</a>
+          <a href="#projects" style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">Projects</a>
+        </div>
+      </div>
+
+      <div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Questions</p>
+        <div style="display:flex; flex-direction:column; gap:0.65rem;">
+          <a href="tel:6234766576" style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">📞 623-476-6576</a>
+          <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">Mon–Fri, 12–5pm</p>
+          <a href="mailto:skraca@outlook.com" style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">✉️ skraca@outlook.com</a>
+        </div>
+      </div>
+
+      <div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Stay Updated</p>
+        <div style="display:flex; gap:0.5rem; margin-bottom:0.6rem;">
+          <input type="email" placeholder="Your email" style="flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:999px; padding:0.5rem 1rem; color:white; font-size:0.8rem; outline:none; font-family:'DM Sans',sans-serif; min-width:0;">
+          <button style="background:rgba(212,175,127,0.12); border:1px solid rgba(212,175,127,0.25); color:rgba(212,175,127,0.85); border-radius:999px; padding:0.5rem 0.9rem; font-size:0.78rem; cursor:pointer; font-family:'DM Sans',sans-serif; white-space:nowrap;">
+            Subscribe
+          </button>
+        </div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.72rem;">By subscribing you agree to our Privacy Policy.</p>
       </div>
 
     </div>
 
-  </div>
-
-</section>
-<!-- ===================================================== -->
-<!-- ===================== CONTACT ======================== -->
-<!-- ===================================================== -->
-<section id="contact" class="py-24 bg-[#0F141A] text-center">
-
-  <div class="max-w-4xl mx-auto px-6">
-
-    <h2 class="text-5xl mb-6">
-      Start Your Investment Journey
-    </h2>
-
-    <p class="mb-10 text-lg text-white/70">
-      Book a quick call and see if this model fits your goals.
-    </p>
-
-    <a href="#"
-       class="btn-primary px-10 py-5 rounded-2xl text-xl font-semibold">
-      Book a Free 15-Min Consultation
-    </a>
+    <div style="padding-top:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <p style="color:rgba(255,255,255,0.2); font-size:0.78rem;">© 2026 OCP Builds. All rights reserved.</p>
+      <a href="#" style="color:rgba(255,255,255,0.2); font-size:0.78rem; text-decoration:none;">Privacy Policy</a>
+    </div>
 
   </div>
-
-</section>
-<!-- ===================================================== -->
-<!-- ====================== FOOTER ======================== -->
-<!-- ===================================================== -->
-<footer class="py-10 text-center text-white/40 text-sm">
-  © 2026 OCP Builds. All rights reserved.
 </footer>
+
 </body>
 </html>
