@@ -45,28 +45,55 @@
       letter-spacing: -0.02em;
     }
 
-    /* ================= NAVBAR ================= */
+  /* ================= NAVBAR ================= */
 .nav-bg {
-  background: rgba(31, 41, 55, 0.75);   /* ← Change this rgba for different grey */
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  /* Darker, richer charcoal — Story's secret sauce */
+  background: rgba(15, 22, 33, 0.82);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  
+  /* Always fixed — no scroll trigger needed */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  
+  /* Subtle bottom border for depth */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .nav-link {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: 0.4px;
-  color: rgba(255,255,255,0.85);
+  font-family: 'DM Sans', sans-serif; /* Swap Inter for DM Sans — rounder, more elegant */
+  font-size: 1rem;
+  font-weight: 400;           /* Lighter than 500 — Story uses regular weight */
+  letter-spacing: 0.02em;     /* Subtle but present */
+  color: rgba(255, 255, 255, 0.78);
+  padding: 0 1.25rem;         /* More horizontal space between links */
+  transition: color 0.2s ease;
 }
 
 .nav-link:hover {
-  color: white;
+  color: rgba(255, 255, 255, 1);
 }
 
-    .nav-link:hover {
-      color: white;
-    }
+/* CTA Button — Story's rounded pill style */
+.nav-cta {
+  background: #1e6fff;         /* or your brand color */
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.55rem 1.4rem;
+  border-radius: 999px;        /* Full pill */
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.nav-cta:hover {
+  background: #3d7fff;
+  transform: translateX(1px);  /* Story's subtle arrow-nudge feel */
+}
 
     /* ================= HERO ================= */
     .hero-bg {
