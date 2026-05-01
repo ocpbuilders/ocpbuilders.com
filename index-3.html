@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCP Builds | From Raw Land to Monthly Rent Checks</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fraunces:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #1A1A1A;
+      color: #E5E7EB;
+    }
+
+    /* ===== NAVBAR ===== */
+    .nav-bg {
+      background: rgba(45, 45, 45, 0.92);
+      backdrop-filter: blur(32px) saturate(140%) brightness(0.95);
+      -webkit-backdrop-filter: blur(32px) saturate(140%) brightness(0.95);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      color: rgba(235, 230, 220, 0.85);
+      padding: 0 1rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-link:hover { color: #f5f0e6; }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 62px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-cta {
+      background: rgba(200, 195, 185, 0.1);
+      border: 1px solid rgba(200, 195, 185, 0.22);
+      color: rgba(230, 225, 215, 0.9);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.48rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      background: rgba(200, 195, 185, 0.2);
+      border-color: rgba(200, 195, 185, 0.35);
+    }
+
+    /* ===== HERO ===== */
+    .hero-bg {
+      background:
+        linear-gradient(105deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.15) 100%),
+        url('hero-duplex.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      padding-top: 62px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(168, 180, 192, 0.85);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: clamp(3.2rem, 5.5vw, 6rem);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      color: white;
+      max-width: 900px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      max-width: 400px;
+      line-height: 1.65;
+      margin-bottom: 2.75rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    .btn-hero {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.8rem 1.75rem;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .btn-hero-primary {
+      background: white;
+      color: #0B0F14;
+      border: 1px solid white;
+    }
+    .btn-hero-primary:hover {
+      background: rgba(255,255,255,0.88);
+      transform: translateY(-1px);
+    }
+
+    .btn-hero-secondary {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+    .btn-hero-secondary:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    /* ===== CARDS ===== */
+    .why-card {
+      background: linear-gradient(145deg, #2A2A2A, #1A1A1A);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.3s ease;
+    }
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    /* ===== BLOG CARDS ===== */
+    .blog-card {
+      background: linear-gradient(145deg, #2A2A2A, #1E1E1E);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .blog-card:hover {
+      transform: scale(1.025);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .blog-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(168, 180, 192, 0.8);
+    }
+
+    .blog-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 1.2rem;
+      line-height: 1.35;
+      color: white;
+    }
+
+    .blog-excerpt {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .blog-read-more {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: rgba(168, 180, 192, 0.85);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s ease;
+      margin-top: 0.5rem;
+    }
+    .blog-read-more:hover { color: rgba(168, 180, 192, 1); }
+
+    .section-heading {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-bg {
+      background: #141414;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .btn-primary-dark {
+      display: inline-flex;
+      align-items: center;
+      background: white;
+      color: #0B0F14;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.85rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-primary-dark:hover {
+      background: rgba(255,255,255,0.88);
+      transform: translateY(-1px);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; animation: fadeUp 0.85s ease forwards; }
+    .d1 { animation-delay: 0.05s; }
+    .d2 { animation-delay: 0.2s; }
+    .d3 { animation-delay: 0.35s; }
+    .d4 { animation-delay: 0.5s; }
+
+    /* ===== WHY BUILD SECTION ===== */
+    .stat-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 1.25rem;
+      padding: 1.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .stat-number {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 2.8rem;
+      letter-spacing: -0.03em;
+      color: white;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+
+    .canelo-quote {
+      background: linear-gradient(135deg, rgba(212,175,127,0.08) 0%, rgba(212,175,127,0.03) 100%);
+      border: 1px solid rgba(212,175,127,0.18);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .canelo-quote::before {
+      content: '"';
+      font-family: 'Fraunces', serif;
+      font-size: 6rem;
+      color: rgba(212,175,127,0.15);
+      position: absolute;
+      top: -1rem;
+      left: 1.5rem;
+      line-height: 1;
+    }
+
+    .advantage-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .advantage-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(212,175,127,0.7);
+      flex-shrink: 0;
+    }
+
+    .duplex-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .duplex-feature:last-child { border-bottom: none; }
+
+    .duplex-feature-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(212,175,127,0.1);
+      border: 1px solid rgba(212,175,127,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .section-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(212,175,127,0.4);
+      margin: 1.25rem 0;
+    }
+
+    .gold { color: rgba(212,175,127,0.85); }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="nav-bg">
+  <div class="nav-inner">
+    <a href="index.html"><img src="ocp-logo-dark.png" style="height:30px;"></a>
+    <div style="display:flex; align-items:center;">
+      <a href="projects.html"  class="nav-link">Projects</a>
+      <a href="packages.html"  class="nav-link">Packages & Pricing</a>
+      <a href="process.html"   class="nav-link">Process</a>
+      <a href="financing.html" class="nav-link">Financing</a>
+      <a href="reviews.html"   class="nav-link">Reviews</a>
+      <a href="blog.html"      class="nav-link">Blog</a>
+      <a href="leasing.html"   class="nav-link">Leasing</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+
+<!-- ===== HERO ===== -->
+<section class="hero-bg">
+  <div class="hero-inner">
+    <p class="hero-eyebrow fade-up d1">Arizona's Premier Investment Build Partner</p>
+    <h1 class="hero-headline fade-up d2">
+      Build Income-Producing<br>Properties Without the Headache
+    </h1>
+    <p class="hero-sub fade-up d3">
+      From raw land to monthly rent checks — we handle everything.
+    </p>
+    <div class="hero-buttons fade-up d4">
+      <a href="contact.html" class="btn-hero btn-hero-primary">
+        Book a Free 15-Min Consultation →
+      </a>
+      <a href="#quiz" class="btn-hero btn-hero-secondary">
+        Take the 2-Min Investment Quiz ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== WHY US ===== -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-heading text-5xl text-center mb-16">Why Serious Investors Choose Us</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="why-card p-10 rounded-3xl">
+        <h3 class="text-2xl mb-4 text-[#A8B4C0]">You Own & Rent What We Build</h3>
+        <p class="text-white/60 leading-relaxed">Our signature 4400 sq ft duplexes include 4 en-suite bedrooms per side with possible private balconies. Each building is constructed under one roof and separated by a fire wall, designed for maximum long-term cash flow.</p>
+      </div>
+      <div class="why-card p-10 rounded-3xl">
+        <h3 class="text-2xl mb-4 text-[#A8B4C0]">Flexible Builds</h3>
+        <p class="text-white/60 leading-relaxed">Premium in-house design-build with land acquisition, plans, and permitting fully managed. Choose full turnkey management with room-by-room leasing for truly passive income, or simply take the premium build.</p>
+      </div>
+      <div class="why-card p-10 rounded-3xl">
+        <h3 class="text-2xl mb-4 text-[#A8B4C0]">Freedom Options</h3>
+        <p class="text-white/60 leading-relaxed">Whether you already have land and financing or prefer our streamlined all-in-one approach, we adapt to what works best for you — from new duplex construction to fully custom homes and remodels.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== WHY BUILD INCOME PROPERTIES WITH OCP ===== -->
+<section class="py-24 bg-[#111111]">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="mb-16">
+      <p style="font-size:0.72rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:rgba(212,175,127,0.7); margin-bottom:1rem;">The Case for Income Properties</p>
+      <h2 class="section-heading text-5xl mb-6">Why Build Income Properties<br>with OCP</h2>
+      <div class="section-divider"></div>
+      <p class="text-white/55 text-lg leading-relaxed max-w-3xl">
+        The statistics are sobering — and they tell a story that most high earners never see coming until it's too late.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-5 mb-16">
+      <div class="stat-card">
+        <span class="stat-number">78%</span>
+        <span class="stat-label">of former NFL players face bankruptcy or serious financial stress within two years of retirement</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">60%</span>
+        <span class="stat-label">of former NBA players are broke within five years of leaving the game</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">$0</span>
+        <span class="stat-label">— what peak income generates after your career ends, unless you built real assets while you were earning</span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 mb-16 items-start">
+      <div class="canelo-quote">
+        <p class="text-white/75 text-lg leading-relaxed mb-4" style="position:relative; z-index:1;">
+          Canelo Álvarez recognized this truth early. While dominating in the ring, he built a powerful real estate portfolio and multiple businesses that now generate millions per month.
+        </p>
+        <p class="text-white/55 leading-relaxed mb-6" style="position:relative; z-index:1;">
+          His strategy was simple: <span class="gold">invest while you are earning.</span> If one investment does not work, you can always continue working. When you own strong income-producing assets, your money works for you long after your career or business evolves.
+        </p>
+        <p class="text-white/40 text-sm italic" style="position:relative; z-index:1;">The same strategy now available to every serious investor working with OCP.</p>
+      </div>
+
+      <div>
+        <p class="text-white/70 leading-relaxed mb-6">
+          This is why smart professionals, athletes, entrepreneurs, and high-income families are choosing to build income properties with OCP in Arizona. Real estate remains the ultimate wealth-building vehicle — delivering three powerful advantages most investments cannot match:
+        </p>
+        <div style="display:flex; flex-direction:column; gap:0.75rem;">
+          <div class="advantage-pill">
+            <span class="advantage-dot"></span>
+            Reliable monthly cash flow from tenants
+          </div>
+          <div class="advantage-pill">
+            <span class="advantage-dot"></span>
+            Forced appreciation you control through quality construction
+          </div>
+          <div class="advantage-pill">
+            <span class="advantage-dot"></span>
+            Tax benefits — depreciation, mortgage interest deductions, 1031 exchanges
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: linear-gradient(145deg, #1E1E1E, #191919); border: 1px solid rgba(255,255,255,0.06); border-radius: 1.75rem; padding: 3rem; margin-bottom: 3rem;">
+      <p style="font-size:0.7rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(212,175,127,0.6); margin-bottom:0.75rem;">The Flagship Model</p>
+      <h3 class="section-heading text-3xl mb-3">Our Signature 4400 sq ft 8×8 Duplex</h3>
+      <p class="text-white/50 mb-8 leading-relaxed max-w-2xl">We engineered a true cash-flow machine. Eight oversized bedrooms with private bathrooms, high-quality finishes, and smart layouts that attract responsible tenants who want both privacy and community.</p>
+
+      <div class="grid md:grid-cols-2 gap-x-12">
+        <div>
+          <div class="duplex-feature">
+            <div class="duplex-feature-icon">🏠</div>
+            <div>
+              <p style="font-weight:500; color:rgba(255,255,255,0.85); margin-bottom:0.25rem;">8 Separate Income Streams</p>
+              <p class="text-white/45 text-sm leading-relaxed">Room-by-room leasing fundamentally changes the economics. One property, eight rental income streams instead of one or two.</p>
+            </div>
+          </div>
+          <div class="duplex-feature">
+            <div class="duplex-feature-icon">📉</div>
+            <div>
+              <p style="font-weight:500; color:rgba(255,255,255,0.85); margin-bottom:0.25rem;">Lower Vacancy Risk</p>
+              <p class="text-white/45 text-sm leading-relaxed">Distributed tenancy means one vacancy doesn't stop your cash flow. Traditional rentals leave you fully exposed.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="duplex-feature">
+            <div class="duplex-feature-icon">💰</div>
+            <div>
+              <p style="font-weight:500; color:rgba(255,255,255,0.85); margin-bottom:0.25rem;">Flexibility to Live or Go Passive</p>
+              <p class="text-white/45 text-sm leading-relaxed">Live in one bedroom or one side while tenants pay the mortgage — or enjoy completely hands-off passive income.</p>
+            </div>
+          </div>
+          <div class="duplex-feature">
+            <div class="duplex-feature-icon">🏗️</div>
+            <div>
+              <p style="font-weight:500; color:rgba(255,255,255,0.85); margin-bottom:0.25rem;">Built to Last</p>
+              <p class="text-white/45 text-sm leading-relaxed">Superior materials and elevated standards mean lower long-term maintenance, better tenant retention, and stronger resale value.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 mb-14">
+      <div>
+        <h3 class="section-heading text-2xl mb-4">Built for Serious Investors</h3>
+        <p class="text-white/55 leading-relaxed">
+          Once land is secured and permits are approved, we complete construction in <span style="color:rgba(255,255,255,0.85);">six months or less.</span> This fast, high-quality build timeline lets you start generating rental income faster while maintaining the premium standards our clients expect.
+        </p>
+      </div>
+      <div>
+        <h3 class="section-heading text-2xl mb-4">The OCP Advantage</h3>
+        <p class="text-white/55 leading-relaxed mb-3">
+          We do far more than just build. OCP is your complete partner — combining expert land acquisition, architectural excellence, strategic financing options, superior construction, and professional tenant placement and management.
+        </p>
+        <p class="text-white/55 leading-relaxed">
+          Whether you want an active owner-occupant duplex or a fully hands-off investment property, we create high-performing assets tailored to your goals.
+        </p>
+      </div>
+    </div>
+
+    <div style="background: linear-gradient(135deg, rgba(212,175,127,0.07), rgba(212,175,127,0.02)); border: 1px solid rgba(212,175,127,0.15); border-radius: 1.5rem; padding: 2.5rem 3rem; text-align:center;">
+      <p class="section-heading text-2xl mb-3" style="color:white;">One well-built duplex, executed the right way, can replace years of traditional retirement savings.</p>
+      <p class="text-white/45 mb-6">Ready to build your income legacy while you're still earning?</p>
+      <a href="contact.html" class="btn-primary-dark">Contact OCP Builds Today →</a>
+      <p style="margin-top:1.5rem; font-size:0.75rem; font-weight:500; letter-spacing:0.08em; color:rgba(212,175,127,0.5); text-transform:uppercase;">Quality Built. Income Optimized. Future Secured.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-heading text-5xl text-center mb-16">Recent Projects</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="rounded-2xl overflow-hidden group">
+        <img src="duplex2.jpg" class="w-full h-[300px] object-cover group-hover:scale-105 transition duration-500">
+      </div>
+      <div class="rounded-2xl overflow-hidden group">
+        <img src="duplex3.jpg" class="w-full h-[300px] object-cover group-hover:scale-105 transition duration-500">
+      </div>
+      <div class="rounded-2xl overflow-hidden group">
+        <img src="windsor.jpg" class="w-full h-[300px] object-cover group-hover:scale-105 transition duration-500">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== PROCESS TEASER ===== -->
+<section id="process" class="py-24 bg-[#0F141A]">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <p style="font-size:0.72rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:rgba(212,175,127,0.7); margin-bottom:1rem;">From First Call to Cash Flow</p>
+    <h2 class="section-heading text-5xl mb-6">Our Process</h2>
+    <div class="section-divider" style="margin: 0 auto 1.5rem;"></div>
+    <p class="text-white/55 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
+      A seamless, transparent experience from the first conversation to long-term cash flow. One team. No juggling contractors, realtors, or property managers.
+    </p>
+    <div class="grid md:grid-cols-4 gap-6 mb-12">
+      <div style="text-align:center;">
+        <p class="gold" style="font-size:1.6rem; font-weight:300; font-family:'Fraunces',serif; margin-bottom:0.35rem;">01</p>
+        <p style="color:rgba(255,255,255,0.65); font-size:0.88rem;">Discovery & Strategy</p>
+      </div>
+      <div style="text-align:center;">
+        <p class="gold" style="font-size:1.6rem; font-weight:300; font-family:'Fraunces',serif; margin-bottom:0.35rem;">02</p>
+        <p style="color:rgba(255,255,255,0.65); font-size:0.88rem;">Land & Permitting</p>
+      </div>
+      <div style="text-align:center;">
+        <p class="gold" style="font-size:1.6rem; font-weight:300; font-family:'Fraunces',serif; margin-bottom:0.35rem;">03</p>
+        <p style="color:rgba(255,255,255,0.65); font-size:0.88rem;">Build & Construction</p>
+      </div>
+      <div style="text-align:center;">
+        <p class="gold" style="font-size:1.6rem; font-weight:300; font-family:'Fraunces',serif; margin-bottom:0.35rem;">04</p>
+        <p style="color:rgba(255,255,255,0.65); font-size:0.88rem;">Tenants & Income</p>
+      </div>
+    </div>
+    <a href="process.html" class="btn-primary-dark">See the Full Process →</a>
+  </div>
+</section>
+
+
+<!-- ===== BLOG PREVIEW ===== -->
+<section id="blog" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem;">
+      <h2 class="section-heading text-5xl">Latest Insights</h2>
+      <a href="blog.html" style="font-size:0.85rem; font-weight:500; color:rgba(212,175,127,0.8); text-decoration:none; letter-spacing:0.04em;">
+        View All Posts →
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="blog-card">
+        <span class="blog-tag">Wealth Strategy</span>
+        <h3 class="blog-title">Why Retired Athletes Are Turning to 4400 sq ft Duplexes for Long-Term Wealth</h3>
+        <p class="blog-excerpt">Protect your money after the spotlight fades. Real assets, real cash flow — what the pros are doing now.</p>
+        <a href="blog-post1.html" class="blog-read-more">Read More →</a>
+      </div>
+      <div class="blog-card">
+        <span class="blog-tag">Investment Strategy</span>
+        <h3 class="blog-title">Live in One Side, Rent the Other – The Smart Duplex Strategy</h3>
+        <p class="blog-excerpt">Move in and let tenants pay your mortgage. Many owners cover 70–90% of their payment with rental income.</p>
+        <a href="blog-post2.html" class="blog-read-more">Read More →</a>
+      </div>
+      <div class="blog-card">
+        <span class="blog-tag">Cash Flow</span>
+        <h3 class="blog-title">Room-by-Room Leasing vs Traditional Rentals – Real Numbers</h3>
+        <p class="blog-excerpt">Traditional single-tenant rentals leave money on the table. Our bedroom-by-bedroom approach delivers stronger returns.</p>
+        <a href="blog-post3.html" class="blog-read-more">Read More →</a>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:3.5rem;">
+      <p style="color:rgba(255,255,255,0.3); font-size:0.82rem; margin-bottom:0.75rem;">Not sure where to start?</p>
+      <a href="#quiz" class="btn-hero btn-hero-secondary" style="display:inline-flex; font-size:0.88rem;">
+        Take the 2-Min Investment Quiz ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===== REVIEWS ===== -->
+<section id="reviews" class="py-24 bg-[#0F141A]">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="section-heading text-5xl text-center mb-16">Trusted by Champions and Smart Investors</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="why-card p-8 rounded-2xl">
+        <p class="text-white/70 leading-relaxed mb-4 italic">"OCP built quality duplexes that actually cash flow."</p>
+        <p class="text-[#A8B4C0] text-sm font-medium">— Henry Cejudo</p>
+      </div>
+      <div class="why-card p-8 rounded-2xl">
+        <p class="text-white/70 leading-relaxed mb-4 italic">"Professional team, great communication."</p>
+        <p class="text-[#A8B4C0] text-sm font-medium">— Tracy Cortez</p>
+      </div>
+      <div class="why-card p-8 rounded-2xl">
+        <p class="text-white/70 leading-relaxed mb-4 italic">"Would use again."</p>
+        <p class="text-[#A8B4C0] text-sm font-medium">— Kelvin Gastelum</p>
+      </div>
+      <div class="why-card p-8 rounded-2xl">
+        <p class="text-white/70 leading-relaxed mb-4 italic">"Started investing early so I wouldn't go broke later — this is how you do it."</p>
+        <p class="text-[#A8B4C0] text-sm font-medium">— Investor Philosophy</p>
+      </div>
+    </div>
+    <p style="text-align:center; color:rgba(255,255,255,0.3); font-size:0.85rem; margin-top:2.5rem;">
+      Perfect for retired athletes and high-income professionals who want passive income without headaches.
+    </p>
+  </div>
+</section>
+
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-24 text-center">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="section-heading text-5xl mb-6">Start Your Investment Journey</h2>
+    <p class="mb-10 text-lg text-white/60">Book a quick call and see if this model fits your goals.</p>
+    <a href="contact.html" class="btn-primary-dark">Book a Free 15-Min Consultation →</a>
+  </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer-bg pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+
+      <div>
+        <img src="ocp-logo-dark.png" style="height:28px; margin-bottom:1rem;">
+        <p style="color:rgba(255,255,255,0.35); font-size:0.82rem; line-height:1.7;">Arizona's Premier<br>Investment Build Partner</p>
+      </div>
+
+      <div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Info</p>
+        <div style="display:flex; flex-direction:column; gap:0.65rem;">
+          <a href="process.html"   style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">How it Works</a>
+          <a href="#"              style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">About Us</a>
+          <a href="packages.html"  style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">Services</a>
+          <a href="projects.html"  style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">Projects</a>
+        </div>
+      </div>
+
+      <div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Questions</p>
+        <div style="display:flex; flex-direction:column; gap:0.65rem;">
+          <a href="tel:6234766576" style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">📞 623-476-6576</a>
+          <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">Mon–Fri, 12–5pm</p>
+          <a href="mailto:skraca@outlook.com" style="color:rgba(255,255,255,0.5); font-size:0.85rem; text-decoration:none;">✉️ skraca@outlook.com</a>
+        </div>
+      </div>
+
+      <div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.68rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem;">Stay Updated</p>
+        <div style="display:flex; gap:0.5rem; margin-bottom:0.6rem;">
+          <input type="email" placeholder="Your email" style="flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:999px; padding:0.5rem 1rem; color:white; font-size:0.8rem; outline:none; font-family:'DM Sans',sans-serif; min-width:0;">
+          <button style="background:rgba(212,175,127,0.12); border:1px solid rgba(212,175,127,0.25); color:rgba(212,175,127,0.85); border-radius:999px; padding:0.5rem 0.9rem; font-size:0.78rem; cursor:pointer; font-family:'DM Sans',sans-serif; white-space:nowrap;">
+            Subscribe
+          </button>
+        </div>
+        <p style="color:rgba(255,255,255,0.2); font-size:0.72rem;">By subscribing you agree to our Privacy Policy.</p>
+      </div>
+
+    </div>
+
+    <div style="padding-top:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <p style="color:rgba(255,255,255,0.2); font-size:0.78rem;">© 2026 OCP Builds. All rights reserved.</p>
+      <a href="#" style="color:rgba(255,255,255,0.2); font-size:0.78rem; text-decoration:none;">Privacy Policy</a>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
