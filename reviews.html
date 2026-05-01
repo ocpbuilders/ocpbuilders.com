@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews | OCP Builds</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fraunces:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'DM Sans',sans-serif; background:#1A1A1A; color:#E5E7EB; }
+    .nav-bg { background:rgba(22,22,22,0.82); backdrop-filter:blur(32px) saturate(140%) brightness(0.9); position:fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .nav-inner { max-width:1400px; margin:0 auto; padding:0 2rem; height:62px; display:flex; justify-content:space-between; align-items:center; }
+    .nav-link { font-size:0.88rem; font-weight:400; color:rgba(220,215,205,0.7); padding:0 1rem; text-decoration:none; transition:color 0.2s; white-space:nowrap; }
+    .nav-link:hover { color:rgba(230,225,215,0.98); }
+    .nav-link.active { color:rgba(212,175,127,0.9); }
+    .nav-cta { background:rgba(200,195,185,0.1); border:1px solid rgba(200,195,185,0.22); color:rgba(230,225,215,0.9); font-size:0.85rem; font-weight:500; padding:0.48rem 1.2rem; border-radius:999px; text-decoration:none; }
+    .section-heading { font-family:'Fraunces',serif; font-weight:300; letter-spacing:-0.02em; }
+    .section-divider { width:40px; height:1px; background:rgba(212,175,127,0.4); margin:1.25rem 0; }
+    .page-header { background:linear-gradient(160deg,#0A0F14 0%,#111820 50%,#0F141A 100%); padding:140px 0 80px; position:relative; overflow:hidden; }
+    .page-header::before { content:''; position:absolute; top:-60px; right:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(212,175,127,0.06) 0%,transparent 70%); pointer-events:none; }
+
+    /* Featured review card */
+    .review-featured { background:linear-gradient(145deg,#1E1E1E,#191919); border:1px solid rgba(255,255,255,0.07); border-radius:1.75rem; overflow:hidden; display:grid; }
+    .review-featured.with-photo { grid-template-columns:300px 1fr; }
+    .review-photo { width:100%; height:100%; object-fit:cover; background:linear-gradient(135deg,#222,#2a2a2a); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.15); font-size:0.75rem; letter-spacing:0.08em; text-align:center; flex-direction:column; gap:0.5rem; min-height:320px; }
+    .review-photo-placeholder-icon { font-size:2rem; opacity:0.3; }
+    .review-body { padding:2.5rem; display:flex; flex-direction:column; justify-content:center; gap:1rem; }
+    .review-quote-mark { font-family:'Fraunces',serif; font-size:5rem; color:rgba(212,175,127,0.12); line-height:1; margin-bottom:-1.5rem; }
+    .review-text { font-size:1.05rem; color:rgba(255,255,255,0.7); line-height:1.8; font-style:italic; }
+    .review-name { font-weight:500; color:rgba(212,175,127,0.85); font-size:0.95rem; }
+    .review-title { font-size:0.78rem; color:rgba(255,255,255,0.35); margin-top:0.15rem; }
+
+    /* Standard review card */
+    .review-card { background:linear-gradient(145deg,#222,#1C1C1C); border:1px solid rgba(255,255,255,0.06); border-radius:1.5rem; overflow:hidden; }
+    .review-card-photo { width:100%; height:200px; object-fit:cover; background:linear-gradient(135deg,#222,#2a2a2a); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.15); font-size:0.72rem; letter-spacing:0.08em; text-align:center; flex-direction:column; gap:0.4rem; }
+    .review-card-body { padding:1.75rem; }
+    .review-card-quote { font-size:0.95rem; color:rgba(255,255,255,0.6); line-height:1.75; font-style:italic; margin-bottom:1rem; }
+    .review-card-name { color:rgba(212,175,127,0.8); font-weight:500; font-size:0.88rem; }
+    .review-card-title { color:rgba(255,255,255,0.3); font-size:0.75rem; margin-top:0.15rem; }
+    .stars { color:rgba(212,175,127,0.7); font-size:0.85rem; letter-spacing:0.05em; margin-bottom:0.75rem; }
+
+    .footer-bg { background:#141414; border-top:1px solid rgba(255,255,255,0.06); }
+    .btn-primary-dark { display:inline-flex; align-items:center; background:white; color:#0B0F14; font-size:0.95rem; font-weight:500; padding:0.85rem 2rem; border-radius:999px; text-decoration:none; transition:background 0.2s,transform 0.15s; }
+    .btn-primary-dark:hover { background:rgba(255,255,255,0.88); transform:translateY(-1px); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    .fade-up { opacity:0; animation:fadeUp 0.8s ease forwards; }
+    .d1{animation-delay:0.05s} .d2{animation-delay:0.2s} .d3{animation-delay:0.35s}
+  </style>
+</head>
+<body>
+
+<nav class="nav-bg">
+  <div class="nav-inner">
+    <a href="index.html"><img src="ocp-logo-dark.png" style="height:30px;"></a>
+    <div style="display:flex;align-items:center;">
+      <a href="index.html#projects"  class="nav-link">Projects</a>
+      <a href="packages.html"        class="nav-link">Packages & Pricing</a>
+      <a href="process.html"         class="nav-link">Process</a>
+      <a href="financing.html"       class="nav-link">Financing</a>
+      <a href="reviews.html"         class="nav-link active">Reviews</a>
+      <a href="blog.html"            class="nav-link">Blog</a>
+      <a href="#"                    class="nav-link">For Owners</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
+    <p class="fade-up d1" style="font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,127,0.7);margin-bottom:1.25rem;">What Our Clients Say</p>
+    <h1 class="section-heading fade-up d2" style="font-size:clamp(3rem,5vw,5.5rem);color:white;line-height:1.05;max-width:700px;margin-bottom:1.5rem;">Trusted by Champions &amp; Smart Investors</h1>
+    <div class="section-divider fade-up d2"></div>
+    <p class="fade-up d3" style="color:rgba(255,255,255,0.5);font-size:1.05rem;line-height:1.7;max-width:580px;margin-top:1.25rem;">Athletes, professionals, and investors who chose to build income properties with OCP — and what they experienced.</p>
+  </div>
+</div>
+
+<section style="padding:5rem 0 7rem;background:#1A1A1A;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2.5rem;">
+
+    <!-- Featured: Henry Cejudo -->
+    <div class="review-featured with-photo" style="margin-bottom:2rem;">
+      <!-- Photo: replace src with review-henry-cejudo.jpg -->
+      <div class="review-photo">
+        <div class="review-photo-placeholder-icon">📷</div>
+        <div style="font-size:0.72rem;padding:0 1rem;">Add photo:<br><strong>review-henry-cejudo.jpg</strong></div>
+      </div>
+      <div class="review-body">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">OCP built quality duplexes that actually cash flow. From the first conversation to the day I got the keys, the process was professional and straightforward. This is exactly the kind of investment I was looking for — real assets that work for me long after I'm done competing.</p>
+        <div>
+          <p class="review-name">Henry Cejudo</p>
+          <p class="review-title">UFC Double Champion — Flyweight &amp; Bantamweight</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured: Tracy Cortez -->
+    <div class="review-featured with-photo" style="margin-bottom:2rem;">
+      <!-- Photo: replace src with review-tracy-cortez.jpg -->
+      <div class="review-photo">
+        <div class="review-photo-placeholder-icon">📷</div>
+        <div style="font-size:0.72rem;padding:0 1rem;">Add photo:<br><strong>review-tracy-cortez.jpg</strong></div>
+      </div>
+      <div class="review-body">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">Professional team, great communication throughout the entire project. They kept me informed at every stage and delivered exactly what was promised. I feel confident in the investment and in the team behind it.</p>
+        <div>
+          <p class="review-name">Tracy Cortez</p>
+          <p class="review-title">UFC Fighter — Women's Flyweight Division</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured: Kelvin Gastelum -->
+    <div class="review-featured with-photo" style="margin-bottom:4rem;">
+      <!-- Photo: replace src with review-kelvin-gastelum.jpg -->
+      <div class="review-photo">
+        <div class="review-photo-placeholder-icon">📷</div>
+        <div style="font-size:0.72rem;padding:0 1rem;">Add photo:<br><strong>review-kelvin-gastelum.jpg</strong></div>
+      </div>
+      <div class="review-body">
+        <div class="review-quote-mark">"</div>
+        <p class="review-text">Would use again. The build quality is real — you can see the difference compared to standard construction. OCP understands what investors actually need and delivers it.</p>
+        <div>
+          <p class="review-name">Kelvin Gastelum</p>
+          <p class="review-title">UFC Fighter — Middleweight Division</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Reviews Grid -->
+    <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">More From Our Clients</p>
+    <h2 class="section-heading" style="font-size:2rem;color:white;margin-bottom:2rem;">Additional Reviews</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Placeholder review 4 -->
+      <div class="review-card">
+        <div class="review-card-photo">
+          <div style="font-size:1.5rem;opacity:0.3;">📷</div>
+          <div>Add photo:<br><strong>review-client4.jpg</strong></div>
+        </div>
+        <div class="review-card-body">
+          <div class="stars">★★★★★</div>
+          <p class="review-card-quote">"Started investing early so I wouldn't go broke later — this is how you do it. One property is already paying for itself."</p>
+          <p class="review-card-name">— Client Name</p>
+          <p class="review-card-title">Add title / profession</p>
+        </div>
+      </div>
+
+      <!-- Placeholder review 5 -->
+      <div class="review-card">
+        <div class="review-card-photo">
+          <div style="font-size:1.5rem;opacity:0.3;">📷</div>
+          <div>Add photo:<br><strong>review-client5.jpg</strong></div>
+        </div>
+        <div class="review-card-body">
+          <div class="stars">★★★★★</div>
+          <p class="review-card-quote">"The room-by-room model was the piece I was missing. OCP explained it clearly and built something I'm proud to own."</p>
+          <p class="review-card-name">— Client Name</p>
+          <p class="review-card-title">Add title / profession</p>
+        </div>
+      </div>
+
+      <!-- Placeholder review 6 -->
+      <div class="review-card">
+        <div class="review-card-photo">
+          <div style="font-size:1.5rem;opacity:0.3;">📷</div>
+          <div>Add photo:<br><strong>review-client6.jpg</strong></div>
+        </div>
+        <div class="review-card-body">
+          <div class="stars">★★★★★</div>
+          <p class="review-card-quote">"Six months from breaking ground to cash flow. The timeline they promised is the timeline they delivered."</p>
+          <p class="review-card-name">— Client Name</p>
+          <p class="review-card-title">Add title / profession</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:#0F141A;padding:6rem 0;text-align:center;">
+  <div style="max-width:620px;margin:0 auto;padding:0 2rem;">
+    <h2 class="section-heading" style="font-size:2.5rem;color:white;margin-bottom:1rem;">Ready to Join Them?</h2>
+    <div class="section-divider" style="margin:0 auto 1.5rem;"></div>
+    <p style="color:rgba(255,255,255,0.45);margin-bottom:2rem;line-height:1.7;">Book a free consultation and find out how OCP can build your income property.</p>
+    <a href="contact.html" class="btn-primary-dark">Book a Free Consultation →</a>
+  </div>
+</section>
+
+<footer class="footer-bg" style="padding-top:4rem;padding-bottom:2rem;">
+  <div style="max-width:1400px;margin:0 auto;padding:0 2.5rem;">
+    <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+      <div><img src="ocp-logo-dark.png" style="height:28px;margin-bottom:1rem;"><p style="color:rgba(255,255,255,0.35);font-size:0.82rem;line-height:1.7;">Arizona's Premier<br>Investment Build Partner</p></div>
+      <div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Info</p>
+        <div style="display:flex;flex-direction:column;gap:0.65rem;">
+          <a href="process.html"  style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">How it Works</a>
+          <a href="#"             style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">About Us</a>
+          <a href="packages.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Services</a>
+          <a href="projects.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Projects</a>
+        </div>
+      </div>
+      <div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Questions</p>
+        <div style="display:flex;flex-direction:column;gap:0.65rem;">
+          <a href="tel:6234766576" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">📞 623-476-6576</a>
+          <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;">Mon–Fri, 12–5pm</p>
+          <a href="mailto:skraca@outlook.com" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">✉️ skraca@outlook.com</a>
+        </div>
+      </div>
+      <div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Stay Updated</p>
+        <div style="display:flex;gap:0.5rem;margin-bottom:0.6rem;">
+          <input type="email" placeholder="Your email" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:0.5rem 1rem;color:white;font-size:0.8rem;outline:none;min-width:0;">
+          <button style="background:rgba(212,175,127,0.12);border:1px solid rgba(212,175,127,0.25);color:rgba(212,175,127,0.85);border-radius:999px;padding:0.5rem 0.9rem;font-size:0.78rem;cursor:pointer;white-space:nowrap;">Subscribe</button>
+        </div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.72rem;">By subscribing you agree to our Privacy Policy.</p>
+      </div>
+    </div>
+    <div style="padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <p style="color:rgba(255,255,255,0.2);font-size:0.78rem;">© 2026 OCP Builds. All rights reserved.</p>
+      <a href="#" style="color:rgba(255,255,255,0.2);font-size:0.78rem;text-decoration:none;">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

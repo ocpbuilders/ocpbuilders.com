@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | OCP Builds</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fraunces:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'DM Sans',sans-serif; background:#1A1A1A; color:#E5E7EB; }
+    .nav-bg { background:rgba(22,22,22,0.82); backdrop-filter:blur(32px) saturate(140%) brightness(0.9); position:fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .nav-inner { max-width:1400px; margin:0 auto; padding:0 2rem; height:62px; display:flex; justify-content:space-between; align-items:center; }
+    .nav-link { font-size:0.88rem; font-weight:400; color:rgba(220,215,205,0.7); padding:0 1rem; text-decoration:none; transition:color 0.2s; white-space:nowrap; }
+    .nav-link:hover { color:rgba(230,225,215,0.98); }
+    .nav-link.active { color:rgba(212,175,127,0.9); }
+    .nav-cta { background:rgba(200,195,185,0.1); border:1px solid rgba(200,195,185,0.22); color:rgba(230,225,215,0.9); font-size:0.85rem; font-weight:500; padding:0.48rem 1.2rem; border-radius:999px; text-decoration:none; }
+    .section-heading { font-family:'Fraunces',serif; font-weight:300; letter-spacing:-0.02em; }
+    .section-divider { width:40px; height:1px; background:rgba(212,175,127,0.4); margin:1.25rem 0; }
+    .page-header { background:linear-gradient(160deg,#0A0F14 0%,#111820 50%,#0F141A 100%); padding:140px 0 80px; position:relative; overflow:hidden; }
+    .page-header::before { content:''; position:absolute; top:-60px; right:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(212,175,127,0.06) 0%,transparent 70%); pointer-events:none; }
+
+    /* Gallery */
+    .gallery-img { width:100%; object-fit:cover; border-radius:1.25rem; display:block; background:linear-gradient(135deg,#222,#2a2a2a); transition:transform 0.4s ease; }
+    .gallery-img-placeholder { width:100%; border-radius:1.25rem; background:linear-gradient(135deg,#222,#2a2a2a); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; color:rgba(255,255,255,0.15); font-size:0.75rem; letter-spacing:0.08em; text-align:center; padding:2rem; }
+    .gallery-wrap { overflow:hidden; border-radius:1.25rem; }
+    .gallery-wrap:hover .gallery-img { transform:scale(1.04); }
+    .gallery-caption { margin-top:0.75rem; font-size:0.8rem; color:rgba(255,255,255,0.35); letter-spacing:0.03em; }
+
+    /* Project feature card */
+    .project-feature { background:linear-gradient(145deg,#1E1E1E,#191919); border:1px solid rgba(255,255,255,0.06); border-radius:1.75rem; overflow:hidden; margin-bottom:4rem; }
+    .project-feature-header { padding:2rem 2.5rem 0; }
+    .project-tag { display:inline-block; background:rgba(212,175,127,0.08); border:1px solid rgba(212,175,127,0.15); color:rgba(212,175,127,0.7); font-size:0.65rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; padding:0.3rem 0.85rem; border-radius:999px; margin-bottom:0.75rem; }
+    .project-name { font-family:'Fraunces',serif; font-weight:300; font-size:1.75rem; color:white; margin-bottom:0.5rem; }
+    .project-desc { color:rgba(255,255,255,0.45); font-size:0.9rem; line-height:1.65; max-width:600px; margin-bottom:1.5rem; }
+    .project-photos { display:grid; gap:1rem; padding:0 2.5rem 2.5rem; }
+    .project-photos.one { grid-template-columns:1fr; }
+    .project-photos.two { grid-template-columns:1fr 1fr; }
+    .project-photos.three { grid-template-columns:2fr 1fr; grid-template-rows:auto auto; }
+    .project-photos.three .main { grid-row:1/3; }
+
+    .footer-bg { background:#141414; border-top:1px solid rgba(255,255,255,0.06); }
+    .btn-primary-dark { display:inline-flex; align-items:center; background:white; color:#0B0F14; font-size:0.95rem; font-weight:500; padding:0.85rem 2rem; border-radius:999px; text-decoration:none; transition:background 0.2s,transform 0.15s; }
+    .btn-primary-dark:hover { background:rgba(255,255,255,0.88); transform:translateY(-1px); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    .fade-up { opacity:0; animation:fadeUp 0.8s ease forwards; }
+    .d1{animation-delay:0.05s} .d2{animation-delay:0.2s} .d3{animation-delay:0.35s}
+  </style>
+</head>
+<body>
+
+<nav class="nav-bg">
+  <div class="nav-inner">
+    <a href="index.html"><img src="ocp-logo-dark.png" style="height:30px;"></a>
+    <div style="display:flex;align-items:center;">
+      <a href="projects.html"        class="nav-link active">Projects</a>
+      <a href="packages.html"        class="nav-link">Packages & Pricing</a>
+      <a href="process.html"         class="nav-link">Process</a>
+      <a href="financing.html"       class="nav-link">Financing</a>
+      <a href="reviews.html"         class="nav-link">Reviews</a>
+      <a href="blog.html"            class="nav-link">Blog</a>
+      <a href="#"                    class="nav-link">For Owners</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
+    <p class="fade-up d1" style="font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,127,0.7);margin-bottom:1.25rem;">Our Work</p>
+    <h1 class="section-heading fade-up d2" style="font-size:clamp(3rem,5vw,5.5rem);color:white;line-height:1.05;max-width:700px;margin-bottom:1.5rem;">Recent Projects</h1>
+    <div class="section-divider fade-up d2"></div>
+    <p class="fade-up d3" style="color:rgba(255,255,255,0.5);font-size:1.05rem;line-height:1.7;max-width:580px;margin-top:1.25rem;">Income-producing properties built to premium standards across the Phoenix metro area. Each one engineered for cash flow, durability, and long-term value.</p>
+  </div>
+</div>
+
+<section style="padding:5rem 0 7rem;background:#1A1A1A;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
+
+    <!-- Project 1: Duplex 1 -->
+    <div class="project-feature">
+      <div class="project-feature-header">
+        <span class="project-tag">4400 sq ft 8×8 Duplex</span>
+        <h2 class="project-name">Project — Duplex Build</h2>
+        <p class="project-desc">Premium income duplex built to OCP's signature 8×8 standard. Eight en-suite bedrooms, superior finishes, and designed for maximum room-by-room rental yield.</p>
+      </div>
+      <div class="project-photos three">
+        <!-- Main large image -->
+        <div class="gallery-wrap main">
+          <div class="gallery-img-placeholder" style="height:400px;">
+            <div style="font-size:2rem;opacity:0.3;">📷</div>
+            <div>Main exterior photo:<br><strong>duplex2.jpg</strong></div>
+          </div>
+        </div>
+        <!-- Side images -->
+        <div class="gallery-wrap">
+          <div class="gallery-img-placeholder" style="height:192px;">
+            <div style="font-size:1.5rem;opacity:0.3;">📷</div>
+            <div>Interior photo:<br><strong>project1-interior1.jpg</strong></div>
+          </div>
+        </div>
+        <div class="gallery-wrap">
+          <div class="gallery-img-placeholder" style="height:192px;">
+            <div style="font-size:1.5rem;opacity:0.3;">📷</div>
+            <div>Interior photo:<br><strong>project1-interior2.jpg</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: Duplex 2 -->
+    <div class="project-feature">
+      <div class="project-feature-header">
+        <span class="project-tag">4400 sq ft 8×8 Duplex</span>
+        <h2 class="project-name">Project — Duplex Build</h2>
+        <p class="project-desc">Another income duplex completed on schedule with OCP's signature construction standards and room-by-room leasing layout.</p>
+      </div>
+      <div class="project-photos three">
+        <div class="gallery-wrap main">
+          <div class="gallery-img-placeholder" style="height:400px;">
+            <div style="font-size:2rem;opacity:0.3;">📷</div>
+            <div>Main exterior photo:<br><strong>duplex3.jpg</strong></div>
+          </div>
+        </div>
+        <div class="gallery-wrap">
+          <div class="gallery-img-placeholder" style="height:192px;">
+            <div style="font-size:1.5rem;opacity:0.3;">📷</div>
+            <div>Interior photo:<br><strong>project2-interior1.jpg</strong></div>
+          </div>
+        </div>
+        <div class="gallery-wrap">
+          <div class="gallery-img-placeholder" style="height:192px;">
+            <div style="font-size:1.5rem;opacity:0.3;">📷</div>
+            <div>Interior photo:<br><strong>project2-interior2.jpg</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Windsor -->
+    <div class="project-feature">
+      <div class="project-feature-header">
+        <span class="project-tag">Custom Build</span>
+        <h2 class="project-name">Windsor Project</h2>
+        <p class="project-desc">A custom build showcasing OCP's craftsmanship beyond the signature duplex model. Premium finishes, superior materials, and attention to every detail.</p>
+      </div>
+      <div class="project-photos three">
+        <div class="gallery-wrap main">
+          <div class="gallery-img-placeholder" style="height:400px;">
+            <div style="font-size:2rem;opacity:0.3;">📷</div>
+            <div>Main exterior photo:<br><strong>windsor.jpg</strong></div>
+          </div>
+        </div>
+        <div class="gallery-wrap">
+          <div class="gallery-img-placeholder" style="height:192px;">
+            <div style="font-size:1.5rem;opacity:0.3;">📷</div>
+            <div>Interior photo:<br><strong>windsor-interior1.jpg</strong></div>
+          </div>
+        </div>
+        <div class="gallery-wrap">
+          <div class="gallery-img-placeholder" style="height:192px;">
+            <div style="font-size:1.5rem;opacity:0.3;">📷</div>
+            <div>Interior photo:<br><strong>windsor-interior2.jpg</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: Placeholder -->
+    <div class="project-feature">
+      <div class="project-feature-header">
+        <span class="project-tag">4400 sq ft 8×8 Duplex</span>
+        <h2 class="project-name">Project — Coming Soon</h2>
+        <p class="project-desc">Additional project photography coming soon. Contact us for more details on completed and in-progress builds.</p>
+      </div>
+      <div class="project-photos two" style="padding:0 2.5rem 2.5rem;">
+        <div class="gallery-wrap">
+          <div class="gallery-img-placeholder" style="height:280px;">
+            <div style="font-size:2rem;opacity:0.3;">📷</div>
+            <div>Add photo:<br><strong>project4-exterior.jpg</strong></div>
+          </div>
+        </div>
+        <div class="gallery-wrap">
+          <div class="gallery-img-placeholder" style="height:280px;">
+            <div style="font-size:2rem;opacity:0.3;">📷</div>
+            <div>Add photo:<br><strong>project4-interior.jpg</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loose gallery: additional shots -->
+    <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">More From the Field</p>
+    <h2 class="section-heading" style="font-size:2rem;color:white;margin-bottom:2rem;">Additional Photos</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+      <div class="gallery-wrap"><div class="gallery-img-placeholder" style="height:220px;"><div style="font-size:1.5rem;opacity:0.3;">📷</div><div><strong>gallery1.jpg</strong></div></div></div>
+      <div class="gallery-wrap"><div class="gallery-img-placeholder" style="height:220px;"><div style="font-size:1.5rem;opacity:0.3;">📷</div><div><strong>gallery2.jpg</strong></div></div></div>
+      <div class="gallery-wrap"><div class="gallery-img-placeholder" style="height:220px;"><div style="font-size:1.5rem;opacity:0.3;">📷</div><div><strong>gallery3.jpg</strong></div></div></div>
+      <div class="gallery-wrap"><div class="gallery-img-placeholder" style="height:220px;"><div style="font-size:1.5rem;opacity:0.3;">📷</div><div><strong>gallery4.jpg</strong></div></div></div>
+      <div class="gallery-wrap"><div class="gallery-img-placeholder" style="height:220px;"><div style="font-size:1.5rem;opacity:0.3;">📷</div><div><strong>gallery5.jpg</strong></div></div></div>
+      <div class="gallery-wrap"><div class="gallery-img-placeholder" style="height:220px;"><div style="font-size:1.5rem;opacity:0.3;">📷</div><div><strong>gallery6.jpg</strong></div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:#0F141A;padding:6rem 0;text-align:center;">
+  <div style="max-width:620px;margin:0 auto;padding:0 2rem;">
+    <h2 class="section-heading" style="font-size:2.5rem;color:white;margin-bottom:1rem;">Ready to Be Our Next Project?</h2>
+    <div class="section-divider" style="margin:0 auto 1.5rem;"></div>
+    <p style="color:rgba(255,255,255,0.45);margin-bottom:2rem;line-height:1.7;">Book a free consultation and start planning your income property with the team that built these.</p>
+    <a href="contact.html" class="btn-primary-dark">Book a Free Consultation →</a>
+  </div>
+</section>
+
+<footer class="footer-bg" style="padding-top:4rem;padding-bottom:2rem;">
+  <div style="max-width:1400px;margin:0 auto;padding:0 2.5rem;">
+    <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+      <div><img src="ocp-logo-dark.png" style="height:28px;margin-bottom:1rem;"><p style="color:rgba(255,255,255,0.35);font-size:0.82rem;line-height:1.7;">Arizona's Premier<br>Investment Build Partner</p></div>
+      <div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Info</p>
+        <div style="display:flex;flex-direction:column;gap:0.65rem;">
+          <a href="process.html"  style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">How it Works</a>
+          <a href="#"             style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">About Us</a>
+          <a href="packages.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Services</a>
+          <a href="projects.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Projects</a>
+        </div>
+      </div>
+      <div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Questions</p>
+        <div style="display:flex;flex-direction:column;gap:0.65rem;">
+          <a href="tel:6234766576" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">📞 623-476-6576</a>
+          <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;">Mon–Fri, 12–5pm</p>
+          <a href="mailto:skraca@outlook.com" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">✉️ skraca@outlook.com</a>
+        </div>
+      </div>
+      <div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Stay Updated</p>
+        <div style="display:flex;gap:0.5rem;margin-bottom:0.6rem;">
+          <input type="email" placeholder="Your email" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:0.5rem 1rem;color:white;font-size:0.8rem;outline:none;min-width:0;">
+          <button style="background:rgba(212,175,127,0.12);border:1px solid rgba(212,175,127,0.25);color:rgba(212,175,127,0.85);border-radius:999px;padding:0.5rem 0.9rem;font-size:0.78rem;cursor:pointer;white-space:nowrap;">Subscribe</button>
+        </div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.72rem;">By subscribing you agree to our Privacy Policy.</p>
+      </div>
+    </div>
+    <div style="padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <p style="color:rgba(255,255,255,0.2);font-size:0.78rem;">© 2026 OCP Builds. All rights reserved.</p>
+      <a href="#" style="color:rgba(255,255,255,0.2);font-size:0.78rem;text-decoration:none;">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
