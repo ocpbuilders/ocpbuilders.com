@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leasing | OCP Builds</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fraunces:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'DM Sans',sans-serif; background:#1A1A1A; color:#E5E7EB; }
+    .nav-bg { background:rgba(22,22,22,0.82); backdrop-filter:blur(32px) saturate(140%) brightness(0.9); position:fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .nav-inner { max-width:1400px; margin:0 auto; padding:0 2rem; height:62px; display:flex; justify-content:space-between; align-items:center; }
+    .nav-link { font-size:0.88rem; font-weight:400; color:rgba(220,215,205,0.7); padding:0 1rem; text-decoration:none; transition:color 0.2s; white-space:nowrap; }
+    .nav-link:hover { color:rgba(230,225,215,0.98); }
+    .nav-link.active { color:rgba(212,175,127,0.9); }
+    .nav-cta { background:rgba(200,195,185,0.1); border:1px solid rgba(200,195,185,0.22); color:rgba(230,225,215,0.9); font-size:0.85rem; font-weight:500; padding:0.48rem 1.2rem; border-radius:999px; text-decoration:none; }
+    .nav-cta:hover { background:rgba(200,195,185,0.2); }
+    .section-heading { font-family:'Fraunces',serif; font-weight:300; letter-spacing:-0.02em; }
+    .gold { color:rgba(212,175,127,0.85); }
+    .section-divider { width:40px; height:1px; background:rgba(212,175,127,0.4); margin:1.25rem 0; }
+    .page-header { background:linear-gradient(160deg,#0A0F14 0%,#111820 50%,#0F141A 100%); padding:140px 0 80px; position:relative; overflow:hidden; }
+    .page-header::before { content:''; position:absolute; top:-60px; right:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(212,175,127,0.06) 0%,transparent 70%); pointer-events:none; }
+
+    /* Why cards */
+    .why-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:1.25rem; padding:1.75rem; display:flex; align-items:flex-start; gap:1rem; }
+    .why-icon { width:40px; height:40px; border-radius:11px; background:rgba(212,175,127,0.1); border:1px solid rgba(212,175,127,0.15); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1.1rem; }
+
+    /* Process steps */
+    .process-step { display:grid; grid-template-columns:56px 1fr; gap:1.5rem; padding:2rem 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .process-step:last-child { border-bottom:none; }
+    .step-num { font-family:'Fraunces',serif; font-weight:300; font-size:2.8rem; color:rgba(212,175,127,0.22); line-height:1; letter-spacing:-0.03em; }
+    .step-title { font-family:'Fraunces',serif; font-weight:300; font-size:1.3rem; color:white; margin-bottom:0.6rem; }
+    .step-body { color:rgba(255,255,255,0.5); font-size:0.92rem; line-height:1.75; }
+    .step-tag { display:inline-block; background:rgba(212,175,127,0.08); border:1px solid rgba(212,175,127,0.15); color:rgba(212,175,127,0.7); font-size:0.65rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; padding:0.25rem 0.75rem; border-radius:999px; margin-bottom:0.65rem; }
+    .step-bullet { display:flex; align-items:flex-start; gap:0.65rem; color:rgba(255,255,255,0.5); font-size:0.9rem; line-height:1.6; margin-top:0.5rem; }
+    .step-bullet::before { content:''; width:5px; height:5px; border-radius:50%; background:rgba(212,175,127,0.55); flex-shrink:0; margin-top:0.5rem; }
+
+    /* Tech badges */
+    .tech-badge { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:0.75rem; padding:1rem 1.25rem; display:flex; align-items:flex-start; gap:0.75rem; }
+    .tech-badge-icon { font-size:1.1rem; flex-shrink:0; margin-top:0.1rem; }
+
+    /* Fee card */
+    .fee-card { background:linear-gradient(145deg,#1E1E1E,#191919); border:1px solid rgba(255,255,255,0.07); border-radius:1.75rem; padding:3rem; }
+    .fee-number { font-family:'Fraunces',serif; font-weight:300; font-size:4rem; color:white; letter-spacing:-0.04em; line-height:1; }
+
+    .footer-bg { background:#141414; border-top:1px solid rgba(255,255,255,0.06); }
+    .btn-primary-dark { display:inline-flex; align-items:center; background:white; color:#0B0F14; font-size:0.95rem; font-weight:500; padding:0.85rem 2rem; border-radius:999px; text-decoration:none; transition:background 0.2s,transform 0.15s; }
+    .btn-primary-dark:hover { background:rgba(255,255,255,0.88); transform:translateY(-1px); }
+    .btn-secondary { display:inline-flex; align-items:center; background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.2); font-size:0.92rem; font-weight:500; padding:0.8rem 1.75rem; border-radius:999px; text-decoration:none; transition:all 0.2s; }
+    .btn-secondary:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.35); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    .fade-up { opacity:0; animation:fadeUp 0.8s ease forwards; }
+    .d1{animation-delay:0.05s} .d2{animation-delay:0.2s} .d3{animation-delay:0.35s}
+  </style>
+</head>
+<body>
+
+<nav class="nav-bg">
+  <div class="nav-inner">
+    <a href="index.html"><img src="ocp-logo-dark.png" style="height:30px;"></a>
+    <div style="display:flex;align-items:center;">
+      <a href="projects.html"  class="nav-link">Projects</a>
+      <a href="packages.html"  class="nav-link">Packages & Pricing</a>
+      <a href="process.html"   class="nav-link">Process</a>
+      <a href="financing.html" class="nav-link">Financing</a>
+      <a href="reviews.html"   class="nav-link">Reviews</a>
+      <a href="blog.html"      class="nav-link">Blog</a>
+      <a href="leasing.html"   class="nav-link active">Leasing</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
+    <p class="fade-up d1" style="font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,127,0.7);margin-bottom:1.25rem;">For Property Owners</p>
+    <h1 class="section-heading fade-up d2" style="font-size:clamp(3rem,5vw,5.5rem);color:white;line-height:1.05;max-width:750px;margin-bottom:1.5rem;">How Leasing Works with OCP Builds</h1>
+    <div class="section-divider fade-up d2"></div>
+    <p class="fade-up d3" style="color:rgba(255,255,255,0.5);font-size:1.05rem;line-height:1.7;max-width:600px;margin-top:1.25rem;">We don't stop at construction. Our complete leasing and management system is designed specifically for our 4400 sq ft duplexes — helping investors achieve faster lease-up, higher rental income, and truly passive ownership.</p>
+  </div>
+</div>
+
+<section style="padding:5rem 0;background:#1A1A1A;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2.5rem;">
+
+    <!-- Why Room-by-Room -->
+    <div style="margin-bottom:4rem;">
+      <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">The Model</p>
+      <h2 class="section-heading" style="font-size:2.5rem;color:white;margin-bottom:2rem;">Why Room-by-Room Leasing Works Better</h2>
+      <p style="color:rgba(255,255,255,0.5);font-size:0.95rem;line-height:1.8;max-width:680px;margin-bottom:2rem;">Our duplexes are purpose-built for individual bedroom rentals. This model consistently outperforms traditional whole-unit leasing in three key ways:</p>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div class="why-card">
+          <div class="why-icon">💰</div>
+          <div>
+            <p style="font-weight:500;color:rgba(255,255,255,0.85);margin-bottom:0.3rem;">Higher Overall Income</p>
+            <p style="color:rgba(255,255,255,0.45);font-size:0.9rem;line-height:1.65;">Eight individual rental income streams from one property consistently outperform what a single household lease would generate on the same square footage.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🛡️</div>
+          <div>
+            <p style="font-weight:500;color:rgba(255,255,255,0.85);margin-bottom:0.3rem;">Lower Vacancy Risk</p>
+            <p style="color:rgba(255,255,255,0.45);font-size:0.9rem;line-height:1.65;">If one tenant moves out, the other seven stay. You continue collecting rent while filling the single vacancy — instead of losing 100% of unit income like in a traditional rental.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏡</div>
+          <div>
+            <p style="font-weight:500;color:rgba(255,255,255,0.85);margin-bottom:0.3rem;">Stronger Tenant Appeal</p>
+            <p style="color:rgba(255,255,255,0.45);font-size:0.9rem;line-height:1.65;">Quality tenants who want privacy with community benefits are actively looking for this model — young professionals, relocating workers, and graduate students are a large and growing market in the Phoenix metro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leasing Process -->
+    <div style="margin-bottom:4rem;">
+      <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">Step by Step</p>
+      <h2 class="section-heading" style="font-size:2.5rem;color:white;margin-bottom:0.5rem;">Our Proven Leasing Process</h2>
+      <div style="max-width:800px;margin-top:1rem;">
+
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <div>
+            <span class="step-tag">Before You're Even Done Building</span>
+            <h3 class="step-title">Strategic Pre-Leasing Marketing</h3>
+            <p class="step-body">Marketing begins while the property is nearing completion. We run targeted advertising on Facebook and other platforms with automatic messaging that highlights pricing tiers and room options — standard rooms, balcony suites, premium views, and more. By the time keys are ready, tenants often are too.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <div>
+            <span class="step-tag">Protecting Your Property & Community</span>
+            <h3 class="step-title">Thorough Tenant Screening</h3>
+            <p class="step-body">Every applicant completes our proprietary risk-analysis questionnaire. This points-based system evaluates cleanliness, responsibility, payment history, and lifestyle fit. Only well-qualified tenants move forward — protecting your property and the other residents already in place.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <div>
+            <span class="step-tag">Built for Flexibility</span>
+            <h3 class="step-title">Flexible Lease Options</h3>
+            <p class="step-body">We offer 1-month, 2-month, or 12-month lease terms. Tenants can choose membership-style agreements or traditional leases depending on their needs. This flexibility reduces adversarial turnover and keeps occupancy high.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <div>
+            <span class="step-tag">Hands-Off for You</span>
+            <h3 class="step-title">Professional Onboarding & Move-In</h3>
+            <p class="step-body">We handle all paperwork, key distribution, and initial property orientation. You do not need to be present or involved — we take care of every detail so your first day as a landlord is also your first day of truly passive income.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">05</div>
+          <div>
+            <span class="step-tag">Long-Term Performance</span>
+            <h3 class="step-title">Ongoing Management & Technology Platform</h3>
+            <p class="step-body">Our custom tenant portal and owner dashboard make everything simple and transparent. You choose the level of involvement that fits your lifestyle — fully hands-off or hybrid oversight.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;margin-top:1.5rem;">
+              <div class="tech-badge">
+                <span class="tech-badge-icon">💬</span>
+                <div>
+                  <p style="color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:500;margin-bottom:0.2rem;">Tenant Portal</p>
+                  <p style="color:rgba(255,255,255,0.4);font-size:0.78rem;line-height:1.5;">Maintenance requests, rent payment, and community info — all in one place</p>
+                </div>
+              </div>
+              <div class="tech-badge">
+                <span class="tech-badge-icon">📊</span>
+                <div>
+                  <p style="color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:500;margin-bottom:0.2rem;">Owner Dashboard</p>
+                  <p style="color:rgba(255,255,255,0.4);font-size:0.78rem;line-height:1.5;">Real-time occupancy, income, and property status at a glance</p>
+                </div>
+              </div>
+              <div class="tech-badge">
+                <span class="tech-badge-icon">🔍</span>
+                <div>
+                  <p style="color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:500;margin-bottom:0.2rem;">Quality Check-Ins</p>
+                  <p style="color:rgba(255,255,255,0.4);font-size:0.78rem;line-height:1.5;">Regular inspections keep the property in top condition and tenants accountable</p>
+                </div>
+              </div>
+              <div class="tech-badge">
+                <span class="tech-badge-icon">🔔</span>
+                <div>
+                  <p style="color:rgba(255,255,255,0.75);font-size:0.85rem;font-weight:500;margin-bottom:0.2rem;">Smart Flagging</p>
+                  <p style="color:rgba(255,255,255,0.4);font-size:0.78rem;line-height:1.5;">Issues automatically routed to the right team — maintenance, billing, decorator</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Management Fees -->
+    <div style="margin-bottom:4rem;">
+      <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">Transparent Pricing</p>
+      <h2 class="section-heading" style="font-size:2.5rem;color:white;margin-bottom:2rem;">Management Fees</h2>
+      <div class="fee-card">
+        <div style="display:grid;md:grid-cols-2;gap:2rem;align-items:center;">
+          <div>
+            <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Typical Monthly Fee</p>
+            <div class="fee-number">8–10%</div>
+            <p style="color:rgba(255,255,255,0.4);margin-top:0.5rem;font-size:0.9rem;">of monthly collected rent</p>
+          </div>
+          <div style="margin-top:2rem;">
+            <p style="color:rgba(255,255,255,0.55);font-size:0.92rem;line-height:1.8;margin-bottom:1.25rem;">Full-service management includes:</p>
+            <div style="display:flex;flex-direction:column;gap:0.55rem;">
+              <div class="step-bullet">Tenant placement and onboarding</div>
+              <div class="step-bullet">Rent collection and disbursement</div>
+              <div class="step-bullet">Maintenance coordination</div>
+              <div class="step-bullet">Regular property inspections</div>
+              <div class="step-bullet">Full access to owner dashboard and reporting</div>
+            </div>
+            <p style="color:rgba(255,255,255,0.3);font-size:0.82rem;margin-top:1.25rem;line-height:1.6;">One-time tenant placement fees, when applicable, are separate and competitive with local market rates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live-In Option -->
+    <div style="background:linear-gradient(135deg,rgba(212,175,127,0.07),rgba(212,175,127,0.02));border:1px solid rgba(212,175,127,0.15);border-radius:1.5rem;padding:2.5rem 3rem;margin-bottom:2rem;">
+      <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">Owner-Occupant Option</p>
+      <h3 class="section-heading" style="font-size:1.75rem;color:white;margin-bottom:1rem;">Live-In Owner Option</h3>
+      <p style="color:rgba(255,255,255,0.55);font-size:0.95rem;line-height:1.8;max-width:640px;">Many clients build with us and choose to live in one bedroom or one entire side of the duplex. Tenants in the remaining rooms often cover a large portion — sometimes all — of the monthly mortgage while you enjoy a premium home. It is one of the most powerful personal finance strategies available in real estate today.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:#0F141A;padding:6rem 0;text-align:center;">
+  <div style="max-width:640px;margin:0 auto;padding:0 2rem;">
+    <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,127,0.7);margin-bottom:1.25rem;">See It in Action</p>
+    <h2 class="section-heading" style="font-size:2.5rem;color:white;margin-bottom:1rem;">Ready to See the System in Action?</h2>
+    <div class="section-divider" style="margin:0 auto 1.5rem;"></div>
+    <p style="color:rgba(255,255,255,0.45);margin-bottom:2rem;line-height:1.75;font-size:0.95rem;">Schedule a Discovery Meeting today. We will show you a live demo of the tenant portal and owner dashboard and explain exactly how leasing would work for your property.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn-primary-dark">Schedule a Discovery Meeting →</a>
+      <a href="process.html" class="btn-secondary">See Our Full Process</a>
+    </div>
+    <p style="margin-top:2rem;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;color:rgba(212,175,127,0.4);text-transform:uppercase;">Quality Built. Income Optimized. Future Secured.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-bg" style="padding-top:4rem;padding-bottom:2rem;">
+  <div style="max-width:1400px;margin:0 auto;padding:0 2.5rem;">
+    <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+      <div><img src="ocp-logo-dark.png" style="height:28px;margin-bottom:1rem;"><p style="color:rgba(255,255,255,0.35);font-size:0.82rem;line-height:1.7;">Arizona's Premier<br>Investment Build Partner</p></div>
+      <div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Info</p>
+        <div style="display:flex;flex-direction:column;gap:0.65rem;">
+          <a href="process.html"   style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">How it Works</a>
+          <a href="#"              style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">About Us</a>
+          <a href="packages.html"  style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Services</a>
+          <a href="projects.html"  style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Projects</a>
+        </div>
+      </div>
+      <div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Questions</p>
+        <div style="display:flex;flex-direction:column;gap:0.65rem;">
+          <a href="tel:6234766576" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">📞 623-476-6576</a>
+          <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;">Mon–Fri, 12–5pm</p>
+          <a href="mailto:skraca@outlook.com" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">✉️ skraca@outlook.com</a>
+        </div>
+      </div>
+      <div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Stay Updated</p>
+        <div style="display:flex;gap:0.5rem;margin-bottom:0.6rem;">
+          <input type="email" placeholder="Your email" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:0.5rem 1rem;color:white;font-size:0.8rem;outline:none;min-width:0;">
+          <button style="background:rgba(212,175,127,0.12);border:1px solid rgba(212,175,127,0.25);color:rgba(212,175,127,0.85);border-radius:999px;padding:0.5rem 0.9rem;font-size:0.78rem;cursor:pointer;white-space:nowrap;">Subscribe</button>
+        </div>
+        <p style="color:rgba(255,255,255,0.2);font-size:0.72rem;">By subscribing you agree to our Privacy Policy.</p>
+      </div>
+    </div>
+    <div style="padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <p style="color:rgba(255,255,255,0.2);font-size:0.78rem;">© 2026 OCP Builds. All rights reserved.</p>
+      <a href="#" style="color:rgba(255,255,255,0.2);font-size:0.78rem;text-decoration:none;">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
