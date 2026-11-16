@@ -1,265 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Packages & Pricing | OCP Builds</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages & Pricing | OCP Builders | Phoenix, AZ</title>
+<meta name="description" content="Base builds start at $180 per sq ft. See what is included, what changes the price, finish packages, remodel and commercial pricing, and what is not included.">
+<meta name="theme-color" content="#232426">
+<link rel="canonical" href="https://ocpbuilders.com/packages.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OCP Builders">
+<meta property="og:title" content="Packages & Pricing | OCP Builders | Phoenix, AZ">
+<meta property="og:description" content="Base builds start at $180 per sq ft. See what is included, what changes the price, finish packages, remodel and commercial pricing, and what is not included.">
+<meta property="og:url" content="https://ocpbuilders.com/packages.html">
+<meta property="og:image" content="https://ocpbuilders.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Packages & Pricing | OCP Builders | Phoenix, AZ">
+<meta name="twitter:description" content="Base builds start at $180 per sq ft. See what is included, what changes the price, finish packages, remodel and commercial pricing, and what is not included.">
+<meta name="twitter:image" content="https://ocpbuilders.com/og-image.jpg">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fraunces:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'DM Sans',sans-serif; background:#1A1A1A; color:#E5E7EB; }
-    .nav-bg { background:rgba(45, 45, 45, 0.92); backdrop-filter:blur(32px) saturate(140%) brightness(0.95); position:fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid rgba(255,255,255,0.08); }
-    .nav-inner { max-width:1400px; margin:0 auto; padding:0 2rem; height:62px; display:flex; justify-content:space-between; align-items:center; }
-    .nav-link { font-size:0.88rem; font-weight:400; color:rgba(235,230,220,0.85); padding:0 1rem; text-decoration:none; transition:color 0.2s; white-space:nowrap; }
-    .nav-link:hover { color:#f5f0e6; }
-    .nav-link.active { color:rgba(212,175,127,0.9); }
-    .nav-cta { background:rgba(200,195,190,0.1); border:1px solid rgba(200,195,190,0.22); color:rgba(230,225,215,0.9); font-size:0.85rem; font-weight:500; padding:0.48rem 1.2rem; border-radius:999px; text-decoration:none; }
-    .section-heading { font-family:'Fraunces',serif; font-weight:300; letter-spacing:-0.02em; }
-    .gold { color:rgba(212,175,127,0.85); }
-    .section-divider { width:40px; height:1px; background:rgba(212,175,127,0.4); margin:1.25rem 0; }
-    .page-header { background:linear-gradient(160deg,#0A0F14 0%,#111820 50%,#0F141A 100%); padding:140px 0 80px; position:relative; overflow:hidden; }
-    .page-header::before { content:''; position:absolute; top:-60px; right:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(212,175,127,0.06) 0%,transparent 70%); pointer-events:none; }
-    .package-card { border-radius:1.75rem; padding:2.5rem; position:relative; overflow:hidden; display:flex; flex-direction:column; gap:1.25rem; }
-    .package-standard { background:linear-gradient(145deg,#222,#1C1C1C); border:1px solid rgba(255,255,255,0.06); }
-    .package-premium { background:linear-gradient(145deg,#1E2228,#181E24); border:1px solid rgba(212,175,127,0.2); }
-    .package-luxury { background:linear-gradient(145deg,#1E1A14,#181410); border:1px solid rgba(212,175,127,0.35); }
-    .package-price { font-family:'Fraunces',serif; font-weight:300; font-size:3rem; color:white; letter-spacing:-0.03em; line-height:1; }
-    .package-price span { font-size:1rem; color:rgba(255,255,255,0.4); }
-    .package-label { font-size:0.68rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:rgba(212,175,127,0.7); margin-bottom:0.25rem; }
-    .package-name { font-family:'Fraunces',serif; font-weight:300; font-size:1.6rem; color:white; }
-    .package-tagline { color:rgba(255,255,255,0.45); font-size:0.88rem; line-height:1.6; }
-    .package-divider { height:1px; background:rgba(255,255,255,0.06); }
-    .package-feature { display:flex; align-items:flex-start; gap:0.65rem; font-size:0.88rem; color:rgba(255,255,255,0.55); line-height:1.5; }
-    .package-feature::before { content:''; width:5px; height:5px; border-radius:50%; background:rgba(212,175,127,0.5); flex-shrink:0; margin-top:0.45rem; }
-    .why-better-item { display:flex; align-items:flex-start; gap:1rem; padding:1.1rem 0; border-bottom:1px solid rgba(255,255,255,0.04); }
-    .why-better-item:last-child { border-bottom:none; }
-    .why-icon { width:36px; height:36px; border-radius:10px; background:rgba(212,175,127,0.08); border:1px solid rgba(212,175,127,0.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:1rem; }
-    .not-included-item { display:flex; align-items:center; gap:0.65rem; color:rgba(255,255,255,0.45); font-size:0.88rem; padding:0.5rem 0; }
-    .not-included-item::before { content:'—'; color:rgba(255,255,255,0.2); font-size:0.75rem; flex-shrink:0; }
-    .footer-bg { background:#141414; border-top:1px solid rgba(255,255,255,0.06); }
-    .btn-primary-dark { display:inline-flex; align-items:center; background:white; color:#0B0F14; font-size:0.95rem; font-weight:500; padding:0.85rem 2rem; border-radius:999px; text-decoration:none; transition:background 0.2s,transform 0.15s; }
-    .btn-primary-dark:hover { background:rgba(255,255,255,0.88); transform:translateY(-1px); }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
-    .fade-up { opacity:0; animation:fadeUp 0.8s ease forwards; }
-    .d1{animation-delay:0.05s} .d2{animation-delay:0.2s} .d3{animation-delay:0.35s}
-  </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "GeneralContractor", "name": "OCP Builders", "legalName": "Omni Construction Products", "url": "https://ocpbuilders.com/", "telephone": "+1-623-476-6576", "email": "info@ocp-az.com", "logo": "https://ocpbuilders.com/ocp-logo-dark.png", "image": "https://ocpbuilders.com/og-image.jpg", "description": "Base builds start at $180 per sq ft. See what is included, what changes the price, finish packages, remodel and commercial pricing, and what is not included.", "address": {"@type": "PostalAddress", "addressLocality": "Phoenix", "addressRegion": "AZ", "addressCountry": "US"}, "areaServed": {"@type": "AdministrativeArea", "name": "Greater Phoenix, Arizona"}, "openingHours": "Mo-Fr 12:00-17:00"}</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<style>
+/* PALETTE
+   Charcoal   #26272A -> #1C1D1F
+   Deep Navy  #1F2C3F -> #0F1620 (gradient for depth)
+   Taupe      #463D37 -> #2E2A27 (brown-gray)
+   Stone      #CBBFB0 (accent text)   Steel #8FA3BF (line accent)
+   Footer     #34302D */
+:root{--stone:#CBBFB0;--steel:#8FA3BF;--ui:'Aptos','DM Sans',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#232426;color:#E9E8E6}
+.s-char{background:linear-gradient(180deg,#26272A,#1C1D1F)}
+.s-navy{background:linear-gradient(160deg,#1F2C3F 0%,#172131 55%,#0F1620 100%)}
+.s-taupe{background:linear-gradient(160deg,#4A413A 0%,#3A332E 55%,#2E2A27 100%)}
+
+/* liquid glass */
+.lg{background:linear-gradient(150deg,rgba(255,255,255,.2),rgba(255,255,255,.05) 55%,rgba(255,255,255,.12));border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(22px) saturate(180%) brightness(1.08);-webkit-backdrop-filter:blur(22px) saturate(180%) brightness(1.08);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(255,255,255,.1),0 18px 40px rgba(0,0,0,.28);position:relative;overflow:hidden}
+.lg::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 60% at 15% -10%,rgba(255,255,255,.26),transparent 55%);pointer-events:none}
+.lg>*{position:relative}
+
+/* banner + glass header */
+.banner{position:fixed;top:0;left:0;right:0;z-index:9999;height:38px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#8E7F73,#B3A598,#8E7F73);color:#1d1a17;font:500 .78rem var(--ui);letter-spacing:.06em}
+.hdr{position:fixed;top:50px;left:1.25rem;right:1.25rem;max-width:1380px;margin:0 auto;z-index:100;height:64px;border-radius:22px;padding:0 1rem 0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:linear-gradient(150deg,rgba(92,80,70,.52),rgba(52,45,40,.42) 60%,rgba(78,68,60,.5))}
+.tabs{display:flex;gap:.1rem}
+.tab{font:600 .7rem var(--ui);text-transform:uppercase;letter-spacing:.15em;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.35);padding:.6rem .85rem;border-radius:12px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.tab:hover{background:rgba(255,255,255,.18)}
+.cta{font:600 .7rem var(--ui);text-transform:uppercase;letter-spacing:.15em;color:#fff;padding:.7rem 1.3rem;border-radius:14px;text-decoration:none;white-space:nowrap;background:linear-gradient(150deg,rgba(255,255,255,.3),rgba(255,255,255,.1))}
+@media(max-width:1150px){.tabs{display:none}}
+
+/* hero */
+.hero{background:linear-gradient(100deg,rgba(12,14,18,.84) 0%,rgba(12,14,18,.5) 50%,rgba(12,14,18,.1) 100%),url('hero-duplex.jpg') center/cover,#2b2825;min-height:100vh;padding-top:130px;display:flex;align-items:center}
+.hero-in{max-width:1400px;width:100%;margin:0 auto;padding:3rem 2.5rem 4rem;display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:center}
+@media(max-width:960px){.hero-in{grid-template-columns:1fr}}
+.eyebrow{font:500 .72rem var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:1.2rem}
+.h-hero{font-weight:300;font-size:clamp(2.7rem,4.8vw,5rem);line-height:1.05;letter-spacing:-.035em;color:#fff;margin-bottom:1.5rem}
+.sub{font-size:1.04rem;font-weight:300;color:rgba(255,255,255,.8);max-width:560px;line-height:1.72;margin-bottom:2.2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{font:500 .9rem var(--ui);padding:.85rem 1.5rem;border-radius:14px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}
+.btn-p{background:#fff;color:#16191e}.btn-p:hover{transform:translateY(-1px);background:#efece8}
+.btn-g{color:#fff}.btn-g:hover{transform:translateY(-1px)}
+.stats{display:grid;grid-template-columns:repeat(4,auto);gap:1.6rem;margin-top:2.6rem;padding:1.1rem 1.6rem;border-radius:22px;width:fit-content;max-width:100%}
+.stats b{display:block;font:400 1.5rem 'DM Sans';letter-spacing:-.02em}
+.stats span{font:500 .62rem var(--ui);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+@media(max-width:620px){.stats{grid-template-columns:1fr 1fr}}
+
+/* hero tiles */
+.tiles{display:flex;flex-direction:column;gap:1rem}
+.tile{display:block;text-decoration:none;color:#fff;padding:1.5rem 1.7rem;border-radius:32px 32px 24px 32px;transition:transform .3s}
+.tile:nth-child(2){margin-left:2rem}.tile:nth-child(3){margin-left:.6rem}
+.tile:hover{transform:translateX(8px)}
+.tile small{display:block;font:600 .66rem var(--ui);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.6rem}
+.tile h3{font:600 .98rem var(--ui);letter-spacing:.07em;text-transform:uppercase;line-height:1.4;margin-bottom:.55rem}
+.tile p{font-size:.86rem;color:rgba(255,255,255,.78);line-height:1.55;margin-bottom:.8rem}
+.tile em{font:600 .66rem var(--ui);letter-spacing:.16em;text-transform:uppercase;font-style:normal;color:#fff;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px}
+
+/* shared */
+.h2{font-weight:300;letter-spacing:-.03em;font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.1}
+.line{width:56px;height:2px;margin:1.2rem 0;border-radius:2px;background:linear-gradient(90deg,var(--steel),var(--stone))}
+.line.c{margin-left:auto;margin-right:auto}
+.lead{color:rgba(255,255,255,.68);font-size:1.04rem;line-height:1.75;max-width:640px}
+.sec{padding:6rem 0}
+.wrap{max-width:1250px;margin:0 auto;padding:0 1.5rem}
+.more{font:600 .72rem var(--ui);letter-spacing:.14em;text-transform:uppercase;color:#fff;text-decoration:none;border-bottom:1px solid rgba(203,191,176,.6);padding-bottom:3px}
+.more:hover{color:var(--stone)}
+
+/* who we are */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-top:2rem}
+@media(max-width:800px){.facts{grid-template-columns:1fr 1fr}}
+.fact{padding:1rem;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font:500 .62rem var(--ui);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.fact b{display:block;font:400 1.3rem 'DM Sans';letter-spacing:-.01em;text-transform:none;color:#fff;margin-bottom:.2rem}
+.photo{border-radius:1.75rem;overflow:hidden;min-height:400px;position:relative;background:linear-gradient(145deg,#4a4038,#26282b)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* branches */
+.branch{border-radius:1.6rem;overflow:hidden;background:linear-gradient(160deg,#2c2f35,#1d1f23);border:1px solid rgba(255,255,255,.09);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}
+.branch:hover{transform:translateY(-8px);box-shadow:0 24px 46px rgba(0,0,0,.5)}
+.branch .img{height:210px;position:relative;background:linear-gradient(145deg,#52463d,#2d2a28);overflow:hidden}
+.branch .img img{width:100%;height:100%;object-fit:cover}
+.branch .tag{position:absolute;left:1rem;top:1rem;padding:.35rem .85rem;border-radius:12px;font:600 .66rem var(--ui);letter-spacing:.16em;text-transform:uppercase;color:#fff}
+.branch .body{padding:1.75rem;display:flex;flex-direction:column;flex:1}
+.branch h3{font:400 1.45rem 'DM Sans';letter-spacing:-.02em;margin-bottom:.7rem}
+.branch p{font-size:.92rem;color:rgba(255,255,255,.64);line-height:1.65;margin-bottom:1rem}
+.branch ul{list-style:none;margin-bottom:1.5rem;flex:1}
+.branch li{font-size:.86rem;color:rgba(255,255,255,.8);padding:.45rem 0;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:.6rem;align-items:center}
+.branch li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--steel);flex-shrink:0}
+.branch .more{align-self:flex-start}
+
+/* tabs (projects + process) */
+.chips{display:inline-flex;gap:.3rem;padding:.3rem;border-radius:18px;flex-wrap:wrap}
+.chip{font:600 .7rem var(--ui);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);background:none;border:0;padding:.65rem 1.2rem;border-radius:14px;cursor:pointer;transition:all .2s}
+.chip.on{background:rgba(255,255,255,.95);color:#15191f}
+.pane{display:none}.pane.on{display:grid}
+.pgrid{grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem}
+@media(max-width:800px){.pgrid{grid-template-columns:1fr}}
+.proj{position:relative;overflow:hidden;border-radius:1.25rem;min-height:280px;background:linear-gradient(145deg,#52463d,#2d2a28);display:flex;align-items:flex-end;border:1px solid rgba(255,255,255,.07)}
+.proj.big{grid-column:span 2}
+@media(max-width:800px){.proj.big{grid-column:auto}}
+.proj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.proj:hover img{transform:scale(1.05)}
+.proj::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent 62%)}
+.proj div{position:relative;z-index:1;padding:1.4rem}
+.proj small{display:block;font:600 .66rem var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--stone);margin-bottom:.35rem}
+.proj h4{font:400 1.25rem 'DM Sans';letter-spacing:-.02em;color:#fff}
+.proj p{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:.3rem}
+
+/* investors */
+.stat{padding:1.6rem 1.8rem;border-radius:1.25rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.stat em{display:block;font:600 .64rem var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--stone);font-style:normal;margin-bottom:.6rem}
+.stat b{display:block;font:300 2.8rem 'DM Sans';letter-spacing:-.04em;line-height:1;margin-bottom:.5rem}
+.stat span{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.5}
+.inv{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:start;margin-top:4rem}
+@media(max-width:900px){.inv{grid-template-columns:1fr}}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.pair .photo{min-height:240px;border-radius:1.25rem}
+.pair .photo:first-child{grid-row:span 2;min-height:490px}
+.rate{border-radius:24px;padding:1.5rem 1.7rem;margin-bottom:1.5rem}
+.rate div{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;font-size:.95rem}
+.rate div+div{border-top:1px solid rgba(255,255,255,.18)}
+.rate b{font-weight:500}.rate small{display:block;font-size:.72rem;color:rgba(255,255,255,.6);margin-top:.7rem;line-height:1.5}
+.pt{padding:.9rem 0;border-top:1px solid rgba(255,255,255,.12)}
+.pt b{display:block;font-weight:500;margin-bottom:.15rem}
+.pt span{font-size:.88rem;color:rgba(255,255,255,.64);line-height:1.6}
+
+/* process */
+.steps{grid-template-columns:repeat(4,1fr);gap:1.2rem;margin:2.5rem 0}
+@media(max-width:800px){.steps{grid-template-columns:1fr 1fr}}
+.step{padding:1.5rem;border-radius:22px}
+.step b{display:block;font:300 1.7rem 'DM Sans';color:var(--stone);margin-bottom:.4rem}
+.step span{font-size:.9rem;color:rgba(255,255,255,.82);line-height:1.5}
+
+/* cards */
+.card{background:linear-gradient(145deg,#31353b,#212328);border:1px solid rgba(255,255,255,.09);border-radius:1.5rem;padding:2rem;display:flex;flex-direction:column;gap:.75rem;transition:all .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.tag2{font:600 .66rem var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+.card h3{font:400 1.18rem/1.35 'DM Sans';letter-spacing:-.015em;color:#fff}
+.card p{font-size:.88rem;color:rgba(255,255,255,.58);line-height:1.6;flex:1}
+.q{font-size:1rem;color:rgba(255,255,255,.88);line-height:1.6;flex:1}
+
+/* footer */
+.foot{background:#34302D;border-top:1px solid rgba(255,255,255,.1)}
+.fh{color:rgba(255,255,255,.45);font:600 .66rem var(--ui);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
+.fa{color:rgba(255,255,255,.78);font-size:.86rem;text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.fa:hover{color:#fff}
+.fa svg{width:16px;height:16px;stroke:var(--stone);fill:none;stroke-width:1.6;flex-shrink:0}
+
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.up{opacity:0;animation:up .8s ease forwards}.d1{animation-delay:.05s}.d2{animation-delay:.2s}.d3{animation-delay:.35s}.d4{animation-delay:.5s}.d5{animation-delay:.65s}
+@media(prefers-reduced-motion:reduce){.up{animation:none;opacity:1}}
+/* additions */
+.burger{display:none;width:44px;height:44px;border-radius:14px;align-items:center;justify-content:center;cursor:pointer;color:#fff;border:1px solid rgba(255,255,255,.28)}
+.burger svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8}
+@media(max-width:1150px){.burger{display:flex}}
+.mmenu{display:none;position:fixed;top:124px;left:1.25rem;right:1.25rem;z-index:99;border-radius:22px;padding:.8rem;flex-direction:column;background:linear-gradient(150deg,rgba(92,80,70,.82),rgba(52,45,40,.8))}
+.mmenu.on{display:flex}
+.mmenu a{font:600 .74rem var(--ui);letter-spacing:.15em;text-transform:uppercase;color:#fff;text-decoration:none;padding:.95rem 1rem;border-bottom:1px solid rgba(255,255,255,.12)}
+.mmenu a:last-child{border:0}
+.cap{position:absolute;left:1rem;bottom:1rem;z-index:2;padding:.35rem .8rem;border-radius:12px;font:600 .62rem var(--ui);letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.wm{position:absolute;right:2rem;bottom:1.5rem;width:260px;opacity:.07;pointer-events:none}
+.mini{padding:1.4rem;border-radius:22px}
+.mini b{display:block;font:500 1.05rem 'DM Sans';margin-bottom:.35rem}
+.mini span{font-size:.86rem;color:rgba(255,255,255,.75);line-height:1.55}
+.hero2{background:linear-gradient(100deg,rgba(12,14,18,.86),rgba(12,14,18,.45)),url('duplex2.jpg') center/cover,#2b2825;padding:190px 0 90px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+.col{padding:2rem;border-radius:26px}
+.col h3{font:600 .72rem var(--ui);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1rem;color:#fff}
+.col li{list-style:none;padding:.6rem 0;border-top:1px solid rgba(255,255,255,.16);font-size:.92rem;color:rgba(255,255,255,.88);line-height:1.5}
+table.cmp{width:100%;border-collapse:collapse;font-size:.92rem}
+table.cmp th{font:600 .66rem var(--ui);letter-spacing:.15em;text-transform:uppercase;text-align:left;padding:1rem;color:var(--stone);border-bottom:1px solid rgba(255,255,255,.18)}
+table.cmp td{padding:1rem;border-bottom:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.78);vertical-align:top}
+table.cmp td:first-child{color:#fff;font-weight:500}
+.nrow{display:grid;grid-template-columns:70px 1fr;gap:1.2rem;padding:1.6rem;border-radius:24px;margin-bottom:1rem}
+.nrow b{font:300 2rem 'DM Sans';color:var(--stone)}
+.nrow h3{font:500 1.15rem 'DM Sans';margin-bottom:.35rem}
+.nrow p{font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.6}
+details.faq{border-radius:18px;padding:1.1rem 1.4rem;margin-bottom:.8rem}
+details.faq summary{cursor:pointer;font-weight:500;list-style:none}
+details.faq p{margin-top:.7rem;font-size:.92rem;color:rgba(255,255,255,.72);line-height:1.65}
+
+</style>
 </head>
 <body>
+<div class="banner">🚧 &nbsp;Under construction. Check back soon!</div>
 
-<nav class="nav-bg">
-  <div class="nav-inner">
-    <a href="/"><img src="ocp-logo-dark.png" style="height:30px;"></a>
-    <div style="display:flex;align-items:center;">
-      <a href="projects.html"  class="nav-link">Projects</a>
-      <a href="packages.html"        class="nav-link active">Packages & Pricing</a>
-      <a href="process.html"         class="nav-link">Process</a>
-      <a href="financing.html"       class="nav-link">Financing</a>
-      <a href="reviews.html"         class="nav-link">Reviews</a>
-      <a href="blog.html"            class="nav-link">Blog</a>
-      <a href="leasing.html" class="nav-link">Leasing</a>
-    </div>
-    <a href="contact.html" class="nav-cta">Get Started</a>
+<header class="hdr lg">
+  <a href="/"><img src="ocp-logo-dark.png" alt="OCP Builders" style="height:30px"></a>
+  <nav class="tabs">
+    <a href="projects.html" class="tab">Projects</a>
+    <a href="packages.html" class="tab">Packages &amp; Pricing</a>
+    <a href="process.html" class="tab">Process</a>
+    <a href="financing.html" class="tab">Financing</a>
+    <a href="reviews.html" class="tab">Reviews</a>
+    <a href="blog.html" class="tab">Blog</a>
+    <a href="leasing.html" class="tab">Flagship</a>
+  </nav>
+  <div style="display:flex;gap:.6rem;align-items:center">
+    <a href="contact.html" class="cta">Get Started</a>
+    <button class="burger lg" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('on')"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
+</header>
+<nav id="mm" class="mmenu lg">
+  <a href="projects.html">Projects</a><a href="packages.html">Packages &amp; Pricing</a><a href="process.html">Process</a><a href="financing.html">Financing</a><a href="reviews.html">Reviews</a><a href="blog.html">Blog</a><a href="leasing.html">Flagship</a><a href="contact.html">Get Started</a>
 </nav>
-
-<div class="page-header">
-  <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
-    <p class="fade-up d1" style="font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,127,0.7);margin-bottom:1.25rem;">Complete Transparency</p>
-    <h1 class="section-heading fade-up d2" style="font-size:clamp(3rem,5vw,5.5rem);color:white;line-height:1.05;max-width:700px;margin-bottom:1.5rem;">Packages & Pricing</h1>
-    <div class="section-divider fade-up d2"></div>
-    <p class="fade-up d3" style="color:rgba(255,255,255,0.5);font-size:1.05rem;line-height:1.7;max-width:580px;margin-top:1.25rem;">All pricing below is for the build phase only — after land is acquired and permits are approved. Every project receives a detailed, formal contract with exact specifications before any work begins.</p>
+<!-- HERO -->
+<section class="hero2" style="background:linear-gradient(100deg,rgba(12,14,18,.86),rgba(12,14,18,.5)),url('windsor.jpg') center/cover,#2b2825">
+  <div class="wrap">
+    <p class="eyebrow up d1">Packages &amp; Pricing</p>
+    <h1 class="h-hero up d2" style="max-width:900px">Pricing, stated up front.</h1>
+    <p class="sub up d3" style="max-width:640px">Base builds start at $180 per sq ft. Finish level moves the price. This page shows what is included, what changes the number, and what is not part of it.</p>
+    <div class="btns up d4"><a href="contact.html" class="btn btn-p">Schedule a Discovery Meeting</a><a href="quiz.html" class="btn btn-g lg">Take the 2-Minute Investment Quiz ↗</a></div>
+    <div class="stats lg up d5"><div><b>$180</b><span>Base, per sq ft</span></div><div><b>$190</b><span>Premium</span></div><div><b>$200+</b><span>Luxury</span></div><div><b>Build only</b><span>Land is separate</span></div></div>
   </div>
-</div>
+</section>
 
-<section style="padding:5rem 0;background:#1A1A1A;">
-  <div style="max-width:1100px;margin:0 auto;padding:0 2.5rem;">
-
-    <!-- Base Rate -->
-    <div style="background:linear-gradient(145deg,#1E1E1E,#191919);border:1px solid rgba(255,255,255,0.06);border-radius:1.75rem;padding:3rem;margin-bottom:4rem;text-align:center;">
-      <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">Our Foundation</p>
-      <div style="font-family:'Fraunces',serif;font-weight:300;font-size:5rem;color:white;letter-spacing:-0.04em;line-height:1;">$190</div>
-      <p style="color:rgba(255,255,255,0.4);font-size:1rem;margin-bottom:1.5rem;">per square foot — Base Build-Only Rate</p>
-      <p style="color:rgba(255,255,255,0.5);max-width:580px;margin:0 auto;line-height:1.75;font-size:0.95rem;">This rate applies to the core construction of our signature 4400 sq ft duplex and similar custom projects. Designed to deliver outstanding durability and rental performance from day one.</p>
+<!-- BASE RATE -->
+<section class="sec s-char">
+  <div class="wrap">
+    <div style="margin-bottom:3rem"><p class="eyebrow">The Base Rate</p><h2 class="h2">$180 per sq ft. What you get.</h2><div class="line"></div><p class="lead">Pricing on this page covers the build phase only. Land, permits and site work are separate. Below is what the base specification includes.</p></div>
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="stat"><em>Structure</em><b style="font-size:1.4rem;line-height:1.3;font-weight:400">5/8-inch drywall</b><span>Better impact resistance and sound control between rooms and units.</span></div>
+      <div class="stat"><em>Envelope</em><b style="font-size:1.4rem;line-height:1.3;font-weight:400">Energy-efficient windows and insulation</b><span>Lower utility costs and steadier temperatures year round.</span></div>
+      <div class="stat"><em>Interior finish</em><b style="font-size:1.4rem;line-height:1.3;font-weight:400">Smooth, modern wall textures</b><span>A clean finish that is easy to maintain and repaint.</span></div>
+      <div class="stat"><em>Fixtures</em><b style="font-size:1.4rem;line-height:1.3;font-weight:400">Moen or Delta fixtures</b><span>Reliable, widely supported brands throughout.</span></div>
     </div>
+  </div>
+</section>
 
-    <!-- What's included at base -->
-    <div style="margin-bottom:4rem;">
-      <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">What's Included at Base Rate</p>
-      <h2 class="section-heading" style="font-size:2rem;color:white;margin-bottom:1.5rem;">Our Standard Already Exceeds Most Builders</h2>
-      <div class="grid md:grid-cols-2 gap-4">
-        <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1.25rem;">
-          <div class="why-better-item" style="border-bottom:none;padding:0;">
-            <div class="why-icon">🧱</div>
-            <div><p style="color:rgba(255,255,255,0.8);font-weight:500;margin-bottom:0.25rem;">5/8-inch drywall throughout</p><p style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5;">Noticeably stronger than standard 1/2-inch — better impact resistance and sound control for multi-tenant homes</p></div>
-          </div>
-        </div>
-        <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1.25rem;">
-          <div class="why-better-item" style="border-bottom:none;padding:0;">
-            <div class="why-icon">🪟</div>
-            <div><p style="color:rgba(255,255,255,0.8);font-weight:500;margin-bottom:0.25rem;">Energy-efficient windows & insulation</p><p style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5;">Reduces utility costs for tenants — a key factor in tenant satisfaction and retention</p></div>
-          </div>
-        </div>
-        <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1.25rem;">
-          <div class="why-better-item" style="border-bottom:none;padding:0;">
-            <div class="why-icon">🎨</div>
-            <div><p style="color:rgba(255,255,255,0.8);font-weight:500;margin-bottom:0.25rem;">Smooth modern textures</p><p style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5;">Clean, contemporary look tenants appreciate — and hold up better to cleaning and daily wear</p></div>
-          </div>
-        </div>
-        <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1rem;padding:1.25rem;">
-          <div class="why-better-item" style="border-bottom:none;padding:0;">
-            <div class="why-icon">🚿</div>
-            <div><p style="color:rgba(255,255,255,0.8);font-weight:500;margin-bottom:0.25rem;">Moen or Delta fixtures standard</p><p style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5;">Reduces leaks and repairs that commonly frustrate landlords — not an upgrade, our baseline</p></div>
-          </div>
-        </div>
+<!-- PRICE DRIVERS -->
+<section class="sec s-navy">
+  <div class="wrap">
+    <div style="margin-bottom:3rem"><p class="eyebrow">What Changes the Price</p><h2 class="h2">The number moves with your choices.</h2><div class="line"></div><p class="lead">We would rather you see the drivers now than find them in a change order later.</p></div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="lg mini"><b>Windows</b><span>Thick metal windows cost more than plastic. Size and glass type matter too.</span></div>
+      <div class="lg mini"><b>Cabinetry and countertops</b><span>Material, thickness and custom work.</span></div>
+      <div class="lg mini"><b>Flooring</b><span>Tile, hardwood and specialty finishes versus standard.</span></div>
+      <div class="lg mini"><b>Fixtures and lighting</b><span>Upgraded plumbing fixtures, lighting packages and hardware.</span></div>
+      <div class="lg mini"><b>Roof and exterior</b><span>Roof type, stucco and exterior details.</span></div>
+      <div class="lg mini"><b>Smart wiring and locks</b><span>Digital locks, low-voltage wiring and automation.</span></div>
+      <div class="lg mini"><b>Lot conditions</b><span>Slope, soil, access and utilities can change site costs.</span></div>
+      <div class="lg mini"><b>Layout and size</b><span>Square footage, rooms and bathrooms set the base cost.</span></div>
+      <div class="lg mini"><b>Scope and complexity</b><span>Custom design, structural changes and added features.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINISH PACKAGES -->
+<section class="sec s-taupe">
+  <div class="wrap">
+    <div style="margin-bottom:3rem"><p class="eyebrow">Finish Packages</p><h2 class="h2">Three levels. You choose how far to take it.</h2><div class="line"></div></div>
+    <div class="grid md:grid-cols-3 gap-7">
+      <article class="branch"><div class="body"><p class="tag2" style="margin-bottom:.8rem">Base</p><h3 style="font-size:2.2rem;font-weight:300">$180<span style="font-size:1rem;color:rgba(255,255,255,.6)"> per sq ft</span></h3><p>Our standard specification, as listed above. A durable, clean build at the lowest price.</p><ul><li>5/8-inch drywall</li><li>Energy-efficient windows and insulation</li><li>Smooth modern textures</li><li>Moen or Delta fixtures</li></ul><p style="font-size:.8rem;color:rgba(255,255,255,.5);margin:0">4,400 sq ft example: $792,000</p></div></article>
+      <article class="branch"><div class="body"><p class="tag2" style="margin-bottom:.8rem">Premium, Balanced Excellence</p><h3 style="font-size:2.2rem;font-weight:300">$190<span style="font-size:1rem;color:rgba(255,255,255,.6)"> per sq ft</span></h3><p>Upgrades where they show most, without paying for every top-tier option.</p><ul><li>Upgraded cabinetry and countertops</li><li>Upgraded flooring and fixtures</li><li>Enhanced lighting and hardware</li><li>Everything in Base</li></ul><p style="font-size:.8rem;color:rgba(255,255,255,.5);margin:0">4,400 sq ft example: $836,000</p></div></article>
+      <article class="branch"><div class="body"><p class="tag2" style="margin-bottom:.8rem">Luxury, High-End</p><h3 style="font-size:2.2rem;font-weight:300">$200+<span style="font-size:1rem;color:rgba(255,255,255,.6)"> per sq ft</span></h3><p>Top-tier materials and custom details. Priced by selection, so it depends on how much you want.</p><ul><li>Premium materials throughout</li><li>Custom design details</li><li>Specialty windows, flooring and finishes</li><li>Everything in Premium</li></ul><p style="font-size:.8rem;color:rgba(255,255,255,.5);margin:0">4,400 sq ft example: $880,000 and up</p></div></article>
+    </div>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.55);margin-top:1.2rem">Examples multiply the rate by 4,400 sq ft for the build phase only. They are not quotes.</p>
+  </div>
+</section>
+
+<!-- REMODEL + COMMERCIAL -->
+<section class="sec s-char">
+  <div class="wrap">
+    <div class="two">
+      <div class="lg col"><h3>Remodel and renovation</h3><p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.85);margin-bottom:1rem">Remodel pricing follows an on-site evaluation, since the scope sets the cost. We price the work, not a flat rate.</p><ul><li>Kitchens and bathrooms</li><li>Whole-home renovations</li><li>Additions</li><li>Exterior and structural work</li></ul><p style="margin-top:1.2rem"><a href="contact.html" class="more">Request an evaluation</a></p></div>
+      <div class="lg col"><h3>Commercial</h3><p style="font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.85);margin-bottom:1rem">Commercial pricing depends on the use, the size and the finish. Recent work includes yoga studio chains and IV clinics. We build far more than this list.</p><ul><li>Priced after a scope call</li><li>Chain and multi-location build-outs</li><li>Clinics, studios and other commercial spaces</li><li>Commercial permitting handled with you</li></ul><p style="margin-top:1.2rem"><a href="contact.html" class="more">Schedule a scope call</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOT INCLUDED -->
+<section class="sec s-navy">
+  <div class="wrap" style="max-width:960px">
+    <div class="lg" style="border-radius:30px;padding:2.5rem 2.8rem">
+      <p class="eyebrow">Not Included in Build Pricing</p>
+      <h2 class="h2" style="font-size:clamp(1.6rem,2.6vw,2.2rem);margin-bottom:1.5rem">Budget for these separately.</h2>
+      <div class="two" style="gap:0 2.5rem">
+        <ul style="list-style:none"><li style="padding:.7rem 0;border-top:1px solid rgba(255,255,255,.16)">Land purchase</li><li style="padding:.7rem 0;border-top:1px solid rgba(255,255,255,.16)">Permits and impact fees</li><li style="padding:.7rem 0;border-top:1px solid rgba(255,255,255,.16)">Architecture and engineering</li></ul>
+        <ul style="list-style:none"><li style="padding:.7rem 0;border-top:1px solid rgba(255,255,255,.16)">Utilities and site work</li><li style="padding:.7rem 0;border-top:1px solid rgba(255,255,255,.16)">Furnishing and landscaping</li><li style="padding:.7rem 0;border-top:1px solid rgba(255,255,255,.16)">Financing costs</li></ul>
       </div>
+      <p style="font-size:.85rem;color:rgba(255,255,255,.65);margin-top:1.2rem">We help you estimate each of these in your Discovery Meeting. See <a href="financing.html" class="more">financing options</a>.</p>
     </div>
-
-    <!-- Package Cards -->
-    <div style="margin-bottom:1rem;">
-      <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">Choose Your Level</p>
-      <h2 class="section-heading" style="font-size:2rem;color:white;margin-bottom:2rem;">Finish Packages</h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6 mb-16">
-
-      <!-- Standard -->
-      <div class="package-card package-standard">
-        <div>
-          <div class="package-label">Cash Flow Focused</div>
-          <div class="package-name">Standard</div>
-        </div>
-        <div class="package-price">$190 <span>/ sq ft</span></div>
-        <p class="package-tagline">Ideal for investors focused on strong cash flow and reliable returns.</p>
-        <div class="package-divider"></div>
-        <div style="display:flex;flex-direction:column;gap:0.65rem;">
-          <div class="package-feature">Moen or Delta fixtures</div>
-          <div class="package-feature">Durable builder-grade appliances</div>
-          <div class="package-feature">Quality vinyl plank flooring</div>
-          <div class="package-feature">Solid core doors</div>
-          <div class="package-feature">High-washability paint</div>
-        </div>
-      </div>
-
-      <!-- Premium -->
-      <div class="package-card package-premium">
-        <div style="position:absolute;top:1.5rem;right:1.5rem;background:rgba(212,175,127,0.12);border:1px solid rgba(212,175,127,0.25);color:rgba(212,175,127,0.85);font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:999px;">Most Popular</div>
-        <div>
-          <div class="package-label">Balanced Excellence</div>
-          <div class="package-name">Premium</div>
-        </div>
-        <div class="package-price">$190–190 <span>/ sq ft</span></div>
-        <p class="package-tagline">Attracts higher-quality tenants and supports premium rental rates.</p>
-        <div class="package-divider"></div>
-        <div style="display:flex;flex-direction:column;gap:0.65rem;">
-          <div class="package-feature">Kohler fixtures throughout</div>
-          <div class="package-feature">Upgraded cabinetry with quartz countertops</div>
-          <div class="package-feature">Porcelain tile in all wet areas</div>
-          <div class="package-feature">Enhanced lighting packages</div>
-          <div class="package-feature">Premium interior doors and hardware</div>
-        </div>
-      </div>
-
-      <!-- Luxury -->
-      <div class="package-card package-luxury">
-        <div>
-          <div class="package-label">High-End & Custom</div>
-          <div class="package-name">Luxury</div>
-        </div>
-        <div class="package-price">$190+ <span>/ sq ft</span></div>
-        <p class="package-tagline">High-end owner-occupant homes or prestige rental properties.</p>
-        <div class="package-divider"></div>
-        <div style="display:flex;flex-direction:column;gap:0.65rem;">
-          <div class="package-feature">Designer Kohler or luxury equivalent fixtures</div>
-          <div class="package-feature">Custom cabinetry</div>
-          <div class="package-feature">Natural stone or high-end tile selections</div>
-          <div class="package-feature">Smart home wiring</div>
-          <div class="package-feature">Premium appliances & architectural detailing</div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Remodel Section -->
-    <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:1.5rem;padding:2.5rem;margin-bottom:4rem;">
-      <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">Updating an Existing Property</p>
-      <h3 class="section-heading" style="font-size:1.75rem;color:white;margin-bottom:1rem;">Remodel & Renovation Pricing</h3>
-      <p style="color:rgba(255,255,255,0.5);line-height:1.75;max-width:680px;">We provide fully customized quotes for all remodeling and renovation projects — kitchen and bathroom updates, whole-home modernizations, room additions, and exterior refreshes. We apply the same Standard, Premium, and Luxury tiers for consistency and ease of comparison. Pricing is determined after an on-site evaluation and a detailed scope of work.</p>
-    </div>
-
-    <!-- What's Not Included -->
-    <div style="margin-bottom:4rem;">
-      <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,127,0.6);margin-bottom:0.75rem;">Important to Know</p>
-      <h2 class="section-heading" style="font-size:2rem;color:white;margin-bottom:0.5rem;">What Is Not Included in Build Pricing</h2>
-      <p style="color:rgba(255,255,255,0.4);font-size:0.88rem;margin-bottom:1.5rem;">Handled separately and reviewed transparently during your Discovery Meeting:</p>
-      <div class="grid md:grid-cols-2 gap-x-8">
-        <div>
-          <div class="not-included-item">Land acquisition</div>
-          <div class="not-included-item">Permitting and impact fees</div>
-          <div class="not-included-item">Architectural and engineering fees</div>
-        </div>
-        <div>
-          <div class="not-included-item">Utility connections and site work</div>
-          <div class="not-included-item">Furnishing and landscaping</div>
-          <div class="not-included-item">Financing costs</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- CTA -->
-<section style="background:#0F141A;padding:6rem 0;text-align:center;">
-  <div style="max-width:620px;margin:0 auto;padding:0 2rem;">
-    <p style="font-size:0.7rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,127,0.7);margin-bottom:1.25rem;">Let's Build Together</p>
-    <h2 class="section-heading" style="font-size:2.5rem;color:white;margin-bottom:1rem;">Ready to Move Forward?</h2>
-    <div class="section-divider" style="margin:0 auto 1.5rem;"></div>
-    <p style="color:rgba(255,255,255,0.45);margin-bottom:2rem;line-height:1.7;">Schedule a Discovery & Strategy Meeting. We will listen to your goals, review your options, and prepare a detailed, customized proposal with exact pricing for the package that best fits your vision.</p>
-    <a href="contact.html" class="btn-primary-dark">Schedule a Discovery Meeting →</a>
-    <p style="margin-top:1.5rem;font-size:0.72rem;font-weight:500;letter-spacing:0.1em;color:rgba(212,175,127,0.4);text-transform:uppercase;">Quality Built. Income Optimized. Future Secured.</p>
+<section class="sec s-char" style="text-align:center">
+  <div class="wrap" style="max-width:820px">
+    <h2 class="h2">Get a number for your project.</h2><div class="line c"></div>
+    <p class="lead" style="margin:0 auto 2.2rem">Tell us what you want to build. We will scope it and price it.</p>
+    <div class="btns" style="justify-content:center"><a href="contact.html" class="btn btn-p">Schedule a Discovery Meeting</a><a href="process.html" class="btn btn-g lg">See the process</a></div>
   </div>
 </section>
-
-<footer class="footer-bg" style="padding-top:4rem;padding-bottom:2rem;">
-  <div style="max-width:1400px;margin:0 auto;padding:0 2.5rem;">
-    <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.08);">
-      <div><img src="ocp-logo-dark.png" style="height:28px;margin-bottom:1rem;"><p style="color:rgba(255,255,255,0.35);font-size:0.82rem;line-height:1.7;">Arizona's Premier<br>Investment Build Partner</p></div>
-      <div>
-        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Info</p>
-        <div style="display:flex;flex-direction:column;gap:0.65rem;">
-          <a href="process.html"  style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">How it Works</a>
-          <a href="#"             style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">About Us</a>
-          <a href="packages.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Services</a>
-          <a href="projects.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Projects</a>
-        </div>
-      </div>
-      <div>
-        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Questions</p>
-        <div style="display:flex;flex-direction:column;gap:0.65rem;">
-          <a href="tel:6234766576" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">📞 623-476-6576</a>
-          <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;">Mon–Fri, 12–5pm</p>
-          <a href="mailto:skraca@outlook.com" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">✉️ skraca@outlook.com</a>
-        </div>
-      </div>
-      <div>
-        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Stay Updated</p>
-        <div style="display:flex;gap:0.5rem;margin-bottom:0.6rem;">
-          <input type="email" placeholder="Your email" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:0.5rem 1rem;color:white;font-size:0.8rem;outline:none;min-width:0;">
-          <button style="background:rgba(212,175,127,0.12);border:1px solid rgba(212,175,127,0.25);color:rgba(212,175,127,0.85);border-radius:999px;padding:0.5rem 0.9rem;font-size:0.78rem;cursor:pointer;white-space:nowrap;">Subscribe</button>
-        </div>
-        <p style="color:rgba(255,255,255,0.2);font-size:0.72rem;">By subscribing you agree to our Privacy Policy.</p>
-      </div>
+<footer class="foot pt-16 pb-8">
+  <div class="wrap">
+    <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,.12)">
+      <div><img src="ocp-logo-dark.png" alt="OCP Builders" style="height:28px;margin-bottom:1rem"><p style="color:rgba(255,255,255,.6);font-size:.84rem;line-height:1.7">Omni Construction Products<br>Arizona's Premier Build Partner<br>KB-1 licensed. Central Phoenix, Arizona.</p></div>
+      <div><p class="fh">Info</p><div style="display:flex;flex-direction:column;gap:.65rem"><a href="process.html" class="fa">How it Works</a><a href="about.html" class="fa">About Us</a><a href="packages.html" class="fa">Services</a><a href="projects.html" class="fa">Projects</a><a href="leasing.html" class="fa">Flagship Duplex</a></div></div>
+      <div><p class="fh">Questions</p><div style="display:flex;flex-direction:column;gap:.7rem">
+        <a href="tel:6234766576" class="fa"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>623-476-6576</a>
+        <p style="color:rgba(255,255,255,.5);font-size:.76rem;padding-left:1.6rem">Mon to Fri, 12 to 5pm</p>
+        <a href="mailto:info@ocp-az.com" class="fa"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>info@ocp-az.com</a></div></div>
+      <div><p class="fh">Stay Updated</p>
+        <div style="display:flex;gap:.5rem;margin-bottom:.6rem"><input type="email" placeholder="Your email" aria-label="Email" style="flex:1;min-width:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:.55rem 1rem;color:#fff;font-size:.8rem;outline:none"><button class="lg" style="border-radius:12px;padding:.55rem .95rem;color:#fff;font-size:.78rem;cursor:pointer">Subscribe</button></div>
+        <p style="color:rgba(255,255,255,.45);font-size:.72rem">By subscribing you agree to our <a href="privacy.html" style="color:inherit">Privacy Policy</a>.</p></div>
     </div>
-    <div style="padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
-      <p style="color:rgba(255,255,255,0.2);font-size:0.78rem;">© 2026 OCP Builds. All rights reserved.</p>
-      <a href="#" style="color:rgba(255,255,255,0.2);font-size:0.78rem;text-decoration:none;">Privacy Policy</a>
-    </div>
+    <div style="padding-top:2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem"><p style="color:rgba(255,255,255,.45);font-size:.78rem">© 2026 Omni Construction Products. All rights reserved.</p><a href="privacy.html" style="color:rgba(255,255,255,.45);font-size:.78rem;text-decoration:none">Privacy Policy</a></div>
   </div>
 </footer>
-
+<script>
+document.querySelectorAll('.chips').forEach(function(bar){
+  var g=bar.dataset.group;
+  bar.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+    bar.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});c.classList.add('on');
+    document.querySelectorAll('.pane[data-group="'+g+'"]').forEach(function(p){p.classList.toggle('on',p.id===c.dataset.t)});
+  });});
+});
+document.querySelectorAll('#mm a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mm').classList.remove('on')})});
+</script>
 </body>
 </html>
