@@ -1,167 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog | OCP Builds</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | OCP Builders | Omni Construction Products</title>
+<meta name="description" content="Insights from OCP Builders on residential construction, commercial build-outs, and the flagship duplex model in Arizona.">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fraunces:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'DM Sans', sans-serif; background: #1A1A1A; color: #E5E7EB; }
-    .nav-bg { background: rgba(45, 45, 45, 0.92); backdrop-filter: blur(32px) saturate(140%) brightness(0.95); position: fixed; top:0; left:0; right:0; z-index:100; border-bottom:1px solid rgba(255,255,255,0.08); }
-    .nav-inner { max-width:1400px; margin:0 auto; padding:0 2rem; height:62px; display:flex; justify-content:space-between; align-items:center; }
-    .nav-link { font-size:0.88rem; font-weight:400; letter-spacing:0.015em; color:rgba(235,230,220,0.85); padding:0 1rem; text-decoration:none; transition:color 0.2s ease; white-space:nowrap; }
-    .nav-link:hover { color:#f5f0e6; }
-    .nav-link.active { color:rgba(212,175,127,0.9); }
-    .nav-cta { background:rgba(200,195,190,0.1); border:1px solid rgba(200,195,190,0.22); color:rgba(230,225,215,0.9); font-size:0.85rem; font-weight:500; padding:0.48rem 1.2rem; border-radius:999px; text-decoration:none; letter-spacing:0.02em; transition:background 0.2s; white-space:nowrap; }
-    .nav-cta:hover { background:rgba(200,195,190,0.2); }
-    .section-heading { font-family:'Fraunces',serif; font-weight:300; letter-spacing:-0.02em; }
-    .gold { color:rgba(212,175,127,0.85); }
-    .section-divider { width:40px; height:1px; background:rgba(212,175,127,0.4); margin:1.25rem 0; }
-    .blog-card { background:linear-gradient(145deg,#242424,#1C1C1C); border:1px solid rgba(255,255,255,0.06); border-radius:1.5rem; overflow:hidden; transition:all 0.3s ease; display:flex; flex-direction:column; }
-    .blog-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.5); border-color:rgba(255,255,255,0.1); }
-    .blog-card-img { width:100%; height:220px; object-fit:cover; background:#222; display:block; }
-    .blog-card-img-placeholder { width:100%; height:220px; background:linear-gradient(135deg,#222,#2a2a2a); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.15); font-size:0.8rem; letter-spacing:0.1em; }
-    .blog-card-body { padding:1.75rem 2rem 2rem; display:flex; flex-direction:column; gap:0.65rem; flex:1; }
-    .blog-tag { font-size:0.68rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:rgba(212,175,127,0.7); }
-    .blog-title { font-family:'Fraunces',serif; font-weight:300; font-size:1.25rem; line-height:1.35; color:white; }
-    .blog-excerpt { font-size:0.88rem; color:rgba(255,255,255,0.45); line-height:1.65; flex:1; }
-    .blog-meta { font-size:0.75rem; color:rgba(255,255,255,0.25); margin-top:0.25rem; }
-    .blog-read-more { font-size:0.82rem; font-weight:500; color:rgba(168,180,192,0.85); text-decoration:none; letter-spacing:0.04em; display:inline-flex; align-items:center; gap:0.3rem; transition:color 0.2s; margin-top:0.5rem; }
-    .blog-read-more:hover { color:rgba(212,175,127,0.9); }
-    .footer-bg { background:#141414; border-top:1px solid rgba(255,255,255,0.06); }
-    .btn-primary-dark { display:inline-flex; align-items:center; background:white; color:#0B0F14; font-size:0.95rem; font-weight:500; padding:0.85rem 2rem; border-radius:999px; text-decoration:none; transition:background 0.2s,transform 0.15s; }
-    .btn-primary-dark:hover { background:rgba(255,255,255,0.88); transform:translateY(-1px); }
-    .page-header { background:linear-gradient(160deg,#0A0F14 0%,#111820 50%,#0F141A 100%); padding:140px 0 80px; position:relative; overflow:hidden; }
-    .page-header::before { content:''; position:absolute; top:-60px; right:-80px; width:500px; height:500px; background:radial-gradient(circle,rgba(212,175,127,0.06) 0%,transparent 70%); pointer-events:none; }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
-    .fade-up { opacity:0; animation:fadeUp 0.8s ease forwards; }
-    .d1{animation-delay:0.05s} .d2{animation-delay:0.2s} .d3{animation-delay:0.35s}
-  </style>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{--stone:#CBBFB0;--steel:#8FA3BF;--ui:'Aptos','DM Sans',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#232426;color:#E9E8E6}
+.s-char{background:linear-gradient(180deg,#26272A,#1C1D1F)}
+.s-navy{background:linear-gradient(160deg,#1F2C3F 0%,#172131 55%,#0F1620 100%)}
+.s-taupe{background:linear-gradient(160deg,#4A413A 0%,#3A332E 55%,#2E2A27 100%)}
+
+.lg{background:linear-gradient(150deg,rgba(255,255,255,.2),rgba(255,255,255,.05) 55%,rgba(255,255,255,.12));border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(22px) saturate(180%) brightness(1.08);-webkit-backdrop-filter:blur(22px) saturate(180%) brightness(1.08);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(255,255,255,.1),0 18px 40px rgba(0,0,0,.28);position:relative;overflow:hidden}
+.lg::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 60% at 15% -10%,rgba(255,255,255,.26),transparent 55%);pointer-events:none}
+.lg>*{position:relative}
+
+.banner{position:fixed;top:0;left:0;right:0;z-index:9999;height:38px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,#8E7F73,#B3A598,#8E7F73);color:#1d1a17;font:500 .78rem var(--ui);letter-spacing:.06em}
+.hdr{position:fixed;top:50px;left:1.25rem;right:1.25rem;max-width:1380px;margin:0 auto;z-index:100;height:64px;border-radius:22px;padding:0 1rem 0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:linear-gradient(150deg,rgba(92,80,70,.52),rgba(52,45,40,.42) 60%,rgba(78,68,60,.5))}
+.tabs{display:flex;gap:.1rem}
+.tab{font:600 .7rem var(--ui);text-transform:uppercase;letter-spacing:.15em;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.35);padding:.6rem .85rem;border-radius:12px;text-decoration:none;white-space:nowrap;transition:background .2s}
+.tab:hover{background:rgba(255,255,255,.18)}
+.tab.active{background:rgba(255,255,255,.22);box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+.cta{font:600 .7rem var(--ui);text-transform:uppercase;letter-spacing:.15em;color:#fff;padding:.7rem 1.3rem;border-radius:14px;text-decoration:none;white-space:nowrap;background:linear-gradient(150deg,rgba(255,255,255,.28),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(12px);transition:all .25s}
+.cta:hover{background:linear-gradient(150deg,rgba(255,255,255,.38),rgba(255,255,255,.14));transform:translateY(-1px)}
+@media(max-width:1150px){.tabs{display:none}}
+
+.eyebrow{font:500 .72rem var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:1.2rem}
+.h2{font-weight:300;letter-spacing:-.03em;font-size:clamp(2rem,3.6vw,3.1rem);line-height:1.1}
+.line{width:56px;height:2px;margin:1.2rem 0;border-radius:2px;background:linear-gradient(90deg,var(--steel),var(--stone))}
+.line.c{margin-left:auto;margin-right:auto}
+.lead{color:rgba(255,255,255,.68);font-size:1.04rem;line-height:1.75;max-width:640px}
+.sec{padding:6rem 0}
+.wrap{max-width:1250px;margin:0 auto;padding:0 1.5rem}
+.more{font:600 .72rem var(--ui);letter-spacing:.14em;text-transform:uppercase;color:#fff;text-decoration:none;border-bottom:1px solid rgba(203,191,176,.6);padding-bottom:3px}
+.more:hover{color:var(--stone)}
+
+.card{background:linear-gradient(145deg,#31353b,#212328);border:1px solid rgba(255,255,255,.09);border-radius:1.5rem;padding:2rem;display:flex;flex-direction:column;gap:.75rem;transition:all .3s;overflow:hidden}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.card.lg{background:linear-gradient(150deg,rgba(255,255,255,.12),rgba(255,255,255,.04) 55%,rgba(255,255,255,.08))}
+.tag2{font:600 .66rem var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--steel)}
+.card h3{font:400 1.25rem/1.35 'DM Sans';letter-spacing:-.015em;color:#fff}
+.card p{font-size:.88rem;color:rgba(255,255,255,.58);line-height:1.6;flex:1}
+.meta{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:.25rem}
+
+.page-hero{padding:180px 0 80px;background:linear-gradient(160deg,#1F2C3F 0%,#172131 55%,#0F1620 100%)}
+.page-hero h1{font-weight:300;font-size:clamp(2.8rem,5vw,4.5rem);line-height:1.05;letter-spacing:-.03em;color:#fff;max-width:700px}
+
+.foot{background:#34302D;border-top:1px solid rgba(255,255,255,.1)}
+.fh{color:rgba(255,255,255,.45);font:600 .66rem var(--ui);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
+.fa{color:rgba(255,255,255,.78);font-size:.86rem;text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.fa:hover{color:#fff}
+.fa svg{width:16px;height:16px;stroke:var(--stone);fill:none;stroke-width:1.6;flex-shrink:0}
+
+.burger{display:none;width:44px;height:44px;border-radius:14px;align-items:center;justify-content:center;cursor:pointer;color:#fff;border:1px solid rgba(255,255,255,.28)}
+.burger svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8}
+@media(max-width:1150px){.burger{display:flex}}
+.mmenu{display:none;position:fixed;top:124px;left:1.25rem;right:1.25rem;z-index:99;border-radius:22px;padding:.8rem;flex-direction:column;background:linear-gradient(150deg,rgba(92,80,70,.82),rgba(52,45,40,.8))}
+.mmenu.on{display:flex}
+.mmenu a{font:600 .74rem var(--ui);letter-spacing:.15em;text-transform:uppercase;color:#fff;text-decoration:none;padding:.95rem 1rem;border-bottom:1px solid rgba(255,255,255,.12)}
+.mmenu a:last-child{border:0}
+
+.btn{font:500 .9rem var(--ui);padding:.85rem 1.5rem;border-radius:14px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}
+.btn-p{background:#fff;color:#16191e}.btn-p:hover{transform:translateY(-1px);background:#efece8}
+</style>
 </head>
 <body>
+<div class="banner">🚧 &nbsp;Under construction. Check back soon!</div>
 
-<nav class="nav-bg">
-  <div class="nav-inner">
-    <a href="/"><img src="ocp-logo-dark.png" style="height:30px;"></a>
-    <div style="display:flex;align-items:center;">
-      <a href="projects.html"  class="nav-link">Projects</a>
-      <a href="packages.html"        class="nav-link">Packages & Pricing</a>
-      <a href="process.html"         class="nav-link">Process</a>
-      <a href="financing.html"       class="nav-link">Financing</a>
-      <a href="reviews.html"         class="nav-link">Reviews</a>
-      <a href="blog.html"            class="nav-link active">Blog</a>
-      <a href="leasing.html" class="nav-link">Leasing</a>
-    </div>
-    <a href="contact.html" class="nav-cta">Get Started</a>
+<header class="hdr lg">
+  <a href="/"><img src="ocp-logo-dark.png" alt="OCP Builders" style="height:30px"></a>
+  <nav class="tabs">
+    <a href="projects.html" class="tab">Projects</a>
+    <a href="packages.html" class="tab">Packages &amp; Pricing</a>
+    <a href="process.html" class="tab">Process</a>
+    <a href="financing.html" class="tab">Financing</a>
+    <a href="reviews.html" class="tab">Reviews</a>
+    <a href="blog.html" class="tab active">Blog</a>
+    <a href="leasing.html" class="tab">Flagship</a>
+  </nav>
+  <div style="display:flex;gap:.6rem;align-items:center">
+    <a href="contact.html" class="cta">Get Started</a>
+    <button class="burger lg" aria-label="Open menu" onclick="document.getElementById('mm').classList.toggle('on')"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
+</header>
+<nav id="mm" class="mmenu lg">
+  <a href="projects.html">Projects</a>
+  <a href="packages.html">Packages &amp; Pricing</a>
+  <a href="process.html">Process</a>
+  <a href="financing.html">Financing</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="blog.html">Blog</a>
+  <a href="leasing.html">Flagship</a>
+  <a href="contact.html">Get Started</a>
 </nav>
 
-<div class="page-header">
-  <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
-    <p class="fade-up d1" style="font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,127,0.7);margin-bottom:1.25rem;">Insights & Strategy</p>
-    <h1 class="section-heading fade-up d2" style="font-size:clamp(3rem,5vw,5.5rem);color:white;line-height:1.05;max-width:700px;margin-bottom:1.5rem;">Latest Insights</h1>
-    <div class="section-divider fade-up d2"></div>
-    <p class="fade-up d3" style="color:rgba(255,255,255,0.5);font-size:1.05rem;line-height:1.7;max-width:560px;margin-top:1.25rem;">Real strategies for building income, protecting wealth, and making smart real estate decisions in Arizona.</p>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Insights</p>
+    <h1>Latest insights</h1>
+    <div class="line"></div>
+    <p class="lead" style="margin-top:1.25rem">Real context on building, investing, and how owners run income properties in Arizona.</p>
   </div>
-</div>
+</section>
 
-<section style="padding:5rem 0 7rem;">
-  <div style="max-width:1200px;margin:0 auto;padding:0 2.5rem;">
-    <div class="grid md:grid-cols-3 gap-8">
-
-      <!-- Post 1 -->
-      <div class="blog-card" id="post1">
-        <div class="blog-card-img-placeholder">blog-post1-cover.jpg</div>
-        <div class="blog-card-body">
-          <span class="blog-tag">Wealth Strategy</span>
-          <h3 class="blog-title">Why Retired Athletes Are Turning to 4400 sq ft Duplexes for Long-Term Wealth</h3>
-          <p class="blog-excerpt">Protect your money after the spotlight fades. Real assets, real cash flow — what the pros are doing now.</p>
-          <p class="blog-meta">May 2026 · 6 min read</p>
-          <a href="blog-post1.html" class="blog-read-more">Read Full Post →</a>
-        </div>
-      </div>
-
-      <!-- Post 2 -->
-      <div class="blog-card" id="post2">
-        <div class="blog-card-img-placeholder">blog-post2-cover.jpg</div>
-        <div class="blog-card-body">
-          <span class="blog-tag">Investment Strategy</span>
-          <h3 class="blog-title">Live in One Side, Rent the Other – The Smart Duplex Strategy</h3>
-          <p class="blog-excerpt">Move in and let tenants pay your mortgage. Many owners cover 70–90% of their payment with rental income.</p>
-          <p class="blog-meta">April 2026 · 5 min read</p>
-          <a href="blog-post2.html" class="blog-read-more">Read Full Post →</a>
-        </div>
-      </div>
-
-      <!-- Post 3 -->
-      <div class="blog-card" id="post3">
-        <div class="blog-card-img-placeholder">blog-post3-cover.jpg</div>
-        <div class="blog-card-body">
-          <span class="blog-tag">Cash Flow</span>
-          <h3 class="blog-title">Room-by-Room Leasing vs Traditional Rentals – Real Numbers</h3>
-          <p class="blog-excerpt">Traditional single-tenant rentals leave money on the table. Our bedroom-by-bedroom approach delivers stronger returns.</p>
-          <p class="blog-meta">March 2026 · 7 min read</p>
-          <a href="blog-post3.html" class="blog-read-more">Read Full Post →</a>
-        </div>
-      </div>
-
+<section class="sec s-char">
+  <div class="wrap">
+    <div class="grid md:grid-cols-3 gap-7">
+      <article class="card lg">
+        <span class="tag2">Wealth Strategy</span>
+        <h3>Why Retired Athletes Are Turning to 4,400 Sq Ft Duplexes for Long-Term Wealth</h3>
+        <p>Protect your money after the spotlight fades with real assets and real cash flow.</p>
+        <p class="meta">May 2026 · 6 min read</p>
+        <a href="blog-post1.html" class="more" style="align-self:flex-start">Read more</a>
+      </article>
+      <article class="card lg">
+        <span class="tag2">Cash Flow</span>
+        <h3>Room-by-Room Leasing vs. Traditional Rentals: The Real Numbers</h3>
+        <p>Single-tenant rentals leave money on the table. See how bedroom-by-bedroom leasing compares.</p>
+        <p class="meta">March 2026 · 7 min read</p>
+        <a href="blog-post3.html" class="more" style="align-self:flex-start">Read more</a>
+      </article>
+      <article class="card lg">
+        <span class="tag2">Retirement</span>
+        <h3>Why Social Security Alone May Not Be Enough</h3>
+        <p>What the 2026 Trustees Report says, and why more workers are building income assets.</p>
+        <p class="meta">2026 · 5 min read</p>
+        <a href="blog-post4.html" class="more" style="align-self:flex-start">Read more</a>
+      </article>
     </div>
   </div>
 </section>
 
-<section style="background:#0F141A;padding:5rem 0;text-align:center;">
-  <div style="max-width:600px;margin:0 auto;padding:0 2rem;">
-    <h2 class="section-heading" style="font-size:2.2rem;color:white;margin-bottom:1rem;">Ready to build your income property?</h2>
-    <p style="color:rgba(255,255,255,0.45);margin-bottom:2rem;line-height:1.7;">Let's talk about your goals and how OCP Builds can help.</p>
-    <a href="contact.html" class="btn-primary-dark">Book a Free Consultation →</a>
+<section class="sec s-navy" style="text-align:center">
+  <div class="wrap" style="max-width:720px">
+    <h2 class="h2">Start your project.</h2>
+    <div class="line c"></div>
+    <p class="lead" style="margin:0 auto 2.2rem">Book a quick call to review your land, budget and what you want to build.</p>
+    <a href="contact.html" class="btn btn-p">Book a Free 15-Minute Consultation</a>
   </div>
 </section>
 
-<footer class="footer-bg" style="padding-top:4rem;padding-bottom:2rem;">
-  <div style="max-width:1400px;margin:0 auto;padding:0 2.5rem;">
-    <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,0.08);">
-      <div>
-        <img src="ocp-logo-dark.png" style="height:28px;margin-bottom:1rem;">
-        <p style="color:rgba(255,255,255,0.35);font-size:0.82rem;line-height:1.7;">Arizona's Premier<br>Investment Build Partner</p>
-      </div>
-      <div>
-        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Info</p>
-        <div style="display:flex;flex-direction:column;gap:0.65rem;">
-          <a href="process.html"        style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">How it Works</a>
-          <a href="#"                   style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">About Us</a>
-          <a href="packages.html"       style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Services</a>
-          <a href="projects.html"       style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">Projects</a>
-        </div>
-      </div>
-      <div>
-        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Questions</p>
-        <div style="display:flex;flex-direction:column;gap:0.65rem;">
-          <a href="tel:6234766576" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">📞 623-476-6576</a>
-          <p style="color:rgba(255,255,255,0.3);font-size:0.75rem;">Mon–Fri, 12–5pm</p>
-          <a href="mailto:skraca@outlook.com" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;">✉️ skraca@outlook.com</a>
-        </div>
-      </div>
-      <div>
-        <p style="color:rgba(255,255,255,0.2);font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;">Stay Updated</p>
-        <div style="display:flex;gap:0.5rem;margin-bottom:0.6rem;">
-          <input type="email" placeholder="Your email" style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:0.5rem 1rem;color:white;font-size:0.8rem;outline:none;min-width:0;">
-          <button style="background:rgba(212,175,127,0.12);border:1px solid rgba(212,175,127,0.25);color:rgba(212,175,127,0.85);border-radius:999px;padding:0.5rem 0.9rem;font-size:0.78rem;cursor:pointer;white-space:nowrap;">Subscribe</button>
-        </div>
-        <p style="color:rgba(255,255,255,0.2);font-size:0.72rem;">By subscribing you agree to our Privacy Policy.</p>
-      </div>
+<footer class="foot pt-16 pb-8">
+  <div class="wrap">
+    <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(255,255,255,.12)">
+      <div><img src="ocp-logo-dark.png" alt="OCP Builders" style="height:28px;margin-bottom:1rem"><p style="color:rgba(255,255,255,.6);font-size:.84rem;line-height:1.7">Omni Construction Products<br>Arizona's Premier Build Partner<br>KB-1 licensed. Central Phoenix, Arizona.</p></div>
+      <div><p class="fh">Info</p><div style="display:flex;flex-direction:column;gap:.65rem"><a href="process.html" class="fa">How it Works</a><a href="about.html" class="fa">About Us</a><a href="packages.html" class="fa">Services</a><a href="projects.html" class="fa">Projects</a><a href="leasing.html" class="fa">Flagship Duplex</a></div></div>
+      <div><p class="fh">Questions</p><div style="display:flex;flex-direction:column;gap:.7rem">
+        <a href="tel:6234766576" class="fa"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>623-476-6576</a>
+        <p style="color:rgba(255,255,255,.5);font-size:.76rem;padding-left:1.6rem">Mon to Fri, 12 to 5pm</p>
+        <a href="mailto:info@ocp-az.com" class="fa"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>info@ocp-az.com</a></div></div>
+      <div><p class="fh">Stay Updated</p>
+        <div style="display:flex;gap:.5rem;margin-bottom:.6rem"><input type="email" placeholder="Your email" aria-label="Email" style="flex:1;min-width:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:.55rem 1rem;color:#fff;font-size:.8rem;outline:none"><button class="lg" style="border-radius:12px;padding:.55rem .95rem;color:#fff;font-size:.78rem;cursor:pointer">Subscribe</button></div>
+        <p style="color:rgba(255,255,255,.45);font-size:.72rem">By subscribing you agree to our <a href="privacy.html" style="color:inherit">Privacy Policy</a>.</p></div>
     </div>
-    <div style="padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
-      <p style="color:rgba(255,255,255,0.2);font-size:0.78rem;">© 2026 OCP Builds. All rights reserved.</p>
-      <a href="#" style="color:rgba(255,255,255,0.2);font-size:0.78rem;text-decoration:none;">Privacy Policy</a>
-    </div>
+    <div style="padding-top:2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem"><p style="color:rgba(255,255,255,.45);font-size:.78rem">© 2026 Omni Construction Products. All rights reserved.</p><a href="privacy.html" style="color:rgba(255,255,255,.45);font-size:.78rem;text-decoration:none">Privacy Policy</a></div>
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('#mm a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mm').classList.remove('on')})});
+</script>
 </body>
 </html>
