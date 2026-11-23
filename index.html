@@ -177,9 +177,10 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .hw>.shade::before{opacity:.9}
 .hz{position:relative;z-index:1;min-height:94vh;min-height:94svh;display:flex;flex-direction:column;justify-content:center;padding-top:132px}
 .slides,.hov{position:absolute;inset:0 0 -220px 0;z-index:0;-webkit-mask-image:linear-gradient(180deg,#000 44%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.18) 88%,transparent 100%);mask-image:linear-gradient(180deg,#000 44%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.18) 88%,transparent 100%)}
-.hslide{position:absolute;inset:0;background-size:cover;background-position:center 42%;opacity:0;animation:hs 27s infinite;filter:saturate(.86) contrast(1.03)}
-.hslide:nth-child(1){opacity:1}.hslide:nth-child(2){animation-delay:9s}.hslide:nth-child(3){animation-delay:18s}
-@keyframes hs{0%{opacity:1}30%{opacity:1}38%{opacity:0}92%{opacity:0}100%{opacity:1}}
+.hslide{position:absolute;inset:0;background-size:cover;background-position:center 42%;opacity:0;animation:hs 27s linear infinite both;filter:saturate(.86) contrast(1.03)}
+/* true crossfade: each photo fades in while the one before it fades out (2.2s, eased) */
+.hslide:nth-child(1){opacity:1;animation-delay:-2.2s}.hslide:nth-child(2){animation-delay:6.8s}.hslide:nth-child(3){animation-delay:15.8s}
+@keyframes hs{0%{opacity:0;animation-timing-function:ease-in-out}8.15%{opacity:1}33.33%{opacity:1;animation-timing-function:ease-in-out}41.48%{opacity:0}100%{opacity:0}}
 /* warm taupe grade over the photo so hero and who share one colour */
 .hov{background:
   linear-gradient(100deg,rgba(28,27,27,.9) 0%,rgba(33,31,30,.6) 46%,rgba(36,34,33,.18) 100%),
