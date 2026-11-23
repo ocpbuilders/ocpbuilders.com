@@ -668,7 +668,97 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .lvl div[data-lvl]{cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
 .lvl div[data-lvl]:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.35)}
 .lvl div[data-lvl].on{background:linear-gradient(160deg,rgba(255,255,255,.2),rgba(255,255,255,.06));border-color:rgba(255,255,255,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 8px 20px rgba(0,0,0,.25)}
+.own-wide{margin-bottom:0}
+.own-gap{margin-top:1.5rem}
+.own-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:.2rem 0 1.2rem}
+.own-stats div{padding:1rem 1.1rem;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14)}
+.own-stats b{display:block;font:300 1.7rem var(--f);letter-spacing:-.02em;color:#fff}
+.own-stats span{font:600 .6rem var(--f);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.own-p{font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.86);max-width:900px}
+.col li b{font-weight:500;color:#fff}
+.own-rates{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:.6rem}
+.own-rates div{padding:.8rem .9rem;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14)}
+.own-rates div.on{background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.05));border-color:rgba(255,255,255,.45)}
+.own-rates span{display:block;font:600 .58rem var(--f);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.own-rates b{font:300 1.45rem var(--f);color:#fff}
+.own-note{font-size:.76rem;color:rgba(255,255,255,.6);margin-bottom:.6rem}
+.own-src{font-size:.74rem;color:rgba(255,255,255,.5);margin-top:1.4rem}
+@media(max-width:760px){.two{grid-template-columns:1fr}.own-stats{grid-template-columns:1fr}}
+.ow-sec{background:radial-gradient(55% 60% at 100% 4%,rgba(143,163,191,.12),transparent 60%),radial-gradient(60% 70% at 0% 50%,rgba(120,96,76,.32),transparent 62%),linear-gradient(105deg,#4d4540 0%,#3e3834 50%,#47403b 100%)!important}
+.ow-k{font:600 .64rem var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:.9rem}
+.ow-head{display:grid;grid-template-columns:1fr minmax(320px,.95fr);gap:3rem;align-items:end;margin-bottom:2.2rem}
+.ow-about{padding:1.5rem 1.6rem;border-radius:26px}
+.ow-about>p:last-child{font-size:.9rem;line-height:1.6;color:rgba(255,255,255,.86)}
+.ow-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem}
+.ow-stats b{display:block;font:300 1.9rem/1 var(--f);letter-spacing:-.03em;color:#fff}
+.ow-stats span{font:600 .58rem var(--f);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.66)}
+.ow-ledger{border-radius:28px;padding:.6rem 1.8rem 1rem}
+.ow-row{display:grid;grid-template-columns:170px 1fr 1fr;gap:2rem;padding:1rem 0;border-top:1px solid rgba(255,255,255,.12);align-items:start}
+.ow-row:first-child,.ow-top+.ow-row{border-top:0}
+.ow-top{padding:1.1rem 0 .7rem;border-bottom:1px solid rgba(203,191,176,.45)}
+.ow-top b{font:500 1.05rem var(--f);color:#fff}
+.ow-row span{font:600 .62rem var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--stone);padding-top:.2rem}
+.ow-row p{font-size:.93rem;line-height:1.5;color:rgba(255,255,255,.88)}
+.ow-row p:nth-of-type(2){padding-left:2rem;border-left:1px solid rgba(255,255,255,.12)}
+.ow-top b:last-child{padding-left:2rem}
+.ow-three{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:1.4rem;margin-top:1.6rem;align-items:stretch}
+.ow-card{border-radius:26px;padding:1.7rem}
+.ow-card ul{list-style:none}
+.ow-card li{font-size:.88rem;line-height:1.55;color:rgba(255,255,255,.86);padding:.55rem 0;border-top:1px solid rgba(255,255,255,.12)}
+.ow-fee{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.9rem}
+.ow-fee div{padding:.9rem 1rem;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
+.ow-fee b{display:block;font:300 1.6rem/1.1 var(--f);color:#fff}
+.ow-fee span{font-size:.74rem;color:rgba(255,255,255,.7)}
+.ow-rate{background:linear-gradient(160deg,rgba(255,255,255,.17),rgba(203,191,176,.06) 40%,rgba(255,255,255,.03) 70%,rgba(255,255,255,.12))}
+.ow-big{display:block;font:300 3.4rem/1 var(--f);letter-spacing:-.04em;color:#fff}
+.ow-big small{display:block;font:500 .72rem var(--f);letter-spacing:.06em;color:rgba(255,255,255,.7);margin-top:.5rem}
+.ow-range{position:relative;height:6px;border-radius:6px;margin:1.3rem 0 .45rem;background:linear-gradient(90deg,rgba(143,163,191,.55),rgba(203,191,176,.95),rgba(255,255,255,.7));box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+.ow-range em{position:absolute;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.2),0 2px 8px rgba(0,0,0,.4)}
+.ow-scale{display:flex;justify-content:space-between;font:600 .66rem var(--f);letter-spacing:.1em;color:rgba(255,255,255,.7);margin-bottom:.9rem}
+.ow-recs{margin-top:2.6rem}
+.ow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.ow-grid div{border-radius:20px;padding:1.2rem 1.3rem}
+.ow-grid b{display:block;font:500 1rem var(--f);color:#fff;margin-bottom:.3rem}
+.ow-grid span{font-size:.86rem;line-height:1.5;color:rgba(255,255,255,.8)}
+.ow-own{margin-top:1.6rem;border-radius:22px;padding:1.5rem 1.7rem;border-left:3px solid var(--stone)!important}
+.ow-own p:last-child{font-size:.93rem;line-height:1.7;color:rgba(255,255,255,.88);max-width:1000px}
+@media(max-width:960px){.ow-head,.ow-three{grid-template-columns:1fr}.ow-grid{grid-template-columns:1fr 1fr}.ow-row{grid-template-columns:1fr 1fr;gap:1rem}.ow-row span{grid-column:1/-1}.ow-top span{display:none}.ow-row p:nth-of-type(2),.ow-top b:last-child{padding-left:1rem}}
+@media(max-width:560px){.ow-grid{grid-template-columns:1fr}.ow-ledger{padding:.4rem 1.1rem .8rem}}
 .lvl-hint{font-size:.74rem;color:rgba(255,255,255,.55);margin:-.4rem 0 .9rem}
+
+
+/* ===== polish (Nov 23): small accents and effects only ===== */
+:root{--rose:#E2B9A0}
+.eyebrow{color:var(--rose)}
+.line{background:linear-gradient(90deg,var(--steel),var(--rose))}
+/* glass: shine on the edges only, clear in the middle so nothing sits over the words */
+.lg{background:linear-gradient(160deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.012) 28%,rgba(255,255,255,0) 55%,rgba(255,255,255,.015) 80%,rgba(255,255,255,.05) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 1px 0 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(255,255,255,.3),inset -1px 0 0 rgba(255,255,255,.15),
+    inset 0 5px 7px -7px rgba(255,255,255,.45),inset 0 -5px 7px -7px rgba(214,224,242,.3),0 18px 40px rgba(0,0,0,.32),0 2px 6px rgba(0,0,0,.2)}
+.lg::before{background:radial-gradient(9% 16% at 2.5% 3%,rgba(255,255,255,.2),transparent 70%),linear-gradient(180deg,rgba(255,255,255,.06),transparent 12px),linear-gradient(0deg,rgba(206,220,245,.05),transparent 12px)}
+/* line between major sections: hair-thin, narrows to a point at both ends, a glint glides across now and then */
+.brk-a{height:2px;top:-1px;overflow:hidden;box-shadow:none;clip-path:polygon(0 50%,50% 0,100% 50%,50% 100%);
+  background:linear-gradient(90deg,transparent 0,rgba(143,163,191,.55) 16%,rgba(236,233,228,.95) 50%,rgba(184,130,95,.75) 84%,transparent 100%)}
+.brk-a::after{content:'';position:absolute;inset:0;left:0;right:0;top:0;width:auto;height:auto;border-radius:0;filter:none;
+  background:linear-gradient(100deg,transparent 44%,#fff 50%,transparent 56%);background-size:320% 100%;background-repeat:no-repeat;animation:shim 8s ease-in-out infinite}
+/* side slider: a little more liquid, marker keeps a dark glass centre */
+.rl .trk{box-shadow:inset 0 2px 3px rgba(255,255,255,.7),inset 0 -2px 4px rgba(255,255,255,.35),inset 2px 0 1px -1px rgba(255,255,255,.95),inset -2px 0 1px -1px rgba(255,255,255,.55),inset 0 0 10px rgba(255,255,255,.08),0 10px 30px rgba(0,0,0,.45),0 0 0 .5px rgba(0,0,0,.4)}
+.rl .trk::after{background:linear-gradient(180deg,transparent,rgba(255,255,255,.18) 38%,rgba(226,185,160,.32) 50%,rgba(190,205,230,.2) 62%,transparent);animation-duration:6s}
+.rl .th{background:radial-gradient(70% 20% at 50% 11%,rgba(255,255,255,.95),transparent 72%),radial-gradient(60% 48% at 50% 52%,rgba(8,8,10,.72),rgba(8,8,10,.35) 70%,transparent 90%),radial-gradient(45% 14% at 58% 90%,rgba(226,185,160,.75),transparent 75%),
+    linear-gradient(90deg,rgba(255,255,255,.78),rgba(255,255,255,.1) 22%,rgba(20,20,22,.25) 50%,rgba(255,255,255,.1) 78%,rgba(255,255,255,.7));
+  animation:blob 5s ease-in-out infinite alternate;transition:transform .5s cubic-bezier(.2,1.8,.35,1)}
+@keyframes blob{0%{border-radius:14px}35%{border-radius:16px 12px 15px 13px/13px 16px 12px 15px}70%{border-radius:12px 16px 13px 15px/16px 12px 15px 13px}100%{border-radius:15px 13px 16px 12px/12px 15px 13px 16px}}
+@media(max-width:1000px){.rl .th{animation:none;border-radius:9px}}
+@media(prefers-reduced-motion:reduce){.brk-a::after,.rl .th{animation:none}}
+/* flagship, what ownership involves: even background, boxes fade gently from clear glass into dark glass */
+.ow-sec{background:radial-gradient(50% 60% at 0% 50%,rgba(120,96,76,.2),transparent 65%),radial-gradient(50% 60% at 100% 50%,rgba(143,163,191,.1),transparent 65%),linear-gradient(105deg,#4a423d 0%,#443d39 50%,#4a423d 100%)!important}
+.ow-sec>.shade::before{opacity:.6}
+.ow-sec .ow-k{color:#DDBBA6}
+.ow-sec .lg{background:linear-gradient(180deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.02) 22%,rgba(16,16,18,.14) 55%,rgba(14,14,16,.32) 100%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 1px 0 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(255,255,255,.3),inset -1px 0 0 rgba(255,255,255,.16),
+    inset 0 0 20px rgba(255,255,255,.05),inset 0 6px 9px -8px rgba(255,255,255,.45),0 18px 40px rgba(0,0,0,.34),0 2px 6px rgba(0,0,0,.2)!important}
+.ow-sec .lg::before{background:radial-gradient(10% 18% at 2.5% 4%,rgba(255,255,255,.18),transparent 70%),radial-gradient(30% 10% at 50% 100%,rgba(226,185,160,.07),transparent 75%)!important}
+.ow-sec .ow-fee div{background:rgba(255,255,255,.04)}
 
 </style>
 </head>
@@ -709,7 +799,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   <div class="wrap art-grid">
     <article class="prose">
       <div class="takeaways lg"><h3>Key Takeaways</h3><ul style="margin:0"><li>Pro careers are short, and the income rarely lasts as long as the lifestyle it funds.</li><li>Canelo Álvarez built a real estate portfolio while he was still fighting. His rule, in short: invest while you are earning.</li><li>A duplex built as eight to ten private suites turns one building into eight to ten rent checks.</li><li>Gross rent is not profit. Furnishing, cleaning, maintenance, vacancy and financing all come out of it.</li></ul></div>
-      <h2 id="short">The Earning Window Is Short</h2><p>A professional athlete may earn the most money of their life in a handful of years, then face decades without that income. The same is true for many people whose best years are limited: entrepreneurs, performers, commission earners and anyone whose income depends on one body, one business or one contract.</p><p>The problem is rarely the first paycheck. It is what the money is turned into before the paychecks stop.</p><h2 id="numbers">What the Numbers Say, and What They Do Not</h2><p>One figure shows up again and again: that about 78% of NFL players face financial stress within a few years of retiring. It traces back to a 2009 Sports Illustrated feature and has been repeated widely since. It has also been questioned, so we treat it as a sign of the risk and not as an exact measurement.</p><p>The broader point does not depend on that number. When income is concentrated in a short window, building income that does not need you to show up is worth planning for early.</p><h2 id="why">Why Real Estate Keeps Coming Up</h2><p>Canelo Álvarez is one of the best-known examples. He built a real estate portfolio while he was still fighting, and the idea behind it is simple: invest while you are earning. You can always work more, but peak earnings do not last.</p><p>Real estate appeals because rent is paid by someone else, the asset is something you can see, and a well-built building keeps its value in a way a one-time payout does not. It also takes work and carries risk, so it is not a guarantee.</p><h2 id="duplex">Why a Room-by-Room Duplex</h2><p>A traditional duplex is two units and two leases. Our flagship duplex is 4,400 sq ft built as eight to ten private suites, each with its own bedroom, bathroom and digital lock, and each rented on its own.</p><p>At a typical $270 per room per week, eight rooms come to $2,160 per week, or about $9,360 per month in gross rent. Rates vary by market and room and can run higher. If you live on one side and rent four rooms, that is about $4,680 per month toward your own housing.</p><p>Most owners list rooms on PadSplit, which markets the rooms, screens members and collects rent. The owner or a property manager still handles furnishing, maintenance and cleaning. We can also manage tenants directly.</p><h2 id="check">What to Check Before You Build</h2><p>Treat every figure here as gross. Vacancy, utilities, furnishing, cleaning, maintenance, insurance, taxes and financing all reduce what you keep. Talk to a CPA about tax treatment and to a lender about terms.</p><p>Then run your own numbers with the <a href="leasing.html#numbers">rooms and rate calculator</a>, or <a href="contact.html">book a quick call</a> and we will walk through your situation.</p>
+      <h2 id="short">The Earning Window Is Short</h2><p>A professional athlete may earn the most money of their life in a handful of years, then face decades without that income. The same is true for many people whose best years are limited: entrepreneurs, performers, commission earners and anyone whose income depends on one body, one business or one contract.</p><p>The problem is rarely the first paycheck. It is what the money is turned into before the paychecks stop.</p><h2 id="numbers">What the Numbers Say, and What They Do Not</h2><p>One figure shows up again and again: that about 78% of NFL players face financial stress within a few years of retiring. It traces back to a 2009 Sports Illustrated feature and has been repeated widely since. It has also been questioned, so we treat it as a sign of the risk and not as an exact measurement.</p><p>The broader point does not depend on that number. When income is concentrated in a short window, building income that does not need you to show up is worth planning for early.</p><h2 id="why">Why Real Estate Keeps Coming Up</h2><p>Canelo Álvarez is one of the best-known examples. He built a real estate portfolio while he was still fighting, and the idea behind it is simple: invest while you are earning. You can always work more, but peak earnings do not last.</p><p>Real estate appeals because rent is paid by someone else, the asset is something you can see, and a well-built building keeps its value in a way a one-time payout does not. It also takes work and carries risk, so it is not a guarantee.</p><h2 id="duplex">Why a Room-by-Room Duplex</h2><p>A traditional duplex is two units and two leases. Our flagship duplex is 4,400 sq ft built as eight to ten private suites, each with its own bedroom, bathroom and digital lock, and each rented on its own.</p><p>At a typical $270 per room per week, eight rooms come to $2,160 per week, or about $9,360 per month in gross rent. Rates vary by market and room and can run higher. If you live on one side and rent four rooms, that is about $4,680 per month toward your own housing.</p><p>Most owners list rooms on PadSplit, which markets the rooms, screens members and collects rent. The owner or a property manager still handles furnishing, maintenance and cleaning.</p><h2 id="check">What to Check Before You Build</h2><p>Treat every figure here as gross. Vacancy, utilities, furnishing, cleaning, maintenance, insurance, taxes and financing all reduce what you keep. Talk to a CPA about tax treatment and to a lender about terms.</p><p>Then run your own numbers with the <a href="leasing.html#numbers">rooms and rate calculator</a>, or <a href="contact.html">book a quick call</a> and we will walk through your situation.</p>
       <div class="src"><b style="color:rgba(255,255,255,.85)">Sources and notes</b><ul style="margin:.6rem 0 0 1.1rem;font-size:.84rem;line-height:1.7;color:rgba(255,255,255,.6)"><li>Sports Illustrated, 2009 feature on athlete finances (origin of the widely repeated 78% figure; verify before citing).</li><li>Canelo Álvarez comments are paraphrased from public interviews.</li></ul></div>
       <p style="font-size:.78rem;color:rgba(255,255,255,.5);margin-top:1.4rem">This article is general information, not financial, tax or legal advice.</p>
     </article>
@@ -782,7 +872,7 @@ function maxS(){var h=document.documentElement;return Math.max(1,h.scrollHeight-
 function yFor(r){var H=trk.clientHeight,T=th.offsetHeight;return T/2+r*(H-T)}
 function layout(){var m=maxS();ids.forEach(function(id,i){var el=$(id);if(!el)return;var r=Math.min(1,(el.getBoundingClientRect().top+window.scrollY)/m);ticks[i].style.top=yFor(r)+'px'});move()}
 var lastY=window.scrollY,sq=0;
-function move(){var dy=Math.abs(window.scrollY-lastY);lastY=window.scrollY;th.style.transform='scaleY('+(1+Math.min(.28,dy/260))+') scaleX('+(1-Math.min(.12,dy/600))+')';clearTimeout(sq);sq=setTimeout(function(){th.style.transform=''},120);var r=Math.min(1,Math.max(0,window.scrollY/maxS()));th.style.top=(yFor(r)-th.offsetHeight/2)+'px';if(bar)bar.style.width=(r*100)+'%'}
+function move(){var dy=Math.abs(window.scrollY-lastY);lastY=window.scrollY;th.style.transform='scaleY('+(1+Math.min(.42,dy/170))+') scaleX('+(1-Math.min(.16,dy/450))+')';clearTimeout(sq);sq=setTimeout(function(){th.style.transform=''},120);var r=Math.min(1,Math.max(0,window.scrollY/maxS()));th.style.top=(yFor(r)-th.offsetHeight/2)+'px';if(bar)bar.style.width=(r*100)+'%'}
 window.addEventListener('scroll',move,{passive:true});
 window.addEventListener('resize',function(){place(cur);layout()});
 window.addEventListener('load',layout);setTimeout(layout,400);

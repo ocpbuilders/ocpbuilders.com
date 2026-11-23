@@ -668,7 +668,97 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .lvl div[data-lvl]{cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
 .lvl div[data-lvl]:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.35)}
 .lvl div[data-lvl].on{background:linear-gradient(160deg,rgba(255,255,255,.2),rgba(255,255,255,.06));border-color:rgba(255,255,255,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 8px 20px rgba(0,0,0,.25)}
+.own-wide{margin-bottom:0}
+.own-gap{margin-top:1.5rem}
+.own-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:.2rem 0 1.2rem}
+.own-stats div{padding:1rem 1.1rem;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14)}
+.own-stats b{display:block;font:300 1.7rem var(--f);letter-spacing:-.02em;color:#fff}
+.own-stats span{font:600 .6rem var(--f);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.own-p{font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.86);max-width:900px}
+.col li b{font-weight:500;color:#fff}
+.own-rates{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:.6rem}
+.own-rates div{padding:.8rem .9rem;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14)}
+.own-rates div.on{background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.05));border-color:rgba(255,255,255,.45)}
+.own-rates span{display:block;font:600 .58rem var(--f);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.own-rates b{font:300 1.45rem var(--f);color:#fff}
+.own-note{font-size:.76rem;color:rgba(255,255,255,.6);margin-bottom:.6rem}
+.own-src{font-size:.74rem;color:rgba(255,255,255,.5);margin-top:1.4rem}
+@media(max-width:760px){.two{grid-template-columns:1fr}.own-stats{grid-template-columns:1fr}}
+.ow-sec{background:radial-gradient(55% 60% at 100% 4%,rgba(143,163,191,.12),transparent 60%),radial-gradient(60% 70% at 0% 50%,rgba(120,96,76,.32),transparent 62%),linear-gradient(105deg,#4d4540 0%,#3e3834 50%,#47403b 100%)!important}
+.ow-k{font:600 .64rem var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:.9rem}
+.ow-head{display:grid;grid-template-columns:1fr minmax(320px,.95fr);gap:3rem;align-items:end;margin-bottom:2.2rem}
+.ow-about{padding:1.5rem 1.6rem;border-radius:26px}
+.ow-about>p:last-child{font-size:.9rem;line-height:1.6;color:rgba(255,255,255,.86)}
+.ow-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem}
+.ow-stats b{display:block;font:300 1.9rem/1 var(--f);letter-spacing:-.03em;color:#fff}
+.ow-stats span{font:600 .58rem var(--f);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.66)}
+.ow-ledger{border-radius:28px;padding:.6rem 1.8rem 1rem}
+.ow-row{display:grid;grid-template-columns:170px 1fr 1fr;gap:2rem;padding:1rem 0;border-top:1px solid rgba(255,255,255,.12);align-items:start}
+.ow-row:first-child,.ow-top+.ow-row{border-top:0}
+.ow-top{padding:1.1rem 0 .7rem;border-bottom:1px solid rgba(203,191,176,.45)}
+.ow-top b{font:500 1.05rem var(--f);color:#fff}
+.ow-row span{font:600 .62rem var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--stone);padding-top:.2rem}
+.ow-row p{font-size:.93rem;line-height:1.5;color:rgba(255,255,255,.88)}
+.ow-row p:nth-of-type(2){padding-left:2rem;border-left:1px solid rgba(255,255,255,.12)}
+.ow-top b:last-child{padding-left:2rem}
+.ow-three{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:1.4rem;margin-top:1.6rem;align-items:stretch}
+.ow-card{border-radius:26px;padding:1.7rem}
+.ow-card ul{list-style:none}
+.ow-card li{font-size:.88rem;line-height:1.55;color:rgba(255,255,255,.86);padding:.55rem 0;border-top:1px solid rgba(255,255,255,.12)}
+.ow-fee{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.9rem}
+.ow-fee div{padding:.9rem 1rem;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16)}
+.ow-fee b{display:block;font:300 1.6rem/1.1 var(--f);color:#fff}
+.ow-fee span{font-size:.74rem;color:rgba(255,255,255,.7)}
+.ow-rate{background:linear-gradient(160deg,rgba(255,255,255,.17),rgba(203,191,176,.06) 40%,rgba(255,255,255,.03) 70%,rgba(255,255,255,.12))}
+.ow-big{display:block;font:300 3.4rem/1 var(--f);letter-spacing:-.04em;color:#fff}
+.ow-big small{display:block;font:500 .72rem var(--f);letter-spacing:.06em;color:rgba(255,255,255,.7);margin-top:.5rem}
+.ow-range{position:relative;height:6px;border-radius:6px;margin:1.3rem 0 .45rem;background:linear-gradient(90deg,rgba(143,163,191,.55),rgba(203,191,176,.95),rgba(255,255,255,.7));box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+.ow-range em{position:absolute;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.2),0 2px 8px rgba(0,0,0,.4)}
+.ow-scale{display:flex;justify-content:space-between;font:600 .66rem var(--f);letter-spacing:.1em;color:rgba(255,255,255,.7);margin-bottom:.9rem}
+.ow-recs{margin-top:2.6rem}
+.ow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.ow-grid div{border-radius:20px;padding:1.2rem 1.3rem}
+.ow-grid b{display:block;font:500 1rem var(--f);color:#fff;margin-bottom:.3rem}
+.ow-grid span{font-size:.86rem;line-height:1.5;color:rgba(255,255,255,.8)}
+.ow-own{margin-top:1.6rem;border-radius:22px;padding:1.5rem 1.7rem;border-left:3px solid var(--stone)!important}
+.ow-own p:last-child{font-size:.93rem;line-height:1.7;color:rgba(255,255,255,.88);max-width:1000px}
+@media(max-width:960px){.ow-head,.ow-three{grid-template-columns:1fr}.ow-grid{grid-template-columns:1fr 1fr}.ow-row{grid-template-columns:1fr 1fr;gap:1rem}.ow-row span{grid-column:1/-1}.ow-top span{display:none}.ow-row p:nth-of-type(2),.ow-top b:last-child{padding-left:1rem}}
+@media(max-width:560px){.ow-grid{grid-template-columns:1fr}.ow-ledger{padding:.4rem 1.1rem .8rem}}
 .lvl-hint{font-size:.74rem;color:rgba(255,255,255,.55);margin:-.4rem 0 .9rem}
+
+
+/* ===== polish (Nov 23): small accents and effects only ===== */
+:root{--rose:#E2B9A0}
+.eyebrow{color:var(--rose)}
+.line{background:linear-gradient(90deg,var(--steel),var(--rose))}
+/* glass: shine on the edges only, clear in the middle so nothing sits over the words */
+.lg{background:linear-gradient(160deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.012) 28%,rgba(255,255,255,0) 55%,rgba(255,255,255,.015) 80%,rgba(255,255,255,.05) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 1px 0 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(255,255,255,.3),inset -1px 0 0 rgba(255,255,255,.15),
+    inset 0 5px 7px -7px rgba(255,255,255,.45),inset 0 -5px 7px -7px rgba(214,224,242,.3),0 18px 40px rgba(0,0,0,.32),0 2px 6px rgba(0,0,0,.2)}
+.lg::before{background:radial-gradient(9% 16% at 2.5% 3%,rgba(255,255,255,.2),transparent 70%),linear-gradient(180deg,rgba(255,255,255,.06),transparent 12px),linear-gradient(0deg,rgba(206,220,245,.05),transparent 12px)}
+/* line between major sections: hair-thin, narrows to a point at both ends, a glint glides across now and then */
+.brk-a{height:2px;top:-1px;overflow:hidden;box-shadow:none;clip-path:polygon(0 50%,50% 0,100% 50%,50% 100%);
+  background:linear-gradient(90deg,transparent 0,rgba(143,163,191,.55) 16%,rgba(236,233,228,.95) 50%,rgba(184,130,95,.75) 84%,transparent 100%)}
+.brk-a::after{content:'';position:absolute;inset:0;left:0;right:0;top:0;width:auto;height:auto;border-radius:0;filter:none;
+  background:linear-gradient(100deg,transparent 44%,#fff 50%,transparent 56%);background-size:320% 100%;background-repeat:no-repeat;animation:shim 8s ease-in-out infinite}
+/* side slider: a little more liquid, marker keeps a dark glass centre */
+.rl .trk{box-shadow:inset 0 2px 3px rgba(255,255,255,.7),inset 0 -2px 4px rgba(255,255,255,.35),inset 2px 0 1px -1px rgba(255,255,255,.95),inset -2px 0 1px -1px rgba(255,255,255,.55),inset 0 0 10px rgba(255,255,255,.08),0 10px 30px rgba(0,0,0,.45),0 0 0 .5px rgba(0,0,0,.4)}
+.rl .trk::after{background:linear-gradient(180deg,transparent,rgba(255,255,255,.18) 38%,rgba(226,185,160,.32) 50%,rgba(190,205,230,.2) 62%,transparent);animation-duration:6s}
+.rl .th{background:radial-gradient(70% 20% at 50% 11%,rgba(255,255,255,.95),transparent 72%),radial-gradient(60% 48% at 50% 52%,rgba(8,8,10,.72),rgba(8,8,10,.35) 70%,transparent 90%),radial-gradient(45% 14% at 58% 90%,rgba(226,185,160,.75),transparent 75%),
+    linear-gradient(90deg,rgba(255,255,255,.78),rgba(255,255,255,.1) 22%,rgba(20,20,22,.25) 50%,rgba(255,255,255,.1) 78%,rgba(255,255,255,.7));
+  animation:blob 5s ease-in-out infinite alternate;transition:transform .5s cubic-bezier(.2,1.8,.35,1)}
+@keyframes blob{0%{border-radius:14px}35%{border-radius:16px 12px 15px 13px/13px 16px 12px 15px}70%{border-radius:12px 16px 13px 15px/16px 12px 15px 13px}100%{border-radius:15px 13px 16px 12px/12px 15px 13px 16px}}
+@media(max-width:1000px){.rl .th{animation:none;border-radius:9px}}
+@media(prefers-reduced-motion:reduce){.brk-a::after,.rl .th{animation:none}}
+/* flagship, what ownership involves: even background, boxes fade gently from clear glass into dark glass */
+.ow-sec{background:radial-gradient(50% 60% at 0% 50%,rgba(120,96,76,.2),transparent 65%),radial-gradient(50% 60% at 100% 50%,rgba(143,163,191,.1),transparent 65%),linear-gradient(105deg,#4a423d 0%,#443d39 50%,#4a423d 100%)!important}
+.ow-sec>.shade::before{opacity:.6}
+.ow-sec .ow-k{color:#DDBBA6}
+.ow-sec .lg{background:linear-gradient(180deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.02) 22%,rgba(16,16,18,.14) 55%,rgba(14,14,16,.32) 100%)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 1px 0 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(255,255,255,.3),inset -1px 0 0 rgba(255,255,255,.16),
+    inset 0 0 20px rgba(255,255,255,.05),inset 0 6px 9px -8px rgba(255,255,255,.45),0 18px 40px rgba(0,0,0,.34),0 2px 6px rgba(0,0,0,.2)!important}
+.ow-sec .lg::before{background:radial-gradient(10% 18% at 2.5% 4%,rgba(255,255,255,.18),transparent 70%),radial-gradient(30% 10% at 50% 100%,rgba(226,185,160,.07),transparent 75%)!important}
+.ow-sec .ow-fee div{background:rgba(255,255,255,.04)}
 
 </style>
 </head>
@@ -781,15 +871,42 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 </section>
 
 <!-- WHO DOES WHAT -->
-<section id="who-does" data-spy class="sec f-char">
+<section id="who-does" data-spy class="sec f-taupe ow-sec">
   <div class="shade"></div><i class="brk brk-a"></i>
   <div class="wrap">
-    <div style="margin-bottom:3rem"><p class="eyebrow">What Ownership Involves</p><h2 class="h2">Who Does What.</h2><div class="line"></div><p class="lead">Most owners lease through PadSplit. PadSplit takes on the tenant side. The property side still needs someone. Here is the split, so you know before you build.</p></div>
-    <div class="two">
-      <div class="lg col"><h3>PadSplit Handles</h3><ul><li>Marketing and advertising the rooms</li><li>Screening applicants</li><li>Rent collection and weekly payments</li><li>Resident communication and disputes</li></ul></div>
-      <div class="lg col"><h3>The Owner Handles</h3><ul><li>Furnishing each room</li><li>Maintenance and repairs</li><li>Cleaning and room turns</li><li>Utilities, or a property manager who handles them</li></ul></div>
+    <div class="ow-head">
+      <div><p class="eyebrow">What Ownership Involves</p><h2 class="h2">Who Does What.</h2><div class="line"></div><p class="lead">Most owners list their suites on PadSplit. Typically, duties are divided as follows.</p></div>
+      <div class="ow-about lg lq"><p class="ow-k">About PadSplit</p><div class="ow-stats"><div><b>32,000+</b><span>Rooms</span></div><div><b>40</b><span>U.S. Markets</span></div><div><b>1</b><span>Weekly Bill</span></div></div><p>The largest co-living marketplace in the country, active and growing in the Phoenix market. Members pay one weekly bill that covers their furnished room and all utilities.</p></div>
     </div>
-    <p class="lead" style="margin-top:1.6rem">We can manage tenants for owners who want it. Most owners choose PadSplit and hire out the property work. PadSplit's fees and terms are set by PadSplit, so review them with PadSplit directly. Responsibilities above reflect PadSplit's published host guidance.</p>
+    <div class="ow-ledger lg">
+      <div class="ow-row ow-top"><span></span><b>PadSplit</b><b>The Owner</b></div>
+      <div class="ow-row"><span>Finding Residents</span><p>Marketing listings on Google, Facebook and housing sites</p><p>Listing photos, pricing and house rules</p></div>
+      <div class="ow-row"><span>Approvals</span><p>Screening identity, income, background and eviction history</p><p>Furnishing each room and readying it for move-in</p></div>
+      <div class="ow-row"><span>Payments</span><p>Collecting weekly payments</p><p>Following up on late payments and notices to vacate</p></div>
+      <div class="ow-row"><span>Support</span><p>24/7 member support and escalations</p><p>Responding to resident questions in a timely manner</p></div>
+      <div class="ow-row"><span>The House</span><p>Tools for maintenance requests, smart locks and messaging</p><p>Utilities, Wi-Fi, cleaning and repairs</p></div>
+      <div class="ow-row"><span>Rules</span><p>Formal terminations, when needed</p><p>Local rules, permits, safety standards and insurance</p></div>
+    </div>
+    <div class="ow-three">
+      <div class="lg ow-card"><p class="ow-k">PadSplit Fees</p><div class="ow-fee"><div><b>10 Days</b><span>Booking fee at each move-in</span></div><div><b>8%</b><span>Service fee after that</span></div></div><ul><li>Fees apply only to payments received. If members do not pay, no fees are charged.</li><li>No booking fee for members you refer or transfer between your properties.</li><li>Move-in fees are set by the owner, up to $500 per room. Most are around $100.</li></ul></div>
+      <div class="lg lq ow-card ow-rate"><p class="ow-k">Room Rates</p><b class="ow-big">$270<small>typical, per room, per week</small></b>
+        <div class="ow-range"><i></i><em style="left:35%"></em></div><div class="ow-scale"><span>$200</span><span>$400+</span></div>
+        <ul><li>Rates vary widely from home to home.</li><li>Location matters, though a well-built, well-kept home often matters more.</li><li>Private bathrooms, generous square footage and new construction typically command higher rates.</li><li>Flagship rooms average about 350 sq ft, some with walk-in closets or balconies, and every room has its own private bathroom.</li></ul></div>
+      <div class="lg ow-card"><p class="ow-k">Furnishing and Shared Spaces</p><ul><li>Bedrooms: a bed set, mattress protector, rug, desk and curtains. Residents have responded well to this setup.</li><li>Modern appliances throughout.</li><li>Shared spaces work best clean and simple. Residents spend most of their time in their own suites.</li><li>These homes run like small apartment buildings: well kept, quiet and respectful of everyone who lives there.</li></ul></div>
+    </div>
+    <div class="ow-recs">
+      <p class="ow-k">Possible Recommendations for Co-Living</p>
+      <div class="ow-grid">
+        <div class="lg"><b>A Co-Living Manager</b><span>Many owners use one for cleaning, repairs and room turns.</span></div>
+        <div class="lg"><b>Set Up Before Listing</b><span>Utilities, Wi-Fi and regular cleaning of shared spaces.</span></div>
+        <div class="lg"><b>Timely Replies</b><span>Answer resident questions and maintenance requests promptly.</span></div>
+        <div class="lg"><b>Ready Rooms</b><span>Prepare rooms promptly between residents.</span></div>
+        <div class="lg"><b>Small Touches</b><span>Lidded trash cans and queen beds where they fit are appreciated.</span></div>
+        <div class="lg"><b>A Repair Reserve</b><span>For appliances, AC and shared spaces.</span></div>
+      </div>
+    </div>
+    <div class="ow-own lg"><p class="ow-k">Your Own Marketing Works Too</p><p>Owners can also find residents directly, through referrals, local employers and furnished-rental listings. On PadSplit, members you refer do not carry a booking fee. Owners may also rent suites on written room leases without PadSplit, with screening, rent collection and Arizona landlord-tenant rules handled by the owner or a property manager.</p></div>
+    <p class="own-src">PadSplit figures as published by PadSplit, 2026. Fees and terms are set by PadSplit and can change, so confirm current terms with PadSplit directly.</p>
   </div>
 </section>
 
@@ -801,7 +918,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
     <div class="nrow lg"><b>01</b><div><h3>Land and Design</h3><p>Bring your land, or we help you find it. We handle plans, due diligence and permitting, if applicable.</p></div></div>
     <div class="nrow lg"><b>02</b><div><h3>Build</h3><p>Construction takes six months or less once permits are approved. A fire wall separates the two sides under one roof.</p></div></div>
     <div class="nrow lg"><b>03</b><div><h3>Furnish</h3><p>Each suite gets light furnishings. No heavy pieces and no big shared room.</p></div></div>
-    <div class="nrow lg"><b>04</b><div><h3>List</h3><p>List the rooms on PadSplit, or have us manage tenants directly.</p></div></div>
+    <div class="nrow lg"><b>04</b><div><h3>List</h3><p>List the rooms on PadSplit, or rent them on your own leases.</p></div></div>
     <div class="nrow lg"><b>05</b><div><h3>Operate or Live in It</h3><p>Hire out cleaning and maintenance, handle it yourself, or live in one suite while the others pay.</p></div></div>
     <p style="margin-top:1.5rem"><a href="packages.html#flagship" class="more">See the Flagship on the Services Page</a></p>
   </div>
@@ -823,7 +940,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   <div class="shade"></div><i class="brk brk-a"></i>
   <div class="wrap" style="max-width:860px">
     <h2 class="h2" style="margin-bottom:2rem">Questions Owners Ask.</h2>
-    <details class="faq lg"><summary>Do I have to manage it myself?</summary><p>No. PadSplit handles marketing, screening and rent collection. Furnishing, maintenance and cleaning can be handled by you or a property manager. We can also manage tenants for you.</p></details>
+    <details class="faq lg"><summary>Do I have to manage it myself?</summary><p>No. PadSplit handles screening, marketing and rent collection. Cleaning, repairs and room turns can be handled by you or a property manager.</p></details>
     <details class="faq lg"><summary>Can I live in it?</summary><p>Yes. Many owners live in one suite or one side and rent the rest.</p></details>
     <details class="faq lg"><summary>Why eight to ten rooms?</summary><p>The layout fits eight to ten private suites in 4,400 sq ft. The final count depends on your plans and local requirements.</p></details>
     <details class="faq lg"><summary>What do the rooms rent for?</summary><p>Typical weekly rates are around $270 per room and can run higher, depending on the market and the features of each room.</p></details>
@@ -895,7 +1012,7 @@ function maxS(){var h=document.documentElement;return Math.max(1,h.scrollHeight-
 function yFor(r){var H=trk.clientHeight,T=th.offsetHeight;return T/2+r*(H-T)}
 function layout(){var m=maxS();ids.forEach(function(id,i){var el=$(id);if(!el)return;var r=Math.min(1,(el.getBoundingClientRect().top+window.scrollY)/m);ticks[i].style.top=yFor(r)+'px'});move()}
 var lastY=window.scrollY,sq=0;
-function move(){var dy=Math.abs(window.scrollY-lastY);lastY=window.scrollY;th.style.transform='scaleY('+(1+Math.min(.28,dy/260))+') scaleX('+(1-Math.min(.12,dy/600))+')';clearTimeout(sq);sq=setTimeout(function(){th.style.transform=''},120);var r=Math.min(1,Math.max(0,window.scrollY/maxS()));th.style.top=(yFor(r)-th.offsetHeight/2)+'px';if(bar)bar.style.width=(r*100)+'%'}
+function move(){var dy=Math.abs(window.scrollY-lastY);lastY=window.scrollY;th.style.transform='scaleY('+(1+Math.min(.42,dy/170))+') scaleX('+(1-Math.min(.16,dy/450))+')';clearTimeout(sq);sq=setTimeout(function(){th.style.transform=''},120);var r=Math.min(1,Math.max(0,window.scrollY/maxS()));th.style.top=(yFor(r)-th.offsetHeight/2)+'px';if(bar)bar.style.width=(r*100)+'%'}
 window.addEventListener('scroll',move,{passive:true});
 window.addEventListener('resize',function(){place(cur);layout()});
 window.addEventListener('load',layout);setTimeout(layout,400);
